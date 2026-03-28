@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexandra's at Gwin — Private Luxury Retreat · Edinburg, TX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+function handleForm(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('.f-submit');
+  btn.textContent = 'Inquiry Received';
+  btn.style.background = '#1a1a1a';
+  btn.style.color = '#E8C97A';
+  btn.disabled = true;
+}
+function toggleMobileMenu() {
+  var menu = document.getElementById('mob-menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  document.body.style.overflow = menu.style.display === 'flex' ? 'hidden' : '';
+}
+</script>
+<style>
+:root {
+  --black: #080808;
+  --charcoal: #F5F0E8;
+  --white: #FAFAF8;
+  --cream: #F5F0E8;
+  --gold: #E8C97A;
+  --gold-light: #E2C97E;
+  --red: #8B1A1A;
+  --gray: #888;
+  --gray-dark: #333;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:#1a1a1a;font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--white);}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);display:grid;grid-template-columns:1fr 220px 1fr;align-items:center;padding:0 48px;height:100px;}
+.nav-left{display:flex;gap:40px;list-style:none;align-items:center;}
+.nav-right{display:flex;gap:40px;list-style:none;align-items:center;justify-content:flex-end;}
+.nav-left a,.nav-right a{font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;white-space:nowrap;}
+.nav-left a:hover,.nav-right a:hover{color:var(--gold);}
+.nav-logo-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;width:220px;min-width:220px;padding:8px 0;height:100%;text-decoration:none;text-align:center;}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:#1a1a1a;line-height:1;white-space:nowrap;}
+.nav-logo-sub{font-size:0.55rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-top:5px;line-height:1;white-space:nowrap;}
+.nav-call{background:var(--gold);color:var(--black)!important;font-weight:700!important;padding:14px 28px;letter-spacing:0.25em!important;transition:background 0.25s!important;}
+.nav-call:hover{background:var(--gold-light)!important;}
+.nav-social-icon{color:#666;transition:color 0.25s;text-decoration:none;}
+.nav-social-icon:hover{color:var(--gold);}
+.nav-social-icon svg{width:18px;height:18px;display:block;}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background-image:url('images/preview.webp');background-size:cover;background-position:center;background-repeat:no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:1;}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 24px;}
+.hero-eyebrow{font-size:0.52rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;color:#FAFAF8;line-height:1;margin-bottom:16px;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:var(--gold);margin-bottom:40px;}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;padding:18px 44px;text-decoration:none;transition:background 0.3s;}
+.hero-cta:hover{background:var(--gold-light);}
+
+/* ── SECTIONS ── */
+.section-wrap{max-width:1300px;margin:0 auto;padding:0 60px;}
+.label-tag{font-size:0.52rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.label-tag::before{content:'';width:28px;height:1px;background:var(--gold);display:block;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,4rem);font-weight:700;line-height:0.95;color:#1a1a1a;margin-bottom:24px;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.gold-rule{width:48px;height:2px;background:var(--gold);margin-bottom:40px;}
+.body-copy{font-size:0.85rem;font-weight:300;line-height:2.0;color:#666;margin-bottom:20px;}
+.body-copy strong{color:#1a1a1a;font-weight:500;}
+
+/* ── STORY ── */
+.story-section{background:#0a0a0a;padding:120px 0;}
+.story-section .sec-title{color:#FAFAF8;font-size:clamp(2.8rem,4vw,5rem);}
+.story-section .body-copy{color:#FAFAF8;}
+.story-section .body-copy strong{color:#FAFAF8;}
+
+/* ── EXPERIENCES ── */
+.experiences{padding:120px 0;background:var(--white);}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
+.exp-card{border:1px solid rgba(201,168,76,0.2);padding:48px 36px;text-align:center;transition:border-color 0.3s;}
+.exp-card:hover{border-color:var(--gold);}
+.exp-card-eyebrow{font-size:0.48rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.exp-card h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:#1a1a1a;margin-bottom:16px;}
+.exp-card-rule{width:32px;height:1px;background:var(--gold);margin:0 auto 20px;}
+.exp-card p{font-size:0.78rem;font-weight:300;line-height:1.9;color:#666;margin-bottom:6px;}
+.exp-card-price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold);margin-top:24px;}
+.exp-card-price span{font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:400;color:#999;}
+
+/* ── RATES ── */
+.rates{padding:120px 0;background:#f8f6f0;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border:1px solid rgba(201,168,76,0.2);}
+.price-col{padding:48px 36px;text-align:center;border-right:1px solid rgba(201,168,76,0.15);position:relative;}
+.price-col:last-child{border-right:none;}
+.price-col.featured{background:#1a1a1a;}
+.price-col.featured .price-name,.price-col.featured .price-amount,.price-col.featured .price-per{color:#FAFAF8;}
+.price-col.featured .price-detail{color:rgba(250,250,248,0.6);}
+.price-col.featured .price-badge{display:block;}
+.price-badge{display:none;font-size:0.42rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:6px 16px;margin-bottom:20px;}
+.price-eyebrow{font-size:0.48rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.price-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:#1a1a1a;margin-bottom:20px;}
+.price-rule{width:32px;height:1px;background:var(--gold);margin:0 auto 20px;}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:#1a1a1a;line-height:1;}
+.price-per{font-size:0.6rem;font-weight:400;color:#999;margin-bottom:24px;}
+.price-detail{font-size:0.72rem;font-weight:300;color:#666;line-height:1.9;margin-bottom:6px;}
+.price-cta{display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:14px 28px;text-decoration:none;margin-top:28px;transition:background 0.3s;}
+.price-cta:hover{background:var(--gold-light);}
+
+/* ── PHOTO GRID ── */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.photo-grid img{width:100%;height:320px;object-fit:cover;display:block;}
+
+/* ── GALLERY ── */
+.gallery{padding:120px 0;background:var(--white);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:48px;}
+.gallery-cell{aspect-ratio:4/3;background:#1a1a1a;display:flex;align-items:center;justify-content:center;}
+.gallery-cell span{font-size:0.62rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:rgba(232,201,122,0.5);}
+
+/* ── BOOKING CTA ── */
+.booking-cta{padding:120px 0;background:#0a0a0a;text-align:center;}
+.booking-cta .sec-title{color:#FAFAF8;}
+.cta-buttons{display:flex;gap:24px;justify-content:center;margin-top:40px;flex-wrap:wrap;}
+.cta-btn{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;padding:18px 44px;text-decoration:none;transition:all 0.3s;}
+.cta-btn-primary{background:var(--gold);color:var(--black);}
+.cta-btn-primary:hover{background:var(--gold-light);}
+.cta-btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold);}
+.cta-btn-outline:hover{background:var(--gold);color:var(--black);}
+
+/* ── CONTACT ── */
+.contact{padding:120px 0;background:#0a0a0a;}
+.contact-inner{max-width:700px;margin:0 auto;text-align:center;}
+.contact .sec-title{color:#FAFAF8;}
+.contact .label-tag{justify-content:center;}
+.contact-phones{margin:32px 0 12px;}
+.contact-phone{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#FAFAF8;text-decoration:none;display:block;margin-bottom:8px;transition:color 0.3s;}
+.contact-phone:hover{color:var(--gold);}
+.contact-phone-label{font-size:0.48rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.contact-cta{display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;padding:18px 52px;text-decoration:none;margin:36px 0 48px;transition:background 0.3s;}
+.contact-cta:hover{background:var(--gold-light);}
+.contact-divider{width:48px;height:1px;background:var(--gold);margin:0 auto 40px;}
+.contact-form{text-align:left;}
+.contact-form input,.contact-form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,168,76,0.25);color:#FAFAF8;font-family:'Montserrat',sans-serif;font-size:0.82rem;padding:14px 0;outline:none;margin-bottom:24px;resize:none;}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(250,250,248,0.35);}
+.f-submit{width:100%;background:var(--gold);color:var(--black);border:none;font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;padding:18px;cursor:pointer;transition:background 0.3s;}
+.f-submit:hover{background:var(--gold-light);}
+.contact-address{font-size:0.6rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:rgba(250,250,248,0.4);margin-top:40px;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);}
+.foot-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:400;letter-spacing:0.5em;color:#333;margin-top:4px;text-transform:uppercase;}
+.foot-links{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
+.foot-links a{font-size:0.54rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;}
+.foot-links a:hover{color:var(--gold);}
+.foot-copy{font-size:0.5rem;font-weight:300;color:#2a2a2a;}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── TABLET ── */
+@media(max-width:960px){
+  nav{grid-template-columns:1fr auto;padding:0 20px;}
+  .nav-left,.nav-right{display:none;}
+  .section-wrap{padding:0 24px;}
+  .exp-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .price-col{border-right:none;border-bottom:1px solid rgba(201,168,76,0.15);}
+  .price-col:last-child{border-bottom:none;}
+  .photo-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  footer{padding:36px 24px;flex-direction:column;align-items:flex-start;}
+}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  nav{grid-template-columns:1fr auto;padding:0 16px;height:60px;}
+  .nav-left,.nav-right{display:none;}
+  .nav-logo-wrap{padding:6px 16px;}
+  .hero h1{font-size:2.4rem;}
+  .hero-sub{font-size:1rem;}
+  .story-section,.experiences,.rates,.gallery,.contact{padding:72px 0;}
+  .section-wrap{padding:0 18px;}
+  .exp-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .price-col{border-right:none;border-bottom:1px solid rgba(201,168,76,0.15);}
+  .price-col:last-child{border-bottom:none;}
+  .photo-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .contact-phone{font-size:1.5rem;}
+  footer{padding:32px 18px;flex-direction:column;align-items:flex-start;gap:16px;}
+  .foot-logo{font-size:0.9rem;}
+  .foot-links{gap:20px;flex-wrap:wrap;}
+  .foot-links a{font-size:0.48rem;}
+  #mob-btn{display:flex!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-left">
+    <li><a href="https://instagram.com/exclusiva_homes" target="_blank" class="nav-social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a></li>
+    <li><a href="https://tiktok.com/@alexandras.properties" target="_blank" class="nav-social-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a></li>
+    <li><a href="https://www.airbnb.com/rooms/1623594129975804074" target="_blank" class="nav-social-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C9.3 2 7 4.1 7 7c0 1.9.9 3.6 2.3 4.7C7.1 13 5 15.6 5 18.5c0 2 1.6 3.5 3.5 3.5 1.4 0 2.6-.8 3.5-2 .9 1.2 2.1 2 3.5 2 1.9 0 3.5-1.5 3.5-3.5 0-2.9-2.1-5.5-4.3-6.8C17.1 10.6 18 8.9 18 7c0-2.9-2.3-5-6-5zm0 2c2.8 0 4 1.6 4 3 0 1.7-1.1 3.1-2.6 3.7L12 11l-1.4-.3C9.1 10.1 8 8.7 8 7c0-1.4 1.2-3 4-3zm-3.5 14c-.8 0-1.5-.6-1.5-1.5 0-2.2 1.9-4.4 3.8-5.5.4.1.8.2 1.2.2s.8-.1 1.2-.2c1.9 1.1 3.8 3.3 3.8 5.5 0 .9-.7 1.5-1.5 1.5-1 0-1.9-.9-2.5-2.1-.6 1.2-1.5 2.1-2.5 2.1z"/></svg></a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo-wrap">
+    <div class="nav-logo-main">Alexandra's Properties</div>
+    <div class="nav-logo-sub">An Acuna Organization</div>
+  </a>
+  <ul class="nav-right">
+    <li><a href="#rates">Rates</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+19562070318" class="nav-call">Call Now</a></li>
+  </ul>
+  <!-- Mobile menu button -->
+  <button id="mob-btn" onclick="toggleMobileMenu()" style="display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;align-items:center;justify-content:center;">
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mob-menu" style="display:none;position:fixed;inset:0;background:#FFFFFF;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px;">
+  <button onclick="toggleMobileMenu()" style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;font-size:1.4rem;color:#1a1a1a;">&#10005;</button>
+  <a href="index.html" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Home</a>
+  <a href="#story" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Our Story</a>
+  <a href="#experiences" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Experiences</a>
+  <a href="#rates" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Rates</a>
+  <a href="#contact" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Contact</a>
+  <a href="tel:+19562070318" style="display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;padding:16px 36px;text-decoration:none;margin-top:12px;">Call Now</a>
+</div>
+
+<!-- SECTION 1: HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Alexandra's Properties</div>
+    <h1>Alexandra's at Gwin</h1>
+    <div class="hero-sub">A Legacy Sixty Years in the Making</div>
+    <a href="tel:+19562070318" class="hero-cta">Call Now</a>
+  </div>
+</section>
+
+<!-- PHOTO GRID -->
+<section class="photo-grid">
+  <img src="images/preview (1).webp" alt="Alexandra's at Gwin">
+  <img src="images/preview (2).webp" alt="Alexandra's at Gwin">
+  <img src="images/preview (3).webp" alt="Alexandra's at Gwin">
+  <img src="images/preview (4).webp" alt="Alexandra's at Gwin">
+  <img src="images/preview (5).webp" alt="Alexandra's at Gwin">
+  <img src="images/preview (6).webp" alt="Alexandra's at Gwin">
+</section>
+
+<!-- SECTION 2: STORY -->
+<section class="story-section" id="story">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="label-tag">Our Story</div>
+      <h2 class="sec-title">A Legacy Sixty Years<br><em>in the Making</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="reveal">
+      <p class="body-copy">A grandfather dreamed of owning this land for over sixty years. His son <strong>Robert Acuna</strong> made that dream real — and transformed it into Alexandra's at Gwin. Just minutes from the city, this is the RGV's only true private luxury retreat. Acreage, pool, cabin, pavilion. A place to unwind, reset, and return ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: EXPERIENCES -->
+<section class="experiences" id="experiences">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="label-tag">Experiences</div>
+      <h2 class="sec-title">Three Ways to<br><em>Experience Gwin.</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-card-eyebrow">Experience I</div>
+        <h3>Private Stay</h3>
+        <div class="exp-card-rule"></div>
+        <p>Up to 7 guests</p>
+        <p>Full cabin access</p>
+        <p>Pool and acreage</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-card-eyebrow">Experience II</div>
+        <h3>Events &amp; Celebrations</h3>
+        <div class="exp-card-rule"></div>
+        <p>Weddings, birthdays, graduations</p>
+        <p>Full property access</p>
+        <p>Complete venue rental</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-card-eyebrow">Experience III</div>
+        <h3>Group Getaways</h3>
+        <div class="exp-card-rule"></div>
+        <p>Friends, family, corporate</p>
+        <p>Full property access</p>
+        <p>Custom packages available</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: RATES -->
+<section class="rates" id="rates">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="label-tag">Pricing</div>
+      <h2 class="sec-title">Transparent <em>Rates.</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-col featured">
+        <div class="price-badge">Full Package</div>
+        <div class="price-eyebrow">Tier I</div>
+        <div class="price-name">Full Package</div>
+        <div class="price-rule"></div>
+        <div class="price-amount">$412</div>
+        <div class="price-per">per night</div>
+        <div class="price-detail">Cabin included</div>
+        <div class="price-detail">Full property access</div>
+        <div class="price-detail">Pool and acreage</div>
+        <a href="https://www.airbnb.com/rooms/1623594129975804074" class="price-cta" target="_blank">Book Now</a>
+      </div>
+      <div class="price-col">
+        <div class="price-eyebrow">Tier II</div>
+        <div class="price-name">Venue Only</div>
+        <div class="price-rule"></div>
+        <div class="price-amount">$1,440</div>
+        <div class="price-per">per day</div>
+        <div class="price-detail">No cabin</div>
+        <div class="price-detail">Full venue access</div>
+        <div class="price-detail">Events and celebrations</div>
+        <a href="tel:+19562070318" class="price-cta">Book Now</a>
+      </div>
+      <div class="price-col">
+        <div class="price-eyebrow">Tier III</div>
+        <div class="price-name">Custom Events</div>
+        <div class="price-rule"></div>
+        <div class="price-amount" style="font-size:2rem;">Call for Pricing</div>
+        <div class="price-per">&nbsp;</div>
+        <div class="price-detail">Tailored to your event</div>
+        <div class="price-detail">Custom packages</div>
+        <div class="price-detail">Full coordination</div>
+        <a href="tel:+19562070318" class="price-cta">Call to Book</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: BOOKING CTA -->
+<section class="booking-cta" id="contact">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="label-tag" style="justify-content:center;">Book Your Experience</div>
+      <h2 class="sec-title">Ready to <em>Book?</em></h2>
+      <div class="gold-rule" style="margin:0 auto 32px;"></div>
+      <div class="cta-buttons">
+        <a href="https://www.airbnb.com/rooms/1623594129975804074" target="_blank" class="cta-btn cta-btn-primary">Book on Airbnb</a>
+        <a href="tel:+19562070318" class="cta-btn cta-btn-outline">Call to Book</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Alexandra's Properties<span>Luxury Developer & Event Venue · Rio Grande Valley, Texas</span></div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#gwin">Alexandra's at Gwin</a></li>
+    <li><a href="#plaza">The Plaza</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="foot-copy">&copy; 2026 Alexandra's Properties. All rights reserved.</div>
+</footer>
+
+<script>
+// Scroll reveal
+var reveals = document.querySelectorAll('.reveal');
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(el) { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.1});
+reveals.forEach(function(el) { io.observe(el); });
+</script>
+</body>
+</html>
