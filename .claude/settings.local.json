@@ -6,7 +6,9 @@
       "Bash(git push:*)",
       "Bash(sed -i '558s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")",
       "Bash(sed -i '565s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(python -c \":*)",
+      "Bash(node:*)"
     ]
   }
 }
