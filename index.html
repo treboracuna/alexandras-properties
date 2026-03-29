@@ -450,19 +450,6 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 </head>
 <body>
 
-<!-- POPUP 1: Book a Call -->
-<div class="popup-overlay active" id="popup1">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup('popup1')">✕</button>
-    <div class="popup-eyebrow">Alexandra's Properties</div>
-    <div class="popup-title">Book a Call</div>
-    <div class="popup-sub">Speak directly with our team about leasing, events, or investment opportunities in the Rio Grande Valley.</div>
-    <input type="text" class="popup-input" placeholder="Your name">
-    <input type="tel" class="popup-input" placeholder="Your phone number">
-    <a href="tel:+19562070318" class="popup-btn" style="display:block;text-decoration:none;font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;padding:16px;background:var(--gold);color:var(--black);transition:background 0.3s;" onclick="closePopup('popup1')">Call Now - (956) 207-0318</a>
-  </div>
-</div>
-
 <!-- POPUP 2: Social Follow (7 second delay) -->
 <div class="popup-overlay" id="popup2">
   <div class="popup-box">
@@ -900,12 +887,5 @@ const io = new IntersectionObserver(function(entries) {
 }, {threshold:0.1});
 reveals.forEach(function(el) { io.observe(el); });
 
-// Show popup2 after 30 seconds
-setTimeout(function() {
-  closePopup('popup1');
-  openPopup('popup2');
-}, 30000);
-
-document.getElementById('popup1').addEventListener('click', function(e) { if (e.target === this) closePopup('popup1'); });
 document.getElementById('popup2').addEventListener('click', function(e) { if (e.target === this) closePopup('popup2'); });
 </script>
