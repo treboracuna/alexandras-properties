@@ -113,8 +113,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 .grid-cell:hover img{transform:scale(1.06);}
 .cell-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.35);transition:background 0.4s;z-index:1;}
 .grid-cell:hover .cell-overlay{background:rgba(0,0,0,0.2);}
-.cell-label{position:absolute;z-index:2;bottom:22px;left:22px;font-size:0.55rem;font-weight:700;letter-spacing:0.38em;text-transform:uppercase;color:#1a1a1a;display:flex;align-items:center;gap:10px;}
-.cell-label::before{content:'';width:18px;height:1px;background:var(--gold);display:block;}
+.cell-label{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);font-size:0.72rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;gap:10px;text-align:center;}
+.cell-label::before{content:'';width:18px;height:1px;background:var(--gold);display:none;}
 .cell-label-lg{bottom:36px;left:36px;font-size:0.68rem;}
 .c1{grid-column:1;grid-row:1;}
 .c2{grid-column:2;grid-row:1;}
@@ -574,7 +574,7 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   <div class="grid-cell c7">
     <img src="images/13917.jpg" alt="Outdoor Deck">
     <div class="cell-overlay"></div>
-    <div class="cell-label cell-label-lg">EXCLUSIVA HOMES</div>
+    <div class="cell-label">EXCLUSIVA HOMES</div>
   </div>
   </a>
 </div>
