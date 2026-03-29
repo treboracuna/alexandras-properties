@@ -49,7 +49,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 .nav-social-icon svg{width:18px;height:18px;display:block;}
 
 /* -- HERO -- */
-.hero{min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 24px;}
+.hero{min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 24px;background-image:url('images/14025.jpg');background-size:contain;background-position:center center;background-repeat:no-repeat;position:relative;}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.65);z-index:1;}
+.hero-inner{position:relative;z-index:2;}
 .hero-inner{max-width:700px;}
 .hero-logo{max-width:280px;margin:0 auto 40px;display:block;}
 .hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;color:#FFFFFF;line-height:1.05;margin-bottom:20px;}
@@ -176,7 +178,6 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="images/exclusiva-logo.jpg" alt="Exclusiva Homes" class="hero-logo">
     <h1 class="hero-headline">Built From The Ground Up.</h1>
     <p class="hero-subtitle">An Acuna Organization</p>
     <a href="tel:+19562070318" class="hero-cta">Call Now - (956) 207-0318</a>
