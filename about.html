@@ -87,6 +87,24 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 .foot-links a:hover{color:var(--gold);}
 .foot-copy{font-size:0.5rem;font-weight:300;color:#2a2a2a;}
 
+/* ── TIMELINE ── */
+.tl-wrap{position:relative;max-width:900px;margin:0 auto;padding:0 40px;}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(232,201,122,0.3);transform:translateX(-50%);}
+.tl-item{position:relative;width:50%;padding:0 40px 48px;cursor:pointer;}
+.tl-left{left:0;text-align:right;}
+.tl-right{left:50%;text-align:left;}
+.tl-card{background:transparent;border-left:3px solid #E8C97A;padding:24px;transition:transform 0.3s ease,background 0.3s ease;}
+.tl-left .tl-card{border-left:none;border-right:3px solid #E8C97A;}
+.tl-year{font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:#E8C97A;margin-bottom:8px;}
+.tl-headline{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#FAFAF8;margin-bottom:12px;transition:color 0.3s ease;}
+.tl-desc{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:rgba(250,250,248,0.6);max-height:0;overflow:hidden;opacity:0;transition:max-height 0.5s ease,opacity 0.4s ease,margin 0.4s ease;}
+.tl-item:hover .tl-card,.tl-item.active .tl-card{transform:translateY(-4px);background:rgba(232,201,122,0.05);}
+.tl-item:hover .tl-headline,.tl-item.active .tl-headline{color:#E8C97A;}
+.tl-item:hover .tl-desc,.tl-item.active .tl-desc{max-height:300px;opacity:1;margin-top:12px;}
+.tl-item::before{content:'';position:absolute;top:28px;width:12px;height:12px;background:#E8C97A;border-radius:50%;z-index:2;}
+.tl-left::before{right:-6px;}
+.tl-right::before{left:-6px;}
+
 /* ── ANIMATIONS ── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -97,6 +115,11 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   .nav-left,.nav-right{display:none;}
   .section-wrap,.story-inner,.family-inner{padding:0 24px;}
   .family-grid{grid-template-columns:repeat(2,1fr);gap:36px;}
+  .tl-wrap{padding:0 24px;}
+  .tl-line{left:20px;}
+  .tl-item{width:100%;left:0;text-align:left;padding:0 0 36px 48px;}
+  .tl-left .tl-card,.tl-right .tl-card{border-left:3px solid #E8C97A;border-right:none;}
+  .tl-left::before,.tl-right::before{left:14px;right:auto;}
   footer{padding:36px 24px;flex-direction:column;align-items:flex-start;}
 }
 
@@ -110,6 +133,9 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   .story-section,.family-section{padding:72px 0;}
   .section-wrap,.story-inner,.family-inner{padding:0 18px;}
   .family-grid{grid-template-columns:1fr;gap:32px;}
+  .tl-headline{font-size:18px;}
+  .tl-desc{font-size:13px;}
+  .tl-wrap{padding:0 18px;}
   footer{padding:32px 18px;flex-direction:column;align-items:flex-start;gap:16px;}
   .foot-logo{font-size:0.9rem;}
   .foot-links{gap:20px;flex-wrap:wrap;}
@@ -164,20 +190,64 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   </div>
 </section>
 
-<!-- STORY -->
-<section class="story-section" id="story">
-  <div class="story-inner">
-    <div class="reveal">
-      <div class="label-tag">Our Story</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,4.8rem);font-weight:700;line-height:0.95;color:#FAFAF8;margin-bottom:24px;">A Family.<br><em style="color:#E8C97A;font-style:italic;">A Vision. A Legacy.</em></h2>
-      <div class="gold-rule" style="margin:0 auto 48px;"></div>
+<!-- TIMELINE -->
+<section id="story" style="padding:130px 0;background:#0a0a0a;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;padding:0 60px;">
+    <div class="label-tag" style="justify-content:center;color:#E8C97A;">Our Story</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,4.8rem);font-weight:700;line-height:0.95;color:#FAFAF8;margin-bottom:24px;">A Family.<br><em style="color:#E8C97A;font-style:italic;">A Vision. A Legacy.</em></h2>
+    <div style="width:48px;height:2px;background:#E8C97A;margin:0 auto 64px;"></div>
+  </div>
+  <div class="tl-wrap">
+    <div class="tl-line"></div>
+
+    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">Early Days</div>
+        <div class="tl-headline">Humble Beginnings</div>
+        <div class="tl-desc">Robert and Leticia Acuna started with nothing but a vision and a work ethic that never quit. A belief that the Rio Grande Valley was worth betting on.</div>
+      </div>
     </div>
-    <div class="reveal">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:2;color:#FAFAF8;margin-bottom:28px;">Robert and Leticia Acuna didn't start with much. What they had was a vision, a work ethic that never quit, and a belief that the Rio Grande Valley was worth betting on. That was enough.</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:2;color:#FAFAF8;margin-bottom:28px;">Twenty-five years ago, Robert pointed at an empty lot near where they raised their family and made a promise - he would build something in his daughter's name. Jennifer Alexandra. The only daughter. The middle child. The heart of everything this family does.</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:2;color:#FAFAF8;margin-bottom:28px;">That lot was taken before the dream could be planted. A funeral home rose where the vision once stood. But the vision never died - because the man who held it never let it go.</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:2;color:#FAFAF8;margin-bottom:48px;">Alexandra's Plaza is now under construction in Edinburg, Texas. Twenty-five years in the making. This is not a real estate company. This is an American story still being written.</p>
+
+    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">Early 2000s</div>
+        <div class="tl-headline">Electronic Tax Filing</div>
+        <div class="tl-desc">Before the RGV knew what electronic filing was, Robert Acuna was already doing it. First in the valley to bring tax filing into the digital age. Not a follower. Never was.</div>
+      </div>
     </div>
+
+    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">2010s</div>
+        <div class="tl-headline">Texaswide Insurance</div>
+        <div class="tl-desc">Insurance became the foundation. Relationships became the business. This is where everything changed - and where the next generation learned to build.</div>
+      </div>
+    </div>
+
+    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">Mid-2020s</div>
+        <div class="tl-headline">Luxe Lounge</div>
+        <div class="tl-desc">A bold venture into the hospitality space. The Acuna family entered, operated, and exited on their own terms. Industry observers noted Robert Acuna's decisive and well-timed exit as a demonstration of seasoned business judgment. Not every chapter is meant to be long.</div>
+      </div>
+    </div>
+
+    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">2024</div>
+        <div class="tl-headline">Exclusiva Homes</div>
+        <div class="tl-desc">Built by a family that refuses to cut corners. Exclusive means we only build what we would own.</div>
+      </div>
+    </div>
+
+    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+      <div class="tl-card">
+        <div class="tl-year">Present</div>
+        <div class="tl-headline">Alexandra's Properties</div>
+        <div class="tl-desc">A father's 60-year dream becomes real. A sister's vision guides it. A family's legacy is being written right now. This is not a real estate company. This is an American story still being written.</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
