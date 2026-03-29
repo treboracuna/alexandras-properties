@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusiva Homes - Built From The Ground Up | Alexandra's Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mob-menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  document.body.style.overflow = menu.style.display === 'flex' ? 'hidden' : '';
+}
+</script>
+<style>
+:root {
+  --black: #080808;
+  --charcoal: #F5F0E8;
+  --white: #FAFAF8;
+  --cream: #F5F0E8;
+  --gold: #E8C97A;
+  --gold-light: #E2C97E;
+  --red: #8B1A1A;
+  --gray: #888;
+  --gray-dark: #333;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:#1a1a1a;font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--white);}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* -- NAV -- */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);display:grid;grid-template-columns:1fr 220px 1fr;align-items:center;padding:0 48px;height:100px;}
+.nav-left{display:flex;gap:40px;list-style:none;align-items:center;}
+.nav-right{display:flex;gap:40px;list-style:none;align-items:center;justify-content:flex-end;}
+.nav-left a,.nav-right a{font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;white-space:nowrap;}
+.nav-left a:hover,.nav-right a:hover{color:var(--gold);}
+.nav-logo-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;width:220px;min-width:220px;padding:8px 0;height:100%;text-decoration:none;text-align:center;}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:#1a1a1a;line-height:1;white-space:nowrap;}
+.nav-logo-sub{font-size:0.55rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-top:5px;line-height:1;white-space:nowrap;}
+.nav-call{background:var(--gold);color:var(--black)!important;font-weight:700!important;padding:14px 28px;letter-spacing:0.25em!important;transition:background 0.25s!important;}
+.nav-call:hover{background:var(--gold-light)!important;}
+.nav-social-icon{color:#666;transition:color 0.25s;text-decoration:none;}
+.nav-social-icon:hover{color:var(--gold);}
+.nav-social-icon svg{width:18px;height:18px;display:block;}
+
+/* -- HERO -- */
+.hero{min-height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 24px;}
+.hero-inner{max-width:700px;}
+.hero-logo{max-width:280px;margin:0 auto 40px;display:block;}
+.hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;color:#FFFFFF;line-height:1.05;margin-bottom:20px;}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.4rem);font-style:italic;color:var(--gold);margin-bottom:48px;}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;padding:18px 40px;text-decoration:none;transition:background 0.3s;}
+.hero-cta:hover{background:var(--gold-light);}
+
+/* -- SECTIONS -- */
+.section-wrap{max-width:1300px;margin:0 auto;padding:0 60px;}
+.label-tag{font-size:0.52rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.label-tag::before{content:'';width:28px;height:1px;background:var(--gold);display:block;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,4rem);font-weight:700;line-height:0.95;color:#1a1a1a;margin-bottom:24px;}
+.gold-rule{width:48px;height:2px;background:var(--gold);margin-bottom:40px;}
+
+/* -- PROPERTIES -- */
+#properties{padding:130px 0;background:var(--white);}
+.properties-header{text-align:center;margin-bottom:60px;}
+.properties-header .label-tag{justify-content:center;}
+.properties-header .label-tag::before{display:none;}
+.properties-header .gold-rule{margin:0 auto 40px;}
+.properties-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1000px;margin:0 auto;}
+.property-card{position:relative;background:#FFFFFF;border:1px solid rgba(201,168,76,0.15);overflow:hidden;transition:transform 0.3s;}
+.property-card:hover{transform:translateY(-4px);}
+.property-card.on-market{border:2px solid var(--gold);}
+.property-img{height:320px;position:relative;overflow:hidden;}
+.property-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.property-body{padding:28px 24px;text-align:center;}
+.property-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#1a1a1a;margin-bottom:16px;}
+.property-status{font-size:0.48rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:16px;}
+.property-status.sold{color:var(--gray);}
+.property-status.market{color:var(--gold);}
+.property-btn{display:inline-block;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:14px 28px;text-decoration:none;border:none;cursor:pointer;transition:background 0.3s;}
+.property-btn:hover{background:var(--gold-light);}
+
+/* Sold banner */
+.sold-banner{position:absolute;top:28px;right:-36px;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;padding:8px 48px;transform:rotate(45deg);z-index:2;text-align:center;}
+
+/* -- COMING SOON -- */
+#coming-soon{padding:130px 0;background:#0a0a0a;text-align:center;}
+.cs-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:#FFFFFF;margin-bottom:16px;}
+.cs-subtitle{font-size:0.72rem;font-weight:500;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);}
+
+/* -- FOOTER -- */
+footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);}
+.foot-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:400;letter-spacing:0.5em;color:#333;margin-top:4px;text-transform:uppercase;}
+.foot-links{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
+.foot-links a{font-size:0.54rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;}
+.foot-links a:hover{color:var(--gold);}
+.foot-copy{font-size:0.5rem;font-weight:300;color:#2a2a2a;}
+
+/* -- ANIMATIONS -- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* -- TABLET -- */
+@media(max-width:960px){
+  nav{grid-template-columns:1fr auto;padding:0 20px;}
+  .nav-left,.nav-right{display:none;}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:20px;}
+  .section-wrap{padding:0 24px;}
+  footer{padding:36px 24px;flex-direction:column;align-items:flex-start;}
+  #properties,#coming-soon{padding:72px 0;}
+}
+
+/* -- MOBILE -- */
+@media(max-width:600px){
+  nav{grid-template-columns:1fr auto;padding:0 16px;height:60px;}
+  .nav-left,.nav-right{display:none;}
+  .nav-logo-wrap{padding:6px 16px;}
+  .nav-logo-main{font-size:0.75rem;letter-spacing:0.15em;}
+  .hero-logo{max-width:200px;}
+  .hero-headline{font-size:clamp(1.8rem,7vw,2.8rem);}
+  .hero-subtitle{font-size:1rem;margin-bottom:36px;}
+  .hero-cta{font-size:0.52rem;padding:16px 32px;}
+  .properties-grid{grid-template-columns:1fr;gap:24px;}
+  .property-img{height:220px;}
+  .sec-title{font-size:clamp(1.8rem,8vw,2.8rem);margin-bottom:16px;}
+  .label-tag{font-size:0.46rem;letter-spacing:0.4em;margin-bottom:14px;}
+  #properties,#coming-soon{padding:56px 0;}
+  footer{padding:32px 18px;flex-direction:column;align-items:flex-start;gap:16px;}
+  .foot-logo{font-size:0.9rem;}
+  .foot-links{gap:20px;flex-wrap:wrap;}
+  .foot-links a{font-size:0.48rem;}
+  #mob-btn{display:flex!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-left">
+    <li><a href="https://instagram.com/exclusiva_homes" target="_blank" class="nav-social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a></li>
+    <li><a href="https://tiktok.com/@alexandra.properties" target="_blank" class="nav-social-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#properties">Properties</a></li>
+  </ul>
+  <a href="exclusiva.html" class="nav-logo-wrap">
+    <div class="nav-logo-main">Exclusiva Homes</div>
+    <div class="nav-logo-sub">Alexandra's Properties</div>
+  </a>
+  <ul class="nav-right">
+    <li><a href="#contact-cta">Contact</a></li>
+    <li><a href="tel:+19562070318" class="nav-call">Call Now</a></li>
+  </ul>
+  <!-- Mobile menu button -->
+  <button id="mob-btn" onclick="toggleMobileMenu()" style="display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;align-items:center;justify-content:center;">
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:var(--gold);transition:all 0.3s;"></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mob-menu" style="display:none;position:fixed;inset:0;background:#FFFFFF;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px;">
+  <button onclick="toggleMobileMenu()" style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;font-size:1.4rem;color:#1a1a1a;">&#10005;</button>
+  <a href="index.html" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Home</a>
+  <a href="#properties" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Properties</a>
+  <a href="#coming-soon" onclick="toggleMobileMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1a1a1a;text-decoration:none;letter-spacing:0.1em;">Coming Soon</a>
+  <a href="tel:+19562070318" onclick="toggleMobileMenu()" style="font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:16px 36px;text-decoration:none;">Call Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <img src="images/exclusiva-logo.jpg" alt="Exclusiva Homes" class="hero-logo">
+    <h1 class="hero-headline">Built From The Ground Up.</h1>
+    <p class="hero-subtitle">A Division of Alexandra's Properties</p>
+    <a href="tel:+19562070318" class="hero-cta">Call Now - (956) 207-0318</a>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="section-wrap">
+    <div class="properties-header">
+      <div class="label-tag">Portfolio</div>
+      <h2 class="sec-title">Our Properties</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="properties-grid">
+
+      <!-- Card 1 - SOLD -->
+      <div class="property-card">
+        <div class="sold-banner">Sold</div>
+        <div class="property-img">
+          <img src="images/13907.jpg" alt="Exclusiva Home I">
+        </div>
+        <div class="property-body">
+          <div class="property-name">Exclusiva Home I</div>
+          <div class="property-status sold">Sold</div>
+        </div>
+      </div>
+
+      <!-- Card 2 - SOLD -->
+      <div class="property-card">
+        <div class="sold-banner">Sold</div>
+        <div class="property-img">
+          <img src="images/13917.jpg" alt="Exclusiva Home II">
+        </div>
+        <div class="property-body">
+          <div class="property-name">Exclusiva Home II</div>
+          <div class="property-status sold">Sold</div>
+        </div>
+      </div>
+
+      <!-- Card 3 - ON THE MARKET -->
+      <div class="property-card on-market">
+        <div class="property-img">
+          <img src="images/13911.jpg" alt="Exclusiva Home III">
+        </div>
+        <div class="property-body">
+          <div class="property-name">Exclusiva Home III</div>
+          <div class="property-status market">On the Market</div>
+          <a href="tel:+19562070318" class="property-btn">Call Now</a>
+        </div>
+      </div>
+
+      <!-- Card 4 - ON THE MARKET -->
+      <div class="property-card on-market">
+        <div class="property-img">
+          <img src="images/13909.jpg" alt="Exclusiva Home IV">
+        </div>
+        <div class="property-body">
+          <div class="property-name">Exclusiva Home IV</div>
+          <div class="property-status market">On the Market</div>
+          <a href="tel:+19562070318" class="property-btn">Call Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section id="coming-soon">
+  <div class="section-wrap" style="text-align:center;">
+    <h2 class="cs-title reveal">Next Build. Coming Soon.</h2>
+    <p class="cs-subtitle reveal">Rio Grande Valley, Texas</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Alexandra's Properties<span>Luxury Developer & Event Venue · Rio Grande Valley, Texas</span></div>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#coming-soon">Coming Soon</a></li>
+  </ul>
+  <div class="foot-copy">&copy; 2026 Alexandra's Properties. All rights reserved.</div>
+</footer>
+
+<script>
+var reveals = document.querySelectorAll('.reveal');
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(el) { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.1});
+reveals.forEach(function(el) { io.observe(el); });
+</script>
+</body>
+</html>

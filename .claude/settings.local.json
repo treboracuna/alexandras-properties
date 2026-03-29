@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(sed -i '558s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")",
+      "Bash(sed -i '565s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")"
     ]
   }
 }
