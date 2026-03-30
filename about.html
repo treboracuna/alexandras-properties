@@ -104,6 +104,7 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 .tl-item::before{content:'';position:absolute;top:28px;width:12px;height:12px;background:#E8C97A;border-radius:50%;z-index:2;}
 .tl-left::before{right:-6px;}
 .tl-right::before{left:-6px;}
+.tl-chevron{display:none;}
 
 /* ── ANIMATIONS ── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
@@ -125,7 +126,14 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 
 @media(max-width:768px){
   .tl-photo{max-height:180px;margin-bottom:12px;}
-  .tl-item.active .tl-desc{max-height:none;overflow:visible;height:auto;}
+  .tl-item:hover .tl-card{transform:none;background:transparent;}
+  .tl-item:hover .tl-headline{color:#FAFAF8;}
+  .tl-item:hover .tl-desc{max-height:0;opacity:0;margin-top:0;}
+  .tl-item.active .tl-card{transform:translateY(-4px);background:rgba(232,201,122,0.05);}
+  .tl-item.active .tl-headline{color:#E8C97A;}
+  .tl-item.active .tl-desc{max-height:800px;opacity:1;margin-top:12px;}
+  .tl-chevron{display:inline-block;color:#E8C97A;font-size:14px;margin-left:8px;transition:transform 0.3s ease;transform:rotate(0deg);}
+  .tl-item.active .tl-chevron{transform:rotate(180deg);}
 }
 
 /* ── MOBILE ── */
@@ -206,54 +214,54 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   <div class="tl-wrap">
     <div class="tl-line"></div>
 
-    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-left" onclick="tlToggle(this)">
       <div class="tl-card">
         <img class="tl-photo" src="images/wedding.jpg" alt="Humble Beginnings" style="width:100%;max-height:220px;object-fit:cover;object-position:center;display:block;margin-bottom:16px;border:1px solid rgba(232,201,122,0.2);">
         <div class="tl-year">Early Days</div>
-        <div class="tl-headline">Humble Beginnings</div>
+        <div class="tl-headline">Humble Beginnings<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">Robert and Leticia Acuna started with nothing but a vision and a work ethic that never quit. A belief that the Rio Grande Valley was worth betting on.</div>
       </div>
     </div>
 
-    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-right" onclick="tlToggle(this)">
       <div class="tl-card">
         <img class="tl-photo" src="images/ElectronicTaxFile.png" alt="Electronic Tax Filing" style="width:100%;max-height:220px;object-fit:cover;object-position:center 20%;display:block;margin-bottom:16px;border:1px solid rgba(232,201,122,0.2);">
         <div class="tl-year">Early 2000s</div>
-        <div class="tl-headline">Electronic Tax Filing</div>
+        <div class="tl-headline">Electronic Tax Filing<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">Before the RGV knew what electronic filing was, Leticia Acuna was already doing it. She pioneered digital tax filing in the valley before it was standard practice. Not a follower. Never was.</div>
       </div>
     </div>
 
-    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-left" onclick="tlToggle(this)">
       <div class="tl-card">
         <img class="tl-photo" src="images/texaswide.jpg" alt="Texaswide Insurance" style="width:100%;max-height:320px;object-fit:cover;object-position:center 40%;display:block;margin-bottom:16px;border:1px solid rgba(232,201,122,0.2);">
         <div class="tl-year">2010s</div>
-        <div class="tl-headline">Texaswide Insurance</div>
+        <div class="tl-headline">Texaswide Insurance<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">Robert Acuna didn't just enter insurance - he dominated it. His decisive actions and market timing positioned Texaswide Insurance to become one of the most trusted independent agencies in South Texas. No single carrier. No corporate leash. The freedom to put clients first and move faster than anyone tied to a system. What started as a calculated bet on the RGV became the engine that funded every dream that came after.</div>
       </div>
     </div>
 
-    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-right" onclick="tlToggle(this)">
       <div class="tl-card">
         <img class="tl-photo" src="images/LuxPlaqq.jpg" alt="Lux Lounge" style="width:100%;max-height:350px;object-fit:cover;object-position:center 40%;display:block;">
         <div class="tl-year">Mid-2020s</div>
-        <div class="tl-headline">Lux Lounge</div>
+        <div class="tl-headline">Lux Lounge<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">A venture into hospitality that tested the family's instincts. Within weeks, misaligned incentives became clear. The Acuna family made the hard call - exit cleanly, preserve the vision, move forward. That decisiveness saved what mattered. Hospitality remains unfinished business. When the right opportunity aligns with the right partners, we'll return. Some doors close so better ones can open.</div>
       </div>
     </div>
 
-    <div class="tl-item tl-left" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-left" onclick="tlToggle(this)">
       <div class="tl-card">
         <div class="tl-year">2024</div>
-        <div class="tl-headline">Exclusiva Homes</div>
+        <div class="tl-headline">Exclusiva Homes<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">A family's conviction made concrete. Real homes. Energy efficient. Built right. Built to last. A first-time buyer deserves to build equity, not rent forever. Every decision, every material, every build reflects one standard. <strong>Because Exclusiva means we only build what we would own.</strong></div>
       </div>
     </div>
 
-    <div class="tl-item tl-right" onclick="this.classList.toggle('active')">
+    <div class="tl-item tl-right" onclick="tlToggle(this)">
       <div class="tl-card">
         <div class="tl-year">Present</div>
-        <div class="tl-headline">Alexandra's Properties</div>
+        <div class="tl-headline">Alexandra's Properties<span class="tl-chevron">&#9660;</span></div>
         <div class="tl-desc">Twenty-five years ago, Robert Acuna made a promise - to build something lasting in his only daughter's name. Today, that vision is taking shape. Plazas under construction. Resorts on the horizon. Event centers in the blueprint. One property at a time, one deal at a time, building an empire in the name of Jennifer Alexandra. The vision is clear. The work has begun. <strong>This is an American story still being written.</strong></div>
       </div>
     </div>
@@ -317,6 +325,18 @@ var io = new IntersectionObserver(function(entries) {
   entries.forEach(function(el) { if(el.isIntersecting) el.target.classList.add('visible'); });
 }, {threshold:0.1});
 reveals.forEach(function(el) { io.observe(el); });
+
+function tlToggle(el) {
+  var isMobile = window.matchMedia('(max-width:768px)').matches;
+  if (isMobile) {
+    var wasActive = el.classList.contains('active');
+    var items = document.querySelectorAll('.tl-item');
+    items.forEach(function(item) { item.classList.remove('active'); });
+    if (!wasActive) el.classList.add('active');
+  } else {
+    el.classList.toggle('active');
+  }
+}
 </script>
 </body>
 </html>
