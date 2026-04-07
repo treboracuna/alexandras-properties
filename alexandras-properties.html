@@ -181,10 +181,13 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
 
 /* ── MOBILE ── */
 @media(max-width:600px){
-  nav{grid-template-columns:1fr auto;padding:0 16px;height:60px;}
+  nav{grid-template-columns:1fr auto;padding:0 12px;height:60px;}
   .nav-left,.nav-right{display:none;}
-  .nav-logo-wrap{padding:6px 16px;}
-  .hero h1{font-size:2.4rem;}
+  .nav-logo-wrap{padding:6px 8px;width:auto;min-width:0;max-width:100%;}
+  .nav-logo-main{font-size:0.95rem;letter-spacing:0.18em;}
+  .nav-logo-sub{font-size:0.45rem;letter-spacing:0.3em;}
+  .nav-call{padding:10px 14px;font-size:0.65rem;letter-spacing:0.18em!important;}
+  .hero h1{font-size:2rem;}
   .hero-sub{font-size:1rem;}
   .story-section,.experiences,.rates,.gallery,.contact{padding:72px 0;}
   .section-wrap{padding:0 18px;}
