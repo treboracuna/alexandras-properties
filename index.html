@@ -343,6 +343,13 @@
     #follow-modal .ig-link::after { content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:#C0C0C0; transform:scaleX(0); transition:transform .35s ease; transform-origin:center; }
     #follow-modal .ig-link:hover::after { transform:scaleX(1); }
     #follow-modal .divider { height:1px; background:rgba(192,192,192,0.5); width:80px; margin:0 auto; }
+    @media (max-width:768px) {
+      #follow-modal > div { padding:40px 30px !important; max-width:85% !important; }
+      #follow-modal h2 { font-size:14px !important; letter-spacing:5px !important; margin:18px 0 !important; }
+      #follow-modal .ig-link { font-size:12px; letter-spacing:2px; }
+      #follow-modal .ig-link .ig-prefix { margin-right:8px; }
+      #follow-modal .divider { width:60px; }
+    }
   </style>
   <div id="follow-modal" onclick="if(event.target===this)this.style.display='none';" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;">
     <div style="position:relative;background:#0a0a0a;border:1px solid rgba(192,192,192,0.25);padding:80px 80px 72px;max-width:540px;width:90%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.6);">
