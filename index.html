@@ -283,6 +283,9 @@
 
 <header class="header">
   <nav class="nav-top">
+    <a href="#" onclick="event.preventDefault();document.getElementById('follow-modal').style.display='flex';" aria-label="Instagram" style="display:inline-flex;align-items:center;color:#fff;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
     <a href="/about">About Us</a>
     <a href="/alexandras-properties">Alexandra's Properties</a>
     <a href="/exclusiva">Exclusiva Homes</a>
@@ -327,12 +330,34 @@
     <div class="desc">Fast, accurate, and secure tax preparation — serving the RGV with year-round expertise.</div>
   </a>
 
-  <a class="cell c6" href="/books">
+  <a class="cell c6" href="#" onclick="event.preventDefault();document.getElementById('follow-modal').style.display='flex';">
     <div class="bg"></div>
     <div class="overlay"></div>
     <div class="label"><span class="coming-soon">Coming Soon</span><h2>Books</h2></div>
     <div class="desc">Knowledge built from experience. The Acuña family library — coming soon.</div>
   </a>
+
+  <style>
+    #follow-modal .ig-link { position:relative; display:inline-block; color:#fff; text-decoration:none; text-transform:uppercase; letter-spacing:3px; font-family:Georgia,'Times New Roman',serif; font-size:15px; padding:6px 0; }
+    #follow-modal .ig-link .ig-prefix { color:#C0C0C0; margin-right:10px; letter-spacing:2px; }
+    #follow-modal .ig-link::after { content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:#C0C0C0; transform:scaleX(0); transition:transform .35s ease; transform-origin:center; }
+    #follow-modal .ig-link:hover::after { transform:scaleX(1); }
+    #follow-modal .divider { height:1px; background:rgba(192,192,192,0.5); width:80px; margin:0 auto; }
+  </style>
+  <div id="follow-modal" onclick="if(event.target===this)this.style.display='none';" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;">
+    <div style="position:relative;background:#0a0a0a;border:1px solid rgba(192,192,192,0.25);padding:80px 80px 72px;max-width:540px;width:90%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.6);">
+      <button onclick="document.getElementById('follow-modal').style.display='none';" aria-label="Close" style="position:absolute;top:18px;right:22px;background:none;border:none;color:#C0C0C0;font-size:18px;cursor:pointer;line-height:1;opacity:0.7;font-family:Georgia,serif;">&#10005;</button>
+      <div class="divider"></div>
+      <h2 style="font-family:Georgia,'Times New Roman',serif;color:#C0C0C0;font-size:18px;margin:24px 0;font-weight:400;letter-spacing:8px;text-transform:uppercase;">Follow Us</h2>
+      <div class="divider" style="margin-bottom:48px;"></div>
+      <div style="margin-bottom:28px;">
+        <a class="ig-link" href="https://www.instagram.com/texaswideinsurance" target="_blank" rel="noopener"><span class="ig-prefix">IG</span>@texaswideinsurance</a>
+      </div>
+      <div>
+        <a class="ig-link" href="https://www.instagram.com/exclusiva_homes" target="_blank" rel="noopener"><span class="ig-prefix">IG</span>@exclusiva_homes</a>
+      </div>
+    </div>
+  </div>
 
   <a class="cell c7" href="/exclusiva">
     <div class="bg"></div>
