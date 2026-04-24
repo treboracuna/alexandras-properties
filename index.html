@@ -226,7 +226,7 @@
   .c5 .overlay { background: transparent; }
   .c5 .label h2 { color: #111; text-shadow: none; }
 
-  .c6 { background: #0a0a0a; }
+  .c6 { background: #000000; }
   .c6 .label {
     inset: 0;
     bottom: 0;
@@ -239,16 +239,27 @@
   .c6 .label h2 {
     font-size: 38px;
     letter-spacing: 8px;
+    color: #C9A84C;
   }
   .c6 .label .coming-soon {
     display: block;
     font-size: 16px;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: #d4af37;
+    color: #C9A84C;
     margin-bottom: 14px;
   }
-  .c6 .overlay { background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); }
+  .c6 .label .now-available {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #C0C0C0;
+    margin-top: 14px;
+  }
+  .c6 .overlay {
+    background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 75%);
+  }
 
   /* MOBILE */
   @media (max-width: 768px) {
@@ -333,7 +344,7 @@
   <a class="cell c6" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">
     <div class="bg"></div>
     <div class="overlay"></div>
-    <div class="label"><h2>Books</h2></div>
+    <div class="label"><h2>Books</h2><span class="now-available">Now Available</span></div>
     <div class="desc">Knowledge built from experience. The Acuña family library.</div>
   </a>
 
