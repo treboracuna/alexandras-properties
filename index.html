@@ -353,6 +353,29 @@
     .c4 .label, .c5 .label,
     .c4 .desc, .c5 .desc { display: none; }
   }
+
+/* ── SITE FOOTER (shared across all pages) ── */
+.site-footer{display:block;background:#0a0a0a;border-top:1px solid rgba(232,201,122,0.25);padding:56px 24px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;color:#CFCFCF;}
+.site-footer .sf-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;}
+.site-footer .sf-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 30px;}
+.site-footer .sf-links a{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-links a:hover{color:#E8C97A;}
+.site-footer .sf-social{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 32px;}
+.site-footer .sf-ig{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:400;letter-spacing:0.12em;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-ig:hover{color:#E8C97A;}
+.site-footer .sf-ig-icon{width:18px;height:18px;flex:0 0 auto;display:block;}
+.site-footer .sf-phone a{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:0.08em;color:#E8C97A;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-phone a:hover{color:#FFFFFF;}
+.site-footer .sf-copy{font-size:10px;font-weight:300;letter-spacing:0.18em;color:#8A8A8A;}
+@media(max-width:600px){
+  .site-footer{padding:44px 18px;}
+  .site-footer .sf-inner{gap:22px;}
+  .site-footer .sf-links{flex-direction:column;gap:14px;}
+  .site-footer .sf-links a{font-size:10px;letter-spacing:0.18em;}
+  .site-footer .sf-social{flex-direction:column;gap:14px;}
+  .site-footer .sf-phone a{font-size:18px;}
+  .site-footer .sf-copy{font-size:9px;letter-spacing:0.14em;}
+}
 </style>
 </head>
 <body>
@@ -451,5 +474,29 @@
 </main>
 
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/alexandras-properties">Alexandra's Properties</a>
+      <a href="/exclusiva">Exclusiva</a>
+      <a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a>
+    </div>
+    <div class="sf-social">
+      <a class="sf-ig" href="https://www.instagram.com/texaswideinsurance/" target="_blank" rel="noopener">
+        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@texaswideinsurance</span>
+      </a>
+      <a class="sf-ig" href="https://www.instagram.com/exclusiva_homes/" target="_blank" rel="noopener">
+        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@exclusiva_homes</span>
+      </a>
+    </div>
+    <div class="sf-phone"><a href="tel:+19563810055">(956) 381-0055</a></div>
+    <div class="sf-copy">&copy; 2026 The Acuña Organizations</div>
+  </div>
+</footer>
 </body>
 </html>

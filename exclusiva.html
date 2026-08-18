@@ -102,15 +102,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 .cs-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:#FFFFFF;margin-bottom:16px;}
 .cs-subtitle{font-size:0.72rem;font-weight:500;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);}
 
-/* -- FOOTER -- */
-footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
-.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);}
-.foot-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:400;letter-spacing:0.5em;color:#333;margin-top:4px;text-transform:uppercase;}
-.foot-links{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
-.foot-links a{font-size:0.54rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;}
-.foot-links a:hover{color:var(--gold);}
-.foot-copy{font-size:0.5rem;font-weight:300;color:#2a2a2a;}
-
 /* -- ANIMATIONS -- */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -121,7 +112,6 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   .nav-left,.nav-right{display:none;}
   .properties-grid{grid-template-columns:1fr 1fr;gap:20px;}
   .section-wrap{padding:0 24px;}
-  footer{padding:36px 24px;flex-direction:column;align-items:flex-start;}
   #properties,#coming-soon{padding:72px 0;}
 }
 
@@ -140,11 +130,30 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   .sec-title{font-size:clamp(1.8rem,8vw,2.8rem);margin-bottom:16px;}
   .label-tag{font-size:0.46rem;letter-spacing:0.4em;margin-bottom:14px;}
   #properties,#coming-soon{padding:56px 0;}
-  footer{padding:32px 18px;flex-direction:column;align-items:flex-start;gap:16px;}
-  .foot-logo{font-size:0.9rem;}
-  .foot-links{gap:20px;flex-wrap:wrap;}
-  .foot-links a{font-size:0.48rem;}
   #mob-btn{display:flex!important;}
+}
+
+/* ── SITE FOOTER (shared across all pages) ── */
+.site-footer{display:block;background:#0a0a0a;border-top:1px solid rgba(232,201,122,0.25);padding:56px 24px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;color:#CFCFCF;}
+.site-footer .sf-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;}
+.site-footer .sf-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 30px;}
+.site-footer .sf-links a{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-links a:hover{color:#E8C97A;}
+.site-footer .sf-social{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 32px;}
+.site-footer .sf-ig{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:400;letter-spacing:0.12em;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-ig:hover{color:#E8C97A;}
+.site-footer .sf-ig-icon{width:18px;height:18px;flex:0 0 auto;display:block;}
+.site-footer .sf-phone a{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:0.08em;color:#E8C97A;text-decoration:none;transition:color 0.25s;}
+.site-footer .sf-phone a:hover{color:#FFFFFF;}
+.site-footer .sf-copy{font-size:10px;font-weight:300;letter-spacing:0.18em;color:#8A8A8A;}
+@media(max-width:600px){
+  .site-footer{padding:44px 18px;}
+  .site-footer .sf-inner{gap:22px;}
+  .site-footer .sf-links{flex-direction:column;gap:14px;}
+  .site-footer .sf-links a{font-size:10px;letter-spacing:0.18em;}
+  .site-footer .sf-social{flex-direction:column;gap:14px;}
+  .site-footer .sf-phone a{font-size:18px;}
+  .site-footer .sf-copy{font-size:9px;letter-spacing:0.14em;}
 }
 </style>
 </head>
@@ -290,17 +299,6 @@ footer{border-top:1px solid rgba(201,168,76,0.1);background:var(--white);padding
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">Alexandra's Properties<span>Luxury Developer & Event Venue · Rio Grande Valley, Texas</span></div>
-  <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#properties">Properties</a></li>
-    <li><a href="#coming-soon">Coming Soon</a></li>
-  </ul>
-  <div class="foot-copy">&copy; 2026 Alexandra's Properties. All rights reserved.</div>
-</footer>
-
 <script>
 var reveals = document.querySelectorAll('.reveal');
 var io = new IntersectionObserver(function(entries) {
@@ -309,5 +307,29 @@ var io = new IntersectionObserver(function(entries) {
 reveals.forEach(function(el) { io.observe(el); });
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/alexandras-properties">Alexandra's Properties</a>
+      <a href="/exclusiva">Exclusiva</a>
+      <a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a>
+    </div>
+    <div class="sf-social">
+      <a class="sf-ig" href="https://www.instagram.com/texaswideinsurance/" target="_blank" rel="noopener">
+        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@texaswideinsurance</span>
+      </a>
+      <a class="sf-ig" href="https://www.instagram.com/exclusiva_homes/" target="_blank" rel="noopener">
+        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@exclusiva_homes</span>
+      </a>
+    </div>
+    <div class="sf-phone"><a href="tel:+19563810055">(956) 381-0055</a></div>
+    <div class="sf-copy">&copy; 2026 The Acuña Organizations</div>
+  </div>
+</footer>
 </body>
 </html>
