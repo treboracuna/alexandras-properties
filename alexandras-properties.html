@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alexandra's Properties — Commercial Development | Edinburg, TX</title>
+<title>Alexandra's Properties | Commercial Development in Edinburg, TX</title>
 <meta name="description" content="Commercial development in the Rio Grande Valley. Alexandra's at Gwin luxury retreat and Alexandra's Plaza in Edinburg. Built for legacy, designed to perform.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Alexandra's Properties — Commercial Development | Edinburg, TX">
+<meta property="og:title" content="Alexandra's Properties | Commercial Development in Edinburg, TX">
 <meta property="og:description" content="Commercial development in the Rio Grande Valley. Alexandra's at Gwin luxury retreat and Alexandra's Plaza in Edinburg. Built for legacy, designed to perform.">
 <meta property="og:image" content="https://acunargv.com/images/og-acuna.jpg">
 <meta property="og:url" content="https://acunargv.com/alexandras-properties">
@@ -50,12 +50,16 @@ body{background:var(--white);color:#1a1a1a;font-family:'Montserrat',sans-serif;f
 ::-webkit-scrollbar-thumb{background:var(--gold);}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);display:grid;grid-template-columns:1fr 220px 1fr;align-items:center;padding:0 48px;height:100px;}
-.nav-left{display:flex;gap:40px;list-style:none;align-items:center;}
-.nav-right{display:flex;gap:40px;list-style:none;align-items:center;justify-content:flex-end;}
+/* Three non-overlapping tracks: links | reserved logo zone | links.
+   The centre track is sized to hold the full logo lockup; the side tracks
+   get min-width:0 + overflow:hidden so a link group can never paint
+   outside its own track and run under the logo. */
+nav{--nav-center:480px;position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);display:grid;grid-template-columns:minmax(0,1fr) var(--nav-center) minmax(0,1fr);column-gap:24px;align-items:center;padding:0 40px;height:100px;}
+.nav-left{display:flex;gap:30px;list-style:none;align-items:center;min-width:0;overflow:hidden;}
+.nav-right{display:flex;gap:30px;list-style:none;align-items:center;justify-content:flex-end;min-width:0;overflow:hidden;}
 .nav-left a,.nav-right a{font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#666;text-decoration:none;transition:color 0.25s;white-space:nowrap;}
 .nav-left a:hover,.nav-right a:hover{color:var(--gold);}
-.nav-logo-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;width:220px;min-width:220px;padding:8px 0;height:100%;text-decoration:none;text-align:center;}
+.nav-logo-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-width:0;max-width:100%;overflow:hidden;padding:8px 0;height:100%;text-decoration:none;text-align:center;}
 .nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:#1a1a1a;line-height:1;white-space:nowrap;}
 .nav-logo-sub{font-size:0.55rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-top:5px;line-height:1;white-space:nowrap;}
 .nav-call{background:var(--gold);color:var(--black)!important;font-weight:700!important;padding:14px 28px;letter-spacing:0.25em!important;transition:background 0.25s!important;}
@@ -63,6 +67,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 .nav-social-icon{color:#666;transition:color 0.25s;text-decoration:none;}
 .nav-social-icon:hover{color:var(--gold);}
 .nav-social-icon svg{width:18px;height:18px;display:block;}
+
+/* ── NAV: intermediate widths ── */
+@media(max-width:1439px){
+  nav{--nav-center:430px;padding:0 32px;column-gap:20px;}
+  .nav-left,.nav-right{gap:24px;}
+  .nav-left a,.nav-right a{font-size:0.66rem;letter-spacing:0.2em;}
+  .nav-logo-main{font-size:1.24rem;letter-spacing:0.28em;}
+  .nav-logo-sub{font-size:0.52rem;letter-spacing:0.36em;}
+  .nav-call{padding:13px 22px;}
+}
+@media(max-width:1279px){
+  nav{--nav-center:340px;padding:0 24px;column-gap:16px;}
+  .nav-left,.nav-right{gap:18px;}
+  .nav-left a,.nav-right a{font-size:0.6rem;letter-spacing:0.14em;}
+  .nav-logo-main{font-size:1rem;letter-spacing:0.2em;}
+  .nav-logo-sub{font-size:0.46rem;letter-spacing:0.28em;}
+  .nav-call{padding:12px 16px;}
+}
 
 /* ── HERO ── */
 .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background-image:url('images/preview (3).webp');background-size:cover;background-position:center center;background-repeat:no-repeat;}
@@ -118,8 +140,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 
 /* ── TABLET ── */
 @media(max-width:960px){
-  nav{grid-template-columns:1fr auto;padding:0 20px;}
+  nav{grid-template-columns:1fr auto;column-gap:12px;padding:0 20px;}
   .nav-left,.nav-right{display:none;}
+  .nav-logo-wrap{align-items:flex-start;text-align:left;}
+  .nav-logo-main{font-size:1.1rem;letter-spacing:0.22em;}
+  /* hamburger appears exactly where the link groups disappear */
+  #mob-btn{display:flex!important;}
   .section-wrap{padding:0 24px;}
 }
 
@@ -137,6 +163,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
   .section-wrap{padding:0 18px;}
   .contact-phone{font-size:1.5rem;}
   #mob-btn{display:flex!important;}
+}
+
+/* ── SMALL PHONE: keep the logo clear of the hamburger ── */
+@media(max-width:380px){
+  .nav-logo-main{font-size:0.8rem;letter-spacing:0.1em;}
+  .nav-logo-sub{font-size:0.4rem;letter-spacing:0.2em;}
 }
 
 /* ── SITE FOOTER (shared across all pages) ── */
@@ -235,7 +267,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
   <div class="hero-content">
     <div class="hero-eyebrow">An Acuña Organization</div>
     <h1>Alexandra's Properties</h1>
-    <div class="hero-sub">Commercial development in the Rio Grande Valley — plazas, venues, and gathering places.</div>
+    <div class="hero-sub">Commercial development in the Rio Grande Valley. Plazas, venues, and gathering places.</div>
     <a href="tel:+19562070318" class="hero-cta">Call Now</a>
   </div>
 </section>
@@ -249,8 +281,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
       <div class="gold-rule"></div>
     </div>
     <div class="reveal">
-      <p class="body-copy">Alexandra's Properties is the commercial side of the Acuña family — plazas, venues, and gathering places in Edinburg and across the Rio Grande Valley. The split is simple: Exclusiva builds where people live. Alexandra's builds where the Valley works, gathers, and celebrates.</p>
-      <p class="body-copy">The name is Jennifer Alexandra's — a promise made a generation ago, kept in brick. Every property that carries it is held and operated by the family, not sold and left behind. We only build what we would own — and what carries her name, we keep.</p>
+      <p class="body-copy">Jennifer Alexandra. The name went on the first property before there was a second one, and it has set the standard ever since.</p>
+      <p class="body-copy">Today it carries plazas, venues, and gathering places across Edinburg and the Rio Grande Valley. Every one of them is held and operated by the family that built it, never sold and left behind. We only build what we would own, and what carries her name, we keep.</p>
     </div>
   </div>
 </section>
@@ -259,13 +291,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 <section class="plaza" id="plaza">
   <div class="section-wrap">
     <div class="reveal">
-      <div class="label-tag">Now Building — One Suite Left</div>
-      <h2 class="sec-title">Alexandra's Plaza — <em>Edinburg</em></h2>
+      <div class="label-tag">Now Building · One Suite Left</div>
+      <h2 class="sec-title">Alexandra's Plaza in <em>Edinburg</em></h2>
       <div class="gold-rule"></div>
     </div>
     <div class="reveal">
-      <p class="body-copy">Halfway up and nearly spoken for. Alexandra's Plaza is six commercial suites at 1112 W Montecristo in Edinburg, Texas — stucco going up now, and five of the six suites already leased before completion. One suite remains, approximately 550 square feet.</p>
-      <p class="body-copy">W Montecristo is one of Edinburg's busiest corridors — if you've driven it, you know. Suites lease directly from the owner. No management company in another state, no layers — the people who decide are the people you can drive to.</p>
+      <p class="body-copy">Halfway up and nearly spoken for. Alexandra's Plaza is six commercial suites at 1112 W Montecristo in Edinburg, Texas. Stucco is going up now, and five of the six suites are already leased before completion. One suite remains, approximately 550 square feet.</p>
+      <p class="body-copy">W Montecristo is one of Edinburg's busiest corridors. If you've driven it, you know. Suites lease directly from the owner. No management company in another state, no layers. The people who decide are the people you can drive to.</p>
       <p class="body-copy">Last suite: <a href="tel:+19563810055" class="text-link">(956) 381-0055</a>.</p>
     </div>
   </div>
@@ -280,7 +312,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
       <div class="gold-rule"></div>
     </div>
     <div class="reveal">
-      <p class="body-copy">Every property that carries the Alexandra's name stays with the family that built it. We develop, we hold, we operate — which means the standard that built it is the standard that runs it.</p>
+      <p class="body-copy">Every property that carries the Alexandra's name stays with the family that built it. We develop, we hold, we operate. The standard that built it is the standard that runs it.</p>
     </div>
     <div class="portfolio-grid">
       <a class="portfolio-card reveal" href="/alexandras-at-gwin">
@@ -290,7 +322,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
         <div class="portfolio-card-body">
           <h3 class="portfolio-card-title">Alexandra's at Gwin</h3>
           <div class="portfolio-card-rule"></div>
-          <p class="portfolio-card-text">The first property to carry her name — sixty years of a father's dream, open for private stays, events, and celebrations.</p>
+          <p class="portfolio-card-text">The first property to carry her name. Sixty years of a father's dream, open for private stays, events, and celebrations.</p>
           <span class="text-link portfolio-card-link">Visit Alexandra's at Gwin &rarr;</span>
         </div>
       </a>
