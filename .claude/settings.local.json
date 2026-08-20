@@ -1,14 +1,42 @@
 {
   "permissions": {
     "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(sed -n:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git rev-list:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git grep:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git describe:*)",
+      "Bash(git shortlog:*)"
+    ],
+    "deny": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(sed -i '558s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")",
-      "Bash(sed -i '565s|href=\"\"gwin.html\"\"|href=\"\"exclusiva.html\"\"|' \"C:/Users/Trebo/Desktop/alexandras-properties/index.html\")",
-      "Bash(start:*)",
-      "Bash(python -c \":*)",
-      "Bash(node:*)"
+      "Bash(git reset:*)",
+      "Bash(git revert:*)",
+      "Bash(git tag:*)",
+      "Bash(rm -rf:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(git clean:*)",
+      "Bash(git stash:*)",
+      "Bash(rm:*)"
     ]
   }
 }
