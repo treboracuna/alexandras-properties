@@ -1,4 +1,4 @@
-# ALEXANDRAS-PROPERTIES — PROJECT MEMORY (DRAFT — install as alexandras-properties\CLAUDE.md)
+# ALEXANDRAS-PROPERTIES — PROJECT MEMORY
 
 The ACUÑA umbrella site. Alexandra's Properties is the holding entity behind Exclusiva — two separate companies, one shared social presence. Hand-coded HTML; copy ships as markdown from copy lanes and is placed by the site lane.
 
