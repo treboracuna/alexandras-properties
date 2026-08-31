@@ -214,6 +214,11 @@ nav{--nav-center:480px;position:sticky;top:0;z-index:100;background:rgba(255,255
 .portfolio-card-rule{width:32px;height:1px;background:var(--gold);margin-bottom:20px;}
 .portfolio-card-text{font-size:0.8rem;font-weight:300;line-height:1.9;color:#666;margin-bottom:28px;}
 .portfolio-card-link{align-self:flex-start;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;}
+.portfolio-card + .portfolio-card{margin-top:32px;}
+.portfolio-card-media-dark{background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;}
+.pc-dark-eyebrow{font-size:0.5rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.pc-dark-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:#FAFAF8;line-height:1;}
+.pc-dark-sub{font-size:0.55rem;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:rgba(250,250,248,0.5);margin-top:14px;}
 @media(max-width:960px){
   .portfolio-card{grid-template-columns:1fr;}
   .portfolio-card-body{padding:40px 32px;}
@@ -299,7 +304,7 @@ nav{--nav-center:480px;position:sticky;top:0;z-index:100;background:rgba(255,255
     <div class="reveal">
       <p class="body-copy">Halfway up and nearly spoken for. Alexandra's Plaza is six commercial suites at 1112 W Montecristo in Edinburg, Texas. Stucco is going up now, and five of the six suites are already leased before completion. One suite remains, approximately 550 square feet.</p>
       <p class="body-copy">W Montecristo is one of Edinburg's busiest corridors. If you've driven it, you know. Suites lease directly from the owner. No management company in another state, no layers. The people who decide are the people you can drive to.</p>
-      <p class="body-copy">Last suite: <a href="tel:+19563810055" class="text-link">(956) 381-0055</a>.</p>
+      <p class="body-copy">Last suite: <a href="tel:+19563810055" class="text-link">(956) 381-0055</a>. Full project page: <a href="/alexandras-plaza" class="text-link">Alexandra's Plaza &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -325,6 +330,19 @@ nav{--nav-center:480px;position:sticky;top:0;z-index:100;background:rgba(255,255
           <div class="portfolio-card-rule"></div>
           <p class="portfolio-card-text">The first property to carry her name. Sixty years of a father's dream, open for private stays, events, and celebrations.</p>
           <span class="text-link portfolio-card-link">Visit Alexandra's at Gwin &rarr;</span>
+        </div>
+      </a>
+      <a class="portfolio-card reveal" href="/alexandras-plaza">
+        <div class="portfolio-card-media portfolio-card-media-dark">
+          <div class="pc-dark-eyebrow">Now Building</div>
+          <div class="pc-dark-title">1112 W Montecristo</div>
+          <div class="pc-dark-sub">Edinburg, Texas</div>
+        </div>
+        <div class="portfolio-card-body">
+          <h3 class="portfolio-card-title">Alexandra's Plaza</h3>
+          <div class="portfolio-card-rule"></div>
+          <p class="portfolio-card-text">Six commercial suites on W Montecristo. Halfway up, five of six leased before completion, one suite left. Leased direct from the owner.</p>
+          <span class="text-link portfolio-card-link">Visit Alexandra's Plaza &rarr;</span>
         </div>
       </a>
     </div>
@@ -399,6 +417,7 @@ reveals.forEach(function(el) { io.observe(el); });
       <a href="/alexandras-properties">Alexandra's Properties</a>
       <a href="/exclusiva">Exclusiva</a>
       <a href="/alexandras-at-gwin">Alexandra's at Gwin</a>
+      <a href="/alexandras-plaza">Alexandra's Plaza</a>
       <a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a>
     </div>
     <div class="sf-social">
