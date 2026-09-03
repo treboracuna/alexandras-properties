@@ -1,5 +1,7 @@
 {
   "cleanUrls": true,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
   "redirects": [
     { "source": "/bos-labs", "destination": "/texacuna", "permanent": true }
   ]

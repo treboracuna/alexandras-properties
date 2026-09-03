@@ -1,0 +1,7 @@
+{
+  "name": "acunargv-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/stamp.mjs"
+  }
+}
