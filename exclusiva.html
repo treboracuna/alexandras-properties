@@ -157,6 +157,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
   .site-footer .sf-copy{font-size:9px;letter-spacing:0.14em;}
 }
 
+/* -- ON THE GROUND -- */
+#on-the-ground{padding:0 0 130px;background:#0a0a0a;}
+.otg-head{max-width:860px;margin:0 auto 56px;padding:0 60px;text-align:center;}
+.otg-head .label-tag{justify-content:center;}
+.otg-head .label-tag::before{display:none;}
+.otg-head .sec-title{color:#FAFAF8;}
+.otg-head .gold-rule{margin:0 auto 32px;}
+.otg-copy{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:2;color:#FAFAF8;}
+.otg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:1300px;margin:0 auto;padding:0 60px;}
+.otg-grid figure{margin:0;background:#0d0d0d;border:1px solid rgba(232,201,122,0.25);}
+.otg-grid img{width:100%;height:300px;object-fit:cover;display:block;}
+.otg-grid figcaption{font-family:'Montserrat',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#E8C97A;padding:14px 16px;text-align:center;}
+@media(max-width:960px){#on-the-ground{padding:0 0 72px;}.otg-head{padding:0 24px;}.otg-grid{padding:0 24px;grid-template-columns:1fr;}}
+@media(max-width:600px){#on-the-ground{padding:0 0 56px;}.otg-grid img{height:220px;}}
+
 /* -- BUILT HERE -- */
 #built-here{padding:130px 0;background:#0a0a0a;}
 .local-inner{max-width:860px;margin:0 auto;padding:0 60px;text-align:center;}
@@ -307,6 +322,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ON THE GROUND -->
+<section id="on-the-ground">
+  <div class="otg-head">
+    <div class="label-tag reveal">On the ground</div>
+    <h2 class="sec-title reveal">Lot 4. <em style="color:#E8C97A;font-style:italic;">Going up now.</em></h2>
+    <div class="gold-rule reveal"></div>
+    <p class="otg-copy reveal">This is what an Exclusiva home looks like before the stucco. Lot 4 is going up now, and the white house beside it is Lot 7, the same plan finished. The one going up is the one for sale. Footage from the site goes on Instagram first.</p>
+  </div>
+  <div class="otg-grid">
+    <figure class="reveal"><img loading="lazy" decoding="async" src="images/lot4/lot4-framing-01.webp" alt="Lot 4 framed, with Lot 7 finished beside it"><figcaption>Lot 4, front</figcaption></figure>
+    <figure class="reveal"><img loading="lazy" decoding="async" src="images/lot4/lot4-framing-02.webp" alt="Lot 4 and Lot 7 from the street side"><figcaption>Lot 4 and Lot 7</figcaption></figure>
+    <figure class="reveal"><img loading="lazy" decoding="async" src="images/lot4/lot4-overhead.webp" alt="Lot 4 roof decking from above"><figcaption>Lot 4, from above</figcaption></figure>
   </div>
 </section>
 

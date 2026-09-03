@@ -9,10 +9,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alexandra's Plaza | Commercial Suites on W Montecristo, Edinburg TX">
 <meta property="og:description" content="Alexandra's Plaza. Six commercial suites at 1112 W Montecristo in Edinburg, Texas. Halfway built, five of six leased, one suite left. Leased direct from the owner. An Acuña Organization.">
-<meta property="og:image" content="https://acunargv.com/images/og-acuna.jpg">
+<meta property="og:image" content="https://acunargv.com/images/plaza/plaza-og.jpg">
 <meta property="og:url" content="https://acunargv.com/alexandras-plaza">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://acunargv.com/images/og-acuna.jpg">
+<meta name="twitter:image" content="https://acunargv.com/images/plaza/plaza-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 /* ── HERO (typographic, black-gold; swap in a site photo via .hero-photo when one exists) ── */
 .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;background:#080808;background-size:cover;background-position:center center;background-repeat:no-repeat;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(232,201,122,0.10) 0%,rgba(8,8,8,0) 60%);z-index:1;}
-.hero-photo{background-image:url('images/og-acuna.jpg');}
+.hero-photo{background-image:url('images/plaza/plaza-hero.webp');}
 .hero-photo .hero-overlay{background:rgba(0,0,0,0.55);}
 .hero-overlay{position:absolute;inset:0;z-index:1;}
 .hero-content{position:relative;z-index:2;max-width:760px;padding:0 24px;}
@@ -115,6 +115,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 /* ── PHOTO GRID ── */
 .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
 .photo-grid img{width:100%;height:320px;object-fit:cover;display:block;}
+.site-photos{background:#0a0a0a;}
+.photo-note{font-size:0.52rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:rgba(232,201,122,0.6);text-align:center;padding:22px 16px;margin:0;}
 
 /* ── SUITE ── */
 .suite{padding:120px 0;background:#f8f6f0;}
@@ -267,7 +269,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
 </div>
 
 <!-- SECTION 1: HERO -->
-<section class="hero">
+<section class="hero hero-photo">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Alexandra's Properties &middot; Edinburg, Texas</div>
@@ -348,6 +350,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop
     </div>
     <p class="progress-note reveal">No projected dates on this page. When a phase is finished, it moves. The raw footage from the site goes up on <a href="https://instagram.com/exclusiva_homes" target="_blank" rel="noopener" class="text-link">Instagram</a> as it happens.</p>
   </div>
+</section>
+
+<!-- SECTION 4B: FROM THE SITE -->
+<section class="site-photos" id="photos">
+  <div class="photo-grid">
+    <img src="images/plaza/plaza-01.webp" alt="Alexandra's Plaza from above, W Montecristo, Edinburg" loading="lazy" decoding="async">
+    <img src="images/plaza/plaza-02.webp" alt="Alexandra's Plaza, the six suites from overhead" loading="lazy" decoding="async">
+    <img src="images/plaza/plaza-03.webp" alt="Alexandra's Plaza, the corner tower and storefront glass" loading="lazy" decoding="async">
+    <img src="images/plaza/plaza-04.webp" alt="Alexandra's Plaza, stucco and storefront detail" loading="lazy" decoding="async">
+    <img src="images/plaza/plaza-05.webp" alt="Alexandra's Plaza with the pre-leasing sign on W Montecristo" loading="lazy" decoding="async">
+    <img src="images/plaza/plaza-06.webp" alt="Alexandra's Plaza, the site from the road" loading="lazy" decoding="async">
+  </div>
+  <p class="photo-note">From the site. Tap any photo to open it.</p>
 </section>
 
 <!-- PHOTO LIGHTBOX (activates when a .photo-grid is added to this page) -->
