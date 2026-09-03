@@ -147,7 +147,13 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3rem,6.4vw,6rem);font-weight:700;line-height:0.94;letter-spacing:-0.015em;color:var(--white);}
 .hero h1 em{color:var(--gold);font-style:italic;font-weight:600;}
 .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.5rem);font-style:italic;font-weight:400;color:rgba(250,250,248,0.85);margin:22px auto 0;max-width:560px;line-height:1.35;}
-.cells{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(240px,34vh,400px);gap:1px;background:var(--gold-dim);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);}
+.cells{display:grid;grid-template-columns:1fr 1.16fr 1fr;grid-template-rows:repeat(3,clamp(210px,27vh,310px));grid-auto-rows:clamp(210px,27vh,310px);gap:1px;background:var(--gold-dim);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);}
+.cells>a:nth-child(1){grid-column:1;grid-row:1;}
+.cells>a:nth-child(2){grid-column:1;grid-row:2;}
+.cells>a:nth-child(3){grid-column:1;grid-row:3;}
+.cells>a:nth-child(5){grid-column:3;grid-row:1;}
+.cells>a:nth-child(6){grid-column:3;grid-row:2;}
+.cells>a:nth-child(7){grid-column:3;grid-row:3;}
 .cell{position:relative;display:block;overflow:hidden;background:#111;color:var(--white);}
 .cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;}
 .cell:hover img{transform:scale(1.05);}
@@ -175,11 +181,51 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 .cell.dark .cell-pill{display:inline-block;margin-top:12px;font-size:0.46rem;font-weight:700;letter-spacing:0.42em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 12px;}
 .cell.dark .cell-desc{margin-left:auto;margin-right:auto;}
 .cell.dark:hover .cell-desc,.cell.dark:focus-visible .cell-desc{max-height:72px;margin-top:10px;}
+.deco{position:absolute;inset:0;z-index:1;overflow:hidden;}
+.deco .glow{position:absolute;left:50%;bottom:-2%;width:58%;height:74%;transform:translateX(-50%);z-index:1;background:radial-gradient(ellipse at 50% 78%,rgba(232,201,122,.52) 0%,rgba(232,201,122,.17) 34%,transparent 66%);}
+.deco .mono{position:absolute;left:50%;bottom:-15%;transform:translateX(-50%);z-index:2;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(140px,23vh,250px);line-height:.78;background-image:linear-gradient(180deg,rgba(240,216,154,.30) 0%,rgba(232,201,122,.34) 40%,rgba(232,201,122,.13) 76%,rgba(232,201,122,0) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.deco .shelf{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:3;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:0 8%;}
+.deco .shelf i{display:block;flex:0 0 auto;background:linear-gradient(to bottom,#1e2839 0%,#0b0f18 92%);}
+.deco .shelf i:nth-child(1){width:13px;height:46%}
+.deco .shelf i:nth-child(2){width:9px;height:63%;border-top:1px solid rgba(232,201,122,.55)}
+.deco .shelf i:nth-child(3){width:16px;height:38%}
+.deco .shelf i:nth-child(4){width:11px;height:78%}
+.deco .shelf i:nth-child(5){width:8px;height:55%}
+.deco .shelf i:nth-child(6){width:18px;height:88%;border-top:1px solid rgba(232,201,122,.85)}
+.deco .shelf i:nth-child(7){width:10px;height:50%}
+.deco .shelf i:nth-child(8){width:14px;height:69%}
+.deco .shelf i:nth-child(9){width:9px;height:42%}
+.deco .shelf i:nth-child(10){width:12px;height:60%;transform:rotate(7deg);transform-origin:bottom left;border-top:1px solid rgba(232,201,122,.45)}
+.deco .shelf i:nth-child(11){width:15px;height:35%}
+.deco .shelf i:nth-child(12){width:9px;height:52%}
+.deco .shelf i:nth-child(13){width:12px;height:44%}
+.deco .floor{position:absolute;left:6%;right:6%;bottom:0;height:1px;z-index:3;background:linear-gradient(to right,transparent,rgba(232,201,122,.5),transparent);}
+.cell.dark .cell-label{z-index:4;}
+.cell.feature{grid-column:2;grid-row:1/span 3;background:radial-gradient(120% 110% at 50% 82%,#FFFFFF 0%,#F1F0EE 56%,#E3E2DF 100%);color:var(--text);display:flex;flex-direction:column;align-items:center;padding:clamp(18px,2.4vh,32px) clamp(14px,1.6vw,28px) clamp(24px,3vh,38px);}
+.cell.feature img{position:relative;inset:auto;order:1;flex:1 1 auto;min-height:0;width:auto;height:auto;max-width:100%;object-fit:contain;object-position:center bottom;padding:0;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 7%,#000 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 7%,#000 100%);mask-composite:intersect;}
+.cell.feature:hover img{transform:none;}
+.cell.feature .cell-shade{display:none;}
+.cell.feature .cell-label{order:2;flex:0 0 auto;position:relative;left:auto;right:auto;bottom:auto;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:100%;padding-top:20px;}
+.cell.feature .cell-label h2{color:var(--text);font-size:clamp(1.8rem,2.7vw,2.9rem);line-height:1.02;}
+.cell.feature .cell-kicker{color:#9A7A2A;}
+.cell.feature .cell-desc{color:#555;max-height:none;opacity:1;margin-top:12px;font-size:0.82rem;max-width:390px;}
+.cell.feature .cell-label h2::after{content:"";display:block;width:56px;height:2px;background:var(--gold);margin:16px auto 0;}
 @media(max-width:900px){
-  .cells{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(200px,30vh,320px);}
+  .cells{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(200px,30vh,320px);grid-template-rows:none;}
+  .cells>a:nth-child(n){grid-column:auto;grid-row:auto;}
+  .cells>a:nth-child(1){order:1;}
+  .cells>a:nth-child(2){order:2;}
+  .cells>a:nth-child(4){order:3;}
+  .cells>a:nth-child(3){order:4;}
+  .cells>a:nth-child(5){order:5;}
+  .cells>a:nth-child(6){order:6;}
+  .cells>a:nth-child(7){order:7;}
+  .cells>a.feature{grid-column:1/-1;grid-row:span 2;}
+  .deco .mono{font-size:clamp(140px,25vh,255px);}
+  .cells>a.feature .cell-label h2{font-size:clamp(1.8rem,4vw,2.6rem);}
   .hero-lead{padding:calc(var(--nav-h) + 48px) 20px 36px;}
 }
-@media(hover:none){.cell-desc{display:none;}}
+@media(hover:none){.cell-desc{display:none;}.cell.feature .cell-desc{display:block;}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.38em;text-transform:uppercase;padding:19px 40px;transition:background .3s,color .3s,border-color .3s,transform .3s;border:1px solid transparent;cursor:pointer;}
 .btn-gold{background:var(--gold);color:var(--black);border-color:var(--gold);}
 .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);}
@@ -382,6 +428,11 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .hero-sub{font-size:1.02rem;margin-top:16px;}
   .hero-eyebrow{font-size:0.42rem;letter-spacing:0.28em;margin-bottom:18px;}
   .cells{grid-template-columns:1fr;grid-auto-rows:clamp(200px,52vw,300px);}
+  .cells>a:nth-child(n){order:0;grid-column:auto;grid-row:auto;}
+  .cells>a.feature{grid-column:1/-1;grid-row:span 2;padding:22px 20px 26px;}
+  .deco .mono{font-size:clamp(120px,44vw,220px);}
+  .cells>a.feature .cell-label h2{font-size:1.75rem;}
+  .cells>a.feature .cell-desc{display:none;}
   .cell-label{left:20px;right:20px;bottom:20px;}
   .cell.light .cell-label{display:none;}
   .cell-stack{display:contents;}
@@ -402,7 +453,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .proj-body{padding:26px 22px 32px;}
   .portrait figcaption{bottom:-36px;}
   .tome{width:190px;transform:perspective(1400px) rotateY(-14deg);}
-  .mobar{display:grid;}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none;}
@@ -454,39 +504,37 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
     <p class="hero-sub">Four businesses. One family. Nobody to hand it off to.</p>
   </div>
   <nav class="cells" aria-label="The businesses">
-    <a class="cell" href="/about">
-      <img src="images/14050.jpg" alt="The Acuñas, Edinburg, Texas" decoding="async" style="object-position:center top;">
-      <div class="cell-shade" aria-hidden="true"></div>
-      <div class="cell-label"><span class="cell-kicker">Meet</span><h2>Our Story</h2><p class="cell-desc">The family behind every door on this page. Edinburg, since 2004.</p></div>
-    </a>
     <a class="cell" href="/alexandras-properties">
       <img src="images/plaza/plaza-05.webp" alt="Alexandra's Plaza going up on W Montecristo, Edinburg" decoding="async">
       <div class="cell-shade" aria-hidden="true"></div>
       <div class="cell-label"><span class="cell-kicker">Hold</span><h2>Alexandra's Properties</h2><p class="cell-desc">Alexandra's Plaza, six suites on W Montecristo. Five leased before the walls were done. Held, never sold.</p></div>
+    </a>
+    <a class="cell light" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">
+      <img src="images/14261.jpg" alt="Texaswide Insurance" decoding="async">
+      <div class="cell-label"><span class="cell-kicker">Insure</span><h2>Texaswide Insurance</h2><p class="cell-desc">An independent agency. Families, seniors, and businesses across the Valley. 5.0 on Google, 560+ reviews.</p></div>
+    </a>
+    <a class="cell dark" href="/texacuna">
+      <img src="images/bos/band-dawn.webp" alt="" aria-hidden="true" decoding="async">
+      <div class="cell-shade" aria-hidden="true"></div>
+      <div class="cell-label"><span class="cell-kicker">Run</span><h2>TexAcuna Labs</h2><span class="cell-pill">Early Access</span><p class="cell-desc">Ezra runs the agency. Pegasus runs the job sites. Built inside these businesses, now opening up.</p></div>
+    </a>
+    <a class="cell feature" href="/about">
+      <img src="images/14050.jpg" alt="The Acuñas, Edinburg, Texas" decoding="async">
+      <div class="cell-label"><span class="cell-kicker">Meet</span><h2>Our Story</h2><p class="cell-desc">The family behind every door on this page. Edinburg, since 2004.</p></div>
     </a>
     <a class="cell" href="/exclusiva">
       <img src="images/lot4/lot4-framing-01.webp" alt="An Exclusiva home framed, with a finished one beside it" decoding="async" style="object-position:center 38%;">
       <div class="cell-shade" aria-hidden="true"></div>
       <div class="cell-label"><span class="cell-kicker">Build</span><h2>Exclusiva Homes</h2><p class="cell-desc">Homes built to own, not to flip. Lot 4 is going up now.</p></div>
     </a>
-    <a class="cell light" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">
-      <img src="images/14261.jpg" alt="Texaswide Insurance" decoding="async">
-      <div class="cell-label"><span class="cell-kicker">Insure</span><h2>Texaswide Insurance</h2><p class="cell-desc">An independent agency. Families, seniors, and businesses across the Valley. 5.0 on Google, 560+ reviews.</p></div>
-    </a>
     <a class="cell light" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">
       <img src="images/14852.jpg" alt="Electronic Tax Filing" decoding="async">
       <div class="cell-label"><span class="cell-kicker">File</span><h2>Electronic Tax Filing</h2><p class="cell-desc">Tax preparation handled correctly, every year, since 2004. No drama.</p></div>
     </a>
-    <div class="cell-stack">
-      <a class="cell dark" href="/texacuna">
-        <img src="images/bos/band-dawn.webp" alt="" aria-hidden="true" decoding="async">
-        <div class="cell-shade" aria-hidden="true"></div>
-        <div class="cell-label"><span class="cell-kicker">Run</span><h2>TexAcuna Labs</h2><span class="cell-pill">Early Access</span><p class="cell-desc">Ezra runs the agency. Pegasus runs the job sites. Built inside these businesses, now opening up.</p></div>
-      </a>
-      <a class="cell dark" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">
-        <div class="cell-label"><span class="cell-kicker">Read</span><h2>Books</h2><span class="cell-pill">Now Available</span><p class="cell-desc">Written by Trebor Acuña. On Amazon now.</p></div>
-      </a>
-    </div>
+    <a class="cell dark" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">
+      <span class="deco" aria-hidden="true"><span class="glow"></span><span class="mono">A</span><span class="shelf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="floor"></span></span>
+      <div class="cell-label"><span class="cell-kicker">Read</span><h2>Books</h2><span class="cell-pill">Now Available</span><p class="cell-desc">Written by Trebor Acuña. On Amazon now.</p></div>
+    </a>
   </nav>
 </header>
 
@@ -730,12 +778,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
     <div class="sf-copy">&copy; 2026 The Acuña Organizations</div>
   </div>
 </footer>
-
-<!-- MOBILE CALL BAR -->
-<div class="mobar" aria-label="Quick actions">
-  <a href="#businesses">The Businesses</a>
-  <a href="tel:+19563810055" class="call">Call (956) 381-0055</a>
-</div>
 
 <script>
 function toggleMobileMenu(){
