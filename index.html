@@ -140,25 +140,46 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 #mob-menu a.mm-call{font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:16px 36px;margin-top:10px;}
 #mob-menu .mm-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
 
-/* ── HERO (four planes) ── */
-.hero{position:relative;height:100svh;min-height:640px;overflow:clip;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--black);}
-.plane{position:absolute;left:0;right:0;pointer-events:none;will-change:transform;}
-.plane.bg{inset:-14% 0;background:url('images/Lot86.png') center 58%/cover no-repeat;filter:brightness(0.5) saturate(0.9);transform:scale(1.04);}
-.plane.veil{inset:0;background:linear-gradient(to bottom,rgba(8,8,8,0.55) 0%,rgba(8,8,8,0.15) 40%,rgba(8,8,8,0.45) 75%,var(--black) 100%);}
-.plane.glow{inset:0;background:radial-gradient(ellipse 55% 45% at 50% 48%,rgba(232,201,122,0.16) 0%,rgba(232,201,122,0) 70%);}
-.plane.grain{inset:0;opacity:.35;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.55 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");}
-.plane.trees{bottom:-4px;top:auto;height:44vh;display:flex;align-items:flex-end;}
-.plane.trees svg{width:100%;height:100%;display:block;filter:drop-shadow(0 -10px 30px rgba(0,0,0,0.6));}
-.plane.trees::after{content:'';position:absolute;left:0;right:0;bottom:0;height:22vh;background:linear-gradient(to bottom,rgba(8,8,8,0) 0%,var(--black) 100%);}
-.hero-copy{position:relative;z-index:3;max-width:900px;padding:0 24px;margin-top:-6vh;}
-.hero-eyebrow{font-size:0.56rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);margin-bottom:30px;opacity:0;transform:translateY(10px);transition:opacity 1s ease .9s,transform 1s ease .9s;}
-.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3.4rem,8.4vw,8.2rem);font-weight:700;line-height:0.92;letter-spacing:-0.015em;color:var(--white);text-shadow:0 6px 40px rgba(0,0,0,0.55);}
-.hero h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(0.35em);transition:opacity .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 110ms + 250ms);}
-.hero h1 .w.gold{color:var(--gold);font-style:italic;font-weight:600;}
-.hero.in h1 .w{opacity:1;filter:blur(0);transform:translateY(0);}
-.hero.in .hero-eyebrow,.hero.in .hero-sub,.hero.in .hero-ctas{opacity:1;transform:translateY(0);}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.6rem);font-style:italic;font-weight:400;color:rgba(250,250,248,0.85);margin:30px auto 44px;max-width:560px;line-height:1.35;opacity:0;transform:translateY(10px);transition:opacity 1s ease 1.1s,transform 1s ease 1.1s;}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(10px);transition:opacity 1s ease 1.3s,transform 1s ease 1.3s;}
+/* ── HERO (cell grid) ── */
+.hero{position:relative;background:var(--black);}
+.hero-lead{text-align:center;padding:calc(var(--nav-h) + 64px) 24px 48px;max-width:960px;margin:0 auto;}
+.hero-eyebrow{font-size:0.56rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;}
+.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3rem,6.4vw,6rem);font-weight:700;line-height:0.94;letter-spacing:-0.015em;color:var(--white);}
+.hero h1 em{color:var(--gold);font-style:italic;font-weight:600;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.5rem);font-style:italic;font-weight:400;color:rgba(250,250,248,0.85);margin:22px auto 0;max-width:560px;line-height:1.35;}
+.cells{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(240px,34vh,400px);gap:1px;background:var(--gold-dim);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);}
+.cell{position:relative;display:block;overflow:hidden;background:#111;color:var(--white);}
+.cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;}
+.cell:hover img{transform:scale(1.05);}
+.cell-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.82) 0%,rgba(8,8,8,0.28) 48%,rgba(8,8,8,0.05) 100%);transition:background .4s;}
+.cell:hover .cell-shade{background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.45) 55%,rgba(8,8,8,0.15) 100%);}
+.cell-label{position:absolute;left:30px;right:30px;bottom:28px;z-index:2;}
+.cell-kicker{display:block;font-size:0.5rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.cell-label h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,2vw,2rem);font-weight:700;line-height:1.05;color:var(--white);}
+.cell-desc{font-size:0.74rem;font-weight:300;line-height:1.7;color:rgba(250,250,248,0.85);max-width:360px;max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .5s ease,opacity .5s ease,margin-top .5s ease;}
+.cell:hover .cell-desc,.cell:focus-visible .cell-desc{max-height:120px;opacity:1;margin-top:12px;}
+.cell:focus-visible{outline:2px solid var(--gold);outline-offset:-4px;}
+.cell.light{background:#FFFFFF;color:var(--text);}
+.cell.light img{object-fit:contain;padding:16% 14%;}
+.cell.light:hover img{transform:scale(1.03);}
+.cell.light .cell-shade{display:none;}
+.cell.light .cell-label h2{color:var(--text);}
+.cell.light .cell-kicker{color:#9A7A2A;}
+.cell.light .cell-desc{color:#555;}
+.cell-stack{display:grid;grid-template-rows:1fr 1fr;gap:1px;background:var(--gold-dim);min-height:0;}
+.cell.dark{background:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;min-height:0;}
+.cell.dark .cell-shade{background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.6) 100%);}
+.cell.dark .cell-label{position:relative;z-index:2;padding:16px 24px;left:auto;right:auto;bottom:auto;}
+.cell.dark .cell-label h2{font-size:clamp(1.4rem,1.9vw,1.9rem);letter-spacing:0.1em;text-transform:uppercase;}
+.cell.dark .cell-kicker{margin-bottom:8px;}
+.cell.dark .cell-pill{display:inline-block;margin-top:12px;font-size:0.46rem;font-weight:700;letter-spacing:0.42em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 12px;}
+.cell.dark .cell-desc{margin-left:auto;margin-right:auto;}
+.cell.dark:hover .cell-desc,.cell.dark:focus-visible .cell-desc{max-height:72px;margin-top:10px;}
+@media(max-width:900px){
+  .cells{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(200px,30vh,320px);}
+  .hero-lead{padding:calc(var(--nav-h) + 48px) 20px 36px;}
+}
+@media(hover:none){.cell-desc{display:none;}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.38em;text-transform:uppercase;padding:19px 40px;transition:background .3s,color .3s,border-color .3s,transform .3s;border:1px solid transparent;cursor:pointer;}
 .btn-gold{background:var(--gold);color:var(--black);border-color:var(--gold);}
 .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);}
@@ -166,31 +187,7 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 .on-light .btn-ghost{color:var(--text);border-color:rgba(26,26,26,0.35);}
 .on-light .btn-ghost:hover{border-color:var(--text);color:var(--text);}
-.hero-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:0.48rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:rgba(232,201,122,0.75);}
-.hero-cue i{display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),rgba(232,201,122,0));animation:cue 2.2s ease-in-out infinite;}
-@keyframes cue{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
-.hero-frame{position:absolute;inset:clamp(18px,3vw,44px);border:1px solid rgba(232,201,122,0.22);pointer-events:none;z-index:4;}
-.hero-frame::before,.hero-frame::after{content:'';position:absolute;width:26px;height:26px;border:1px solid var(--gold);}
-.hero-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
-.hero-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
 
-/* Scroll-driven parallax: CSS path (Chrome, Edge, Safari 26), desktop, motion allowed */
-@keyframes drift{to{transform:translateY(calc(var(--d) * -1)) scale(var(--s,1));}}
-@keyframes fadeUp{to{transform:translateY(-14vh);opacity:0;}}
-@supports (animation-timeline: scroll()){
-  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px){
-    .plane.bg{--d:-8vh;--s:1.04;animation:drift linear both;animation-timeline:scroll(root);animation-range:0 100svh;}
-    .plane.glow{--d:12vh;animation:drift linear both;animation-timeline:scroll(root);animation-range:0 100svh;}
-    .plane.trees{--d:-30vh;animation:drift linear both;animation-timeline:scroll(root);animation-range:0 100svh;}
-    .hero-copy{animation:fadeUp linear both;animation-timeline:scroll(root);animation-range:0 70svh;}
-    .hero-frame{--d:-6vh;animation:drift linear both;animation-timeline:scroll(root);animation-range:0 100svh;}
-  }
-}
-/* JS fallback (Firefox desktop) sets --p on .hero */
-.hero.js-parallax .plane.bg{transform:translateY(calc(var(--p,0) * 8vh)) scale(1.04);}
-.hero.js-parallax .plane.glow{transform:translateY(calc(var(--p,0) * -12vh));}
-.hero.js-parallax .plane.trees{transform:translateY(calc(var(--p,0) * 30vh));}
-.hero.js-parallax .hero-copy{transform:translateY(calc(var(--p,0) * -14vh));opacity:calc(1 - var(--p,0) * 1.4);}
 
 /* ── STAT WALL ── */
 .stats{background:var(--ink);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);position:relative;z-index:2;}
@@ -380,15 +377,14 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   nav.site-nav.scrolled{height:60px;}
   .nav-brand-main{font-size:1.05rem;letter-spacing:0.3em;}
   .nav-brand-sub{font-size:0.42rem;letter-spacing:0.32em;}
-  .hero{min-height:560px;}
-  .hero-copy{margin-top:-4vh;}
-  .hero h1{font-size:clamp(2.9rem,15vw,4rem);}
-  .hero-sub{font-size:1.05rem;margin:22px auto 32px;}
-  .hero-eyebrow{font-size:0.48rem;letter-spacing:0.38em;}
-  .hero-ctas .btn{width:100%;}
-  .hero-cue{display:none;}
-  .hero-frame{inset:12px;}
-  .plane.trees{height:34vh;}
+  .hero-lead{padding:calc(var(--nav-h) + 36px) 18px 28px;}
+  .hero h1{font-size:clamp(2.6rem,12vw,3.6rem);}
+  .hero-sub{font-size:1.02rem;margin-top:16px;}
+  .hero-eyebrow{font-size:0.42rem;letter-spacing:0.28em;margin-bottom:18px;}
+  .cells{grid-template-columns:1fr;grid-auto-rows:clamp(200px,52vw,300px);}
+  .cell-label{left:20px;right:20px;bottom:20px;}
+  .cell.light .cell-label{display:none;}
+  .cell-stack{display:contents;}
   .stat{padding:36px 16px;}
   .stat-num{font-size:2.8rem;}
   .thesis,.projects,.book{padding:84px 0;}
@@ -409,10 +405,8 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .mobar{display:grid;}
 }
 @media (prefers-reduced-motion: reduce){
-  .hero h1 .w,.hero-eyebrow,.hero-sub,.hero-ctas{opacity:1!important;filter:none!important;transform:none!important;transition:none!important;}
   .reveal{opacity:1;transform:none;transition:none;}
-  .hero-cue i{animation:none;}
-  .card-media img,.mock-win,.tome{transition:none;}
+  .card-media img,.mock-win,.tome,.cell img{transition:none;}
 }
 </style>
 </head>
@@ -454,24 +448,46 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 
 <!-- HERO -->
 <header class="hero" id="hero">
-  <div class="plane bg" aria-hidden="true"></div>
-  <div class="plane veil" aria-hidden="true"></div>
-  <div class="plane glow" aria-hidden="true"></div>
-  <div class="plane grain" aria-hidden="true"></div>
-  <div class="hero-copy">
+  <div class="hero-lead">
     <div class="hero-eyebrow">The Acuña Organizations &middot; Edinburg, Texas &middot; Since 2004</div>
-    <h1 aria-label="The name is on it."><span class="w" style="--i:0">The</span> <span class="w" style="--i:1">name</span> <span class="w" style="--i:2">is</span> <span class="w gold" style="--i:3">on it.</span></h1>
+    <h1>The name is <em>on it.</em></h1>
     <p class="hero-sub">Four businesses. One family. Nobody to hand it off to.</p>
-    <div class="hero-ctas">
-      <a href="#businesses" class="btn btn-gold">Explore the Businesses</a>
-      <a href="/about" class="btn btn-ghost">Meet the Family</a>
+  </div>
+  <nav class="cells" aria-label="The businesses">
+    <a class="cell" href="/about">
+      <img src="images/14050.jpg" alt="The Acuñas, Edinburg, Texas" decoding="async" style="object-position:center top;">
+      <div class="cell-shade" aria-hidden="true"></div>
+      <div class="cell-label"><span class="cell-kicker">Meet</span><h2>Our Story</h2><p class="cell-desc">The family behind every door on this page. Edinburg, since 2004.</p></div>
+    </a>
+    <a class="cell" href="/alexandras-properties">
+      <img src="images/plaza/plaza-05.webp" alt="Alexandra's Plaza going up on W Montecristo, Edinburg" decoding="async">
+      <div class="cell-shade" aria-hidden="true"></div>
+      <div class="cell-label"><span class="cell-kicker">Hold</span><h2>Alexandra's Properties</h2><p class="cell-desc">Alexandra's Plaza, six suites on W Montecristo. Five leased before the walls were done. Held, never sold.</p></div>
+    </a>
+    <a class="cell" href="/exclusiva">
+      <img src="images/lot4/lot4-framing-01.webp" alt="An Exclusiva home framed, with a finished one beside it" decoding="async" style="object-position:center 38%;">
+      <div class="cell-shade" aria-hidden="true"></div>
+      <div class="cell-label"><span class="cell-kicker">Build</span><h2>Exclusiva Homes</h2><p class="cell-desc">Homes built to own, not to flip. Lot 4 is going up now.</p></div>
+    </a>
+    <a class="cell light" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">
+      <img src="images/14261.jpg" alt="Texaswide Insurance" decoding="async">
+      <div class="cell-label"><span class="cell-kicker">Insure</span><h2>Texaswide Insurance</h2><p class="cell-desc">An independent agency. Families, seniors, and businesses across the Valley. 5.0 on Google, 560+ reviews.</p></div>
+    </a>
+    <a class="cell light" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">
+      <img src="images/14852.jpg" alt="Electronic Tax Filing" decoding="async">
+      <div class="cell-label"><span class="cell-kicker">File</span><h2>Electronic Tax Filing</h2><p class="cell-desc">Tax preparation handled correctly, every year, since 2004. No drama.</p></div>
+    </a>
+    <div class="cell-stack">
+      <a class="cell dark" href="/texacuna">
+        <img src="images/bos/band-dawn.webp" alt="" aria-hidden="true" decoding="async">
+        <div class="cell-shade" aria-hidden="true"></div>
+        <div class="cell-label"><span class="cell-kicker">Run</span><h2>TexAcuna Labs</h2><span class="cell-pill">Early Access</span><p class="cell-desc">Ezra runs the agency. Pegasus runs the job sites. Built inside these businesses, now opening up.</p></div>
+      </a>
+      <a class="cell dark" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">
+        <div class="cell-label"><span class="cell-kicker">Read</span><h2>Books</h2><span class="cell-pill">Now Available</span><p class="cell-desc">Written by Trebor Acuña. On Amazon now.</p></div>
+      </a>
     </div>
-  </div>
-  <div class="plane trees" aria-hidden="true">
-    <svg class="palms" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#050505"><path d="M79.0,430.0 Q72.0,300.0 54.0,170.0 L66.0,170.0 Q96.0,300.0 101.0,430.0Z"/><path d="M60.0,174.0 Q1.0,82.7 -53.4,206.8 Q-4.4,100.2 60.0,174.0Z"/><path d="M60.0,174.0 Q15.0,76.0 -43.1,138.5 Q-3.7,100.4 60.0,174.0Z"/><path d="M60.0,174.0 Q51.4,55.9 21.6,117.2 Q31.4,62.6 60.0,174.0Z"/><path d="M60.0,174.0 Q97.2,56.3 93.3,109.7 Q67.0,48.3 60.0,174.0Z"/><path d="M60.0,174.0 Q114.5,125.1 143.1,157.7 Q100.4,103.2 60.0,174.0Z"/><path d="M60.0,174.0 Q131.4,134.1 188.0,215.8 Q129.8,114.6 60.0,174.0Z"/><path d="M60.0,174.0 Q109.4,171.6 166.3,309.8 Q124.0,150.4 60.0,174.0Z"/><path d="M60.0,174.0 Q10.5,152.6 -6.2,307.7 Q31.5,170.9 60.0,174.0Z"/><path d="M60.0,174.0 Q-10.2,108.6 -63.5,257.7 Q-6.6,133.6 60.0,174.0Z"/><path d="M44.0,178.0 a16.0,12.0 0 1,0 32.0,0 a16.0,12.0 0 1,0 -32.0,0Z"/><path d="M290.6,430.0 Q293.8,330.0 314.9,230.0 L325.1,230.0 Q314.2,330.0 309.4,430.0Z"/><path d="M320.0,234.0 Q266.3,160.2 218.2,270.3 Q262.6,178.5 320.0,234.0Z"/><path d="M320.0,234.0 Q292.7,145.6 253.1,216.8 Q277.4,161.4 320.0,234.0Z"/><path d="M320.0,234.0 Q317.6,111.4 295.1,181.8 Q299.5,115.3 320.0,234.0Z"/><path d="M320.0,234.0 Q341.5,148.6 331.8,167.5 Q317.4,145.8 320.0,234.0Z"/><path d="M320.0,234.0 Q361.8,160.7 376.9,229.7 Q345.0,144.8 320.0,234.0Z"/><path d="M320.0,234.0 Q389.7,180.3 441.5,256.4 Q385.1,162.1 320.0,234.0Z"/><path d="M320.0,234.0 Q374.3,211.5 425.5,324.5 Q380.3,191.9 320.0,234.0Z"/><path d="M320.0,234.0 Q342.7,260.3 382.4,350.1 Q361.3,246.6 320.0,234.0Z"/><path d="M320.0,234.0 Q257.1,222.5 217.1,343.7 Q267.2,238.0 320.0,234.0Z"/><path d="M320.0,234.0 Q273.7,195.0 238.8,279.9 Q276.3,215.5 320.0,234.0Z"/><path d="M306.4,238.0 a13.6,10.2 0 1,0 27.2,0 a13.6,10.2 0 1,0 -27.2,0Z"/><path d="M547.4,430.0 Q548.2,280.0 563.1,130.0 L576.9,130.0 Q575.8,280.0 572.6,430.0Z"/><path d="M570.0,134.0 Q505.3,40.1 447.5,186.8 Q501.0,64.7 570.0,134.0Z"/><path d="M570.0,134.0 Q523.9,6.1 461.1,48.1 Q501.8,24.0 570.0,134.0Z"/><path d="M570.0,134.0 Q588.3,10.3 577.7,65.9 Q565.8,8.9 570.0,134.0Z"/><path d="M570.0,134.0 Q650.1,28.8 688.0,100.6 Q625.8,1.5 570.0,134.0Z"/><path d="M570.0,134.0 Q639.3,102.7 695.1,177.0 Q638.5,81.1 570.0,134.0Z"/><path d="M570.0,134.0 Q597.7,148.1 647.8,260.5 Q621.8,124.1 570.0,134.0Z"/><path d="M570.0,134.0 Q511.5,142.9 492.9,313.1 Q537.3,158.9 570.0,134.0Z"/><path d="M570.0,134.0 Q474.7,74.6 408.0,250.8 Q484.6,109.2 570.0,134.0Z"/><path d="M551.6,138.0 a18.4,13.8 0 1,0 36.8,0 a18.4,13.8 0 1,0 -36.8,0Z"/><path d="M919.5,430.0 Q913.6,315.0 899.3,200.0 L910.7,200.0 Q936.4,315.0 940.5,430.0Z"/><path d="M905.0,204.0 Q832.1,120.0 766.9,240.5 Q827.3,149.4 905.0,204.0Z"/><path d="M905.0,204.0 Q879.1,99.5 837.7,164.8 Q861.3,112.6 905.0,204.0Z"/><path d="M905.0,204.0 Q927.1,104.6 911.0,153.1 Q897.0,102.8 905.0,204.0Z"/><path d="M905.0,204.0 Q958.7,110.7 987.1,165.2 Q945.0,98.7 905.0,204.0Z"/><path d="M905.0,204.0 Q984.2,188.2 1049.3,241.4 Q984.5,163.1 905.0,204.0Z"/><path d="M905.0,204.0 Q943.8,191.6 993.2,342.1 Q959.4,171.6 905.0,204.0Z"/><path d="M905.0,204.0 Q861.2,174.3 846.6,351.6 Q879.9,188.4 905.0,204.0Z"/><path d="M905.0,204.0 Q844.5,147.6 798.7,285.1 Q847.8,166.0 905.0,204.0Z"/><path d="M889.8,208.0 a15.2,11.4 0 1,0 30.4,0 a15.2,11.4 0 1,0 -30.4,0Z"/><path d="M1237.9,430.0 Q1242.8,285.0 1273.4,140.0 L1286.6,140.0 Q1269.2,285.0 1262.1,430.0Z"/><path d="M1280.0,144.0 Q1201.5,70.4 1132.0,166.3 Q1196.8,97.5 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1250.5,6.2 1199.6,122.6 Q1226.9,25.2 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1288.9,35.6 1263.0,63.5 Q1259.7,39.6 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1334.0,37.4 1344.1,75.1 Q1304.0,21.8 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1351.0,49.6 1389.9,123.3 Q1334.1,28.2 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1365.4,123.9 1436.5,196.0 Q1366.4,92.6 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1332.5,154.7 1393.6,256.4 Q1348.5,126.8 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1200.5,139.0 1153.5,283.5 Q1216.4,160.7 1280.0,144.0Z"/><path d="M1280.0,144.0 Q1207.9,70.9 1154.1,232.7 Q1212.5,102.8 1280.0,144.0Z"/><path d="M1262.4,148.0 a17.6,13.2 0 1,0 35.2,0 a17.6,13.2 0 1,0 -35.2,0Z"/><path d="M1491.2,430.0 Q1487.4,325.0 1480.2,220.0 L1489.8,220.0 Q1506.6,325.0 1508.8,430.0Z"/><path d="M1485.0,224.0 Q1439.0,167.1 1395.7,231.5 Q1434.0,182.9 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1456.8,132.8 1418.5,226.6 Q1443.4,149.3 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1492.2,120.1 1473.7,179.2 Q1470.7,122.6 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1515.5,123.2 1513.5,173.2 Q1491.8,116.7 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1537.2,157.6 1570.7,227.8 Q1529.1,143.6 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1548.6,200.2 1599.3,259.3 Q1547.4,175.0 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1533.9,241.5 1587.5,322.6 Q1545.9,222.6 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1429.0,205.6 1394.0,348.3 Q1438.6,218.1 1485.0,224.0Z"/><path d="M1485.0,224.0 Q1425.4,174.1 1377.5,273.9 Q1426.2,192.2 1485.0,224.0Z"/><path d="M1472.2,228.0 a12.8,9.6 0 1,0 25.6,0 a12.8,9.6 0 1,0 -25.6,0Z"/><path d="M0,390 Q200,370 400,392 T800,386 T1200,394 T1600,384 L1600,420 L0,420Z"/></g></svg>
-  </div>
-  <div class="hero-frame" aria-hidden="true"></div>
-  <div class="hero-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+  </nav>
 </header>
 
 <!-- STAT WALL -->
@@ -731,15 +747,11 @@ function toggleMobileMenu(){
 }
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var hero=document.getElementById('hero');
 
   /* years since 2004, computed so it never goes stale */
   var yrs=new Date().getFullYear()-2004;
   var yEl=document.getElementById('years-num');
   if(yEl){yEl.setAttribute('data-target',String(yrs));}
-
-  /* hero entrance */
-  requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('in');});});
 
   /* nav shrink via sentinel */
   var nav=document.getElementById('site-nav'),sent=document.getElementById('nav-sentinel');
@@ -772,22 +784,6 @@ function toggleMobileMenu(){
     var co=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){run(en.target);co.unobserve(en.target);}});},{threshold:0.5});
     counts.forEach(function(c){co.observe(c);});
   }else{counts.forEach(run);}
-
-  /* parallax fallback for browsers without scroll-driven animations (Firefox desktop) */
-  var supportsSDA=window.CSS&&CSS.supports&&CSS.supports('animation-timeline: scroll()');
-  var desktop=window.matchMedia('(min-width: 1024px)').matches;
-  if(!supportsSDA&&!reduce&&desktop){
-    hero.classList.add('js-parallax');
-    var ticking=false;
-    function onScroll(){
-      if(ticking)return;ticking=true;
-      requestAnimationFrame(function(){
-        var h=hero.offsetHeight||1,p=Math.min(1,Math.max(0,window.scrollY/h));
-        hero.style.setProperty('--p',p.toFixed(4));ticking=false;
-      });
-    }
-    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  }
 
   /* stacking cards: scale + dim the covered card (desktop only) */
   var cards=Array.prototype.slice.call(document.querySelectorAll('#stack .card'));
