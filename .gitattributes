@@ -1,0 +1,15 @@
+# Line endings are LF in the repository and in every working copy.
+# Verified 2026-09-03: git ls-files --eol reported i/lf w/lf on every text file
+# and -text on every image. This file pins that state so a machine with a
+# different core.autocrlf setting cannot introduce CRLF.
+* text=auto eol=lf
+
+# Binaries are never converted.
+*.png  -text
+*.jpg  -text
+*.JPG  -text
+*.jpeg -text
+*.webp -text
+*.ico  -text
+*.pdf  -text
+*.zip  -text
