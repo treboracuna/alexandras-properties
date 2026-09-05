@@ -242,6 +242,8 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 .fb.rev .fb-vis .frame{transform:perspective(1400px) rotateX(3deg) rotateY(3deg);}
 .fb:hover .fb-vis .frame{transform:perspective(1400px) rotateX(0) rotateY(0);box-shadow:0 50px 110px rgba(0,0,0,0.7),0 0 0 1px rgba(232,201,122,0.25);}
 .fb-vis .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.fb-vis .frame.film{aspect-ratio:16/9;background:#000;}
+.fb-vis .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#000;}
 .fb-vis .frame svg.vig-ov{position:absolute;inset:0;width:100%;height:100%;}
 .fb-vis .cap{position:absolute;left:24px;bottom:-14px;background:var(--black);border:1px solid var(--gold-dim);padding:8px 14px;font-size:0.75rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);}
 /* vignette life */
@@ -680,7 +682,7 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
         <p><strong>A company does not have to be big to have its numbers straight.</strong> It has to stop guessing.</p>
       </div>
       <div class="fb-vis">
-        <div class="frame"><img class="vig-img" src="images/bos/v-pegasus-dash.webp" alt="Pegasus Master Dashboard" loading="lazy" decoding="async"></div>
+        <div class="frame film"><video class="film-vid" src="images/bos/pegasus-film.mp4" poster="images/bos/pegasus-film-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Pegasus design film: a stone slab splits open to reveal the Pegasus ledger"></video></div>
         <div class="cap">Every dollar, placed.</div>
       </div>
     </div>
