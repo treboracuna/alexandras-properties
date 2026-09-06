@@ -245,52 +245,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 .portrait figcaption{position:absolute;left:0;bottom:-46px;font-size:0.75rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:#141414;}
 .pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-style:italic;font-weight:500;color:var(--text);line-height:1.35;border-left:2px solid var(--gold);padding-left:26px;margin:36px 0 40px;max-width:560px;}
 
-/* ── BUSINESSES (stacking cards) ── */
-.biz{background:var(--black);padding:140px 0 0;}
-.biz-head{text-align:center;max-width:760px;margin:0 auto 90px;padding:0 24px;}
-.biz-head .label-tag{justify-content:center;}
-.biz-head .label-tag::before{display:none;}
-.biz-head .sub{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(250,250,248,0.7);}
-.stack{position:relative;max-width:1320px;margin:0 auto;padding:0 60px 140px;}
-.card{position:sticky;top:calc(var(--nav-h) + var(--i) * 18px);height:calc(100vh - var(--nav-h) - 90px);min-height:520px;margin-bottom:60px;display:grid;grid-template-columns:1.1fr 0.9fr;overflow:hidden;border:1px solid var(--gold-dim);background:var(--ink);transform-origin:top center;will-change:transform;box-shadow:0 -30px 80px rgba(0,0,0,0.55);}
-.card:last-child{margin-bottom:0;}
-.card.light{background:var(--cream);color:var(--text);}
-.card-media{position:relative;overflow:hidden;background:#111;}
-.card-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform 1.4s ease;}
-.card:hover .card-media img{transform:scale(1.08);}
-.card-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0) 70%,rgba(10,10,10,0.6) 100%);}
-.card.light .card-media::after{background:linear-gradient(to right,rgba(245,240,232,0) 70%,rgba(245,240,232,0.6) 100%);}
-.card-body{padding:clamp(36px,4.5vw,72px);display:flex;flex-direction:column;justify-content:center;position:relative;}
-.card-idx{position:absolute;top:28px;right:32px;font-family:'Cormorant Garamond',serif;font-size:1.216rem;font-weight:600;letter-spacing:0.2em;color:var(--gold);opacity:.8;}
-.card-verb{font-size:0.75rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:14px;}
-.card-verb::before{content:'';width:28px;height:1px;background:var(--gold);}
-.card h3{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.6vw,3.8rem);font-weight:700;line-height:0.96;margin-bottom:22px;}
-.card p{font-size:0.86rem;line-height:1.95;color:rgba(250,250,248,0.75);max-width:480px;margin-bottom:22px;}
-.card.light p{color:#141414;}
-.card .proof{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--gold);margin-bottom:34px;padding-left:20px;border-left:1px solid var(--gold-dim);max-width:480px;line-height:1.4;}
-.card.light .proof{color:#7a6320;border-color:rgba(122,99,32,0.35);}
-.card .btn{align-self:flex-start;}
-.card.light .btn-ghost{color:var(--text);border-color:rgba(26,26,26,0.35);}
-.card.light .btn-ghost:hover{border-color:var(--text);}
-/* TexAcuna mock inside card */
-.mock{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,#141414 0%,#0a0a0a 70%);display:flex;align-items:center;justify-content:center;padding:40px;}
-.mock-win{width:100%;max-width:520px;aspect-ratio:16/10.5;background:#0d0d0d;border:1px solid rgba(232,201,122,0.35);box-shadow:0 40px 90px rgba(0,0,0,0.7),0 0 0 1px rgba(0,0,0,0.6);display:grid;grid-template-rows:32px 1fr;transform:perspective(1200px) rotateX(6deg) rotateY(-8deg);transition:transform 1.2s ease;}
-.card:hover .mock-win{transform:perspective(1200px) rotateX(0) rotateY(0);}
-.mock-bar{display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid rgba(232,201,122,0.18);}
-.mock-bar i{width:8px;height:8px;border-radius:50%;background:rgba(232,201,122,0.35);display:block;}
-.mock-bar b{margin-left:auto;font-size:0.75rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);}
-.mock-grid{display:grid;grid-template-columns:120px 1fr;}
-.mock-side{border-right:1px solid rgba(232,201,122,0.18);padding:14px 12px;display:flex;flex-direction:column;gap:10px;}
-.mock-side span{height:6px;background:rgba(250,250,248,0.12);border-radius:2px;}
-.mock-side span:first-child{background:var(--gold);width:70%;}
-.mock-main{padding:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-content:start;}
-.mock-tile{border:1px solid rgba(232,201,122,0.2);padding:10px;}
-.mock-tile small{display:block;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(250,250,248,0.9);margin-bottom:6px;}
-.mock-tile strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);font-weight:700;}
-.mock-rows{grid-column:1/-1;display:flex;flex-direction:column;gap:7px;margin-top:4px;}
-.mock-rows span{height:7px;background:rgba(250,250,248,0.08);border-radius:2px;position:relative;overflow:hidden;}
-.mock-rows span::after{content:'';position:absolute;left:0;top:0;bottom:0;width:var(--w);background:linear-gradient(90deg,rgba(232,201,122,0.55),rgba(232,201,122,0.15));}
-
 /* ── PROJECTS ── */
 .projects{background:var(--cream);color:var(--text);padding:130px 0;}
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px;}
@@ -402,12 +356,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .stat:nth-child(-n+2){border-bottom:1px solid rgba(232,201,122,0.14);}
   .thesis-grid{grid-template-columns:1fr;gap:70px;}
   .portrait{justify-self:start;margin-top:20px;}
-  .stack{padding:0 28px 100px;}
-  .card{position:relative;top:auto;height:auto;min-height:0;grid-template-columns:1fr;margin-bottom:28px;box-shadow:none;}
-  .card-media{height:300px;}
-  .card-media::after{background:linear-gradient(to bottom,rgba(10,10,10,0) 70%,rgba(10,10,10,0.6) 100%);}
-  .card.light .card-media::after{background:linear-gradient(to bottom,rgba(245,240,232,0) 70%,rgba(245,240,232,0.6) 100%);}
-  .mock{position:relative;height:300px;padding:28px;}
   .proj-grid{grid-template-columns:1fr;}
   .book-grid{grid-template-columns:1fr;gap:60px;}
   .tome{width:220px;}
@@ -431,16 +379,7 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .stat{padding:36px 16px;}
   .stat-num{font-size:2.8rem;}
   .thesis,.projects,.book{padding:84px 0;}
-  .biz{padding:84px 0 0;}
-  .biz-head{margin-bottom:48px;}
   .section-wrap{padding:0 18px;}
-  .stack{padding:0 18px 70px;}
-  .card-media{height:220px;}
-  .card-body{padding:30px 24px 36px;}
-  .card-idx{top:18px;right:20px;}
-  .mock{height:240px;padding:18px;}
-  .mock-side{display:none;}
-  .mock-grid{grid-template-columns:1fr;}
   .proj{grid-template-rows:220px auto;}
   .proj-body{padding:26px 22px 32px;}
   .portrait figcaption{bottom:-36px;}
@@ -448,14 +387,13 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none;}
-  .card-media img,.mock-win,.tome,.cell img{transition:none;}
+  .tome,.cell img{transition:none;}
 }
 
 /* -- #022b light-surface gold -- */
 :root{--gold-ink:#836318;}
 nav .nav-logo-sub{color:var(--gold-ink);}
 .on-light .label-tag,.on-light .sec-title em,.on-light .text-link,
-.card.light .card-idx,.card.light .card-verb,
 .cell.light .cell-kicker,
 .proj .text-link{color:var(--gold-ink);}
 </style>
@@ -589,93 +527,6 @@ nav .nav-logo-sub{color:var(--gold-ink);}
 </section>
 
 <!-- BUSINESSES -->
-<section class="biz" id="businesses">
-  <div class="biz-head reveal">
-    <div class="label-tag">The Businesses</div>
-    <h2 class="sec-title">Five businesses. <em>One name.</em></h2>
-    <p class="sub">Insurance, tax filing, homes, commercial development, and the software that runs them.</p>
-  </div>
-
-  <div class="stack" id="stack">
-
-    <article class="card" style="--i:0">
-      <div class="card-media"><img src="images/offices/texaswide-storefront.webp" alt="Texaswide Insurance office on University Dr, Edinburg" loading="lazy" decoding="async"></div>
-      <div class="card-body">
-        <span class="card-idx">01 &middot; 05</span>
-        <div class="card-verb">Insure</div>
-        <h3>Texaswide Insurance</h3>
-        <p>An independent agency. No single carrier, no corporate leash. Families, seniors, and businesses across the Rio Grande Valley, with a person you can drive to when something goes wrong.</p>
-        <div class="proof">5.0 on Google across 560+ reviews. Trust over transactions.</div>
-        <a href="https://www.txwideinsurance.com" target="_blank" rel="noopener" class="btn btn-ghost">Talk to an Agent</a>
-      </div>
-    </article>
-
-    <article class="card light" style="--i:1">
-      <div class="card-media"><img src="images/offices/etf-sign.webp" alt="Electronic Tax Filing office, Edinburg" loading="lazy" decoding="async"></div>
-      <div class="card-body">
-        <span class="card-idx">02 &middot; 05</span>
-        <div class="card-verb">File</div>
-        <h3>Electronic Tax Filing</h3>
-        <p>Tax preparation, year-round, handled correctly every year without drama. Electronic since 2004, before the Valley knew what that meant.</p>
-        <div class="proof">Same office. Same people. Every season since 2004.</div>
-        <a href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener" class="btn btn-ghost">File With Us</a>
-      </div>
-    </article>
-
-    <article class="card" style="--i:2">
-      <div class="card-media"><img src="images/13917.jpg" alt="An Exclusiva home in the Rio Grande Valley" loading="lazy" decoding="async"></div>
-      <div class="card-body">
-        <span class="card-idx">03 &middot; 05</span>
-        <div class="card-verb">Build</div>
-        <h3>Exclusiva Homes</h3>
-        <p>Energy-efficient homes built to own, not to flip. For first-time buyers and young families who would rather build equity than pay rent.</p>
-        <div class="proof">Because Exclusiva means we only build what we would own.</div>
-        <a href="/exclusiva" class="btn btn-ghost">See the Homes</a>
-      </div>
-    </article>
-
-    <article class="card light" style="--i:3">
-      <div class="card-media"><img src="images/preview (3).webp" alt="Alexandra's at Gwin" loading="lazy" decoding="async"></div>
-      <div class="card-body">
-        <span class="card-idx">04 &middot; 05</span>
-        <div class="card-verb">Hold</div>
-        <h3>Alexandra's Properties</h3>
-        <p>Plazas, event grounds, and retreats that carry a daughter's name. Owned by the family, leased direct, held for the long run.</p>
-        <div class="proof">Alexandra's Plaza: five of six suites leased before completion. One left.</div>
-        <a href="/alexandras-properties" class="btn btn-ghost">See the Properties</a>
-      </div>
-    </article>
-
-    <article class="card" style="--i:4">
-      <div class="card-media">
-        <div class="mock" aria-hidden="true">
-          <div class="mock-win">
-            <div class="mock-bar"><i></i><i></i><i></i><b>TexAcuna Labs</b></div>
-            <div class="mock-grid">
-              <div class="mock-side"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-              <div class="mock-main">
-                <div class="mock-tile"><small>Ezra</small><strong>Commissions</strong></div>
-                <div class="mock-tile"><small>Pegasus</small><strong>Job Cost</strong></div>
-                <div class="mock-tile"><small>Both</small><strong>Live</strong></div>
-                <div class="mock-rows"><span style="--w:82%"></span><span style="--w:64%"></span><span style="--w:91%"></span><span style="--w:47%"></span><span style="--w:73%"></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-idx">05 &middot; 05</span>
-        <div class="card-verb">Run</div>
-        <h3>TexAcuna Labs</h3>
-        <p>Business Operating Systems. The software built inside the Acuña companies to run them, now opening to outside operators who want the same control.</p>
-        <div class="proof">Two products. Ezra runs the agency. Pegasus runs the job sites.</div>
-        <a href="/texacuna" class="btn btn-gold">See the Software</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
 <!-- PROJECTS -->
 <section class="projects on-light" id="projects">
   <div class="section-wrap">
@@ -830,30 +681,6 @@ function toggleMobileMenu(){
     counts.forEach(function(c){co.observe(c);});
   }else{counts.forEach(run);}
 
-  /* stacking cards: scale + dim the covered card (desktop only) */
-  var cards=Array.prototype.slice.call(document.querySelectorAll('#stack .card'));
-  var wide=window.matchMedia('(min-width: 1101px)');
-  if(cards.length&&!reduce){
-    var stackTick=false;
-    function stackScroll(){
-      if(stackTick)return;stackTick=true;
-      requestAnimationFrame(function(){
-        stackTick=false;
-        if(!wide.matches){cards.forEach(function(c){c.style.transform='';c.style.filter='';});return;}
-        for(var i=0;i<cards.length-1;i++){
-          var a=cards[i].getBoundingClientRect(),b=cards[i+1].getBoundingClientRect();
-          var span=a.height||1;
-          var prog=Math.min(1,Math.max(0,(a.bottom-b.top)/span));
-          var s=1-prog*0.06;
-          cards[i].style.transform='scale('+s.toFixed(4)+')';
-          cards[i].style.filter='brightness('+(1-prog*0.35).toFixed(3)+')';
-        }
-        cards[cards.length-1].style.transform='';cards[cards.length-1].style.filter='';
-      });
-    }
-    window.addEventListener('scroll',stackScroll,{passive:true});
-    window.addEventListener('resize',stackScroll);stackScroll();
-  }
 
   /* newsletter */
   var form=document.querySelector('.newsletter .nl-form');
