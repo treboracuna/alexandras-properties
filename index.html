@@ -263,21 +263,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
 .proj .addr{font-size:0.75rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:#141414;margin-bottom:18px;}
 .proj p{font-size:1.075rem;line-height:1.9;color:#141414;margin-bottom:22px;}
 
-/* ── BOOK ── */
-.book{background:var(--black);padding:140px 0;position:relative;overflow:hidden;}
-.book::before{content:'';position:absolute;left:-10%;bottom:-40%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(232,201,122,0.12) 0%,rgba(232,201,122,0) 60%);pointer-events:none;}
-.book-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:80px;align-items:center;}
-.tome{width:280px;aspect-ratio:2/3;margin:0 auto;position:relative;transform:perspective(1400px) rotateY(-22deg) rotateX(2deg);transform-style:preserve-3d;transition:transform 1.2s ease;}
-.book:hover .tome{transform:perspective(1400px) rotateY(-10deg) rotateX(0);}
-.tome-cover{position:absolute;inset:0;background:linear-gradient(160deg,#151515 0%,#080808 60%,#111 100%);border:1px solid rgba(232,201,122,0.45);box-shadow:30px 40px 80px rgba(0,0,0,0.75);padding:34px 28px;display:flex;flex-direction:column;justify-content:space-between;}
-.tome-cover::before{content:'';position:absolute;inset:14px;border:1px solid rgba(232,201,122,0.25);pointer-events:none;}
-.tome-spine{position:absolute;top:0;bottom:0;left:0;width:26px;background:linear-gradient(90deg,#1b1b1b,#050505);transform:rotateY(-90deg) translateX(-13px) translateZ(13px);transform-origin:left;border:1px solid rgba(232,201,122,0.3);}
-.tome-eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);}
-.tome-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:0.95;color:var(--white);}
-.tome-title em{display:block;font-size:1.05rem;font-style:italic;font-weight:400;color:var(--gold);margin-top:12px;letter-spacing:0.04em;}
-.tome-author{font-size:0.75rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:rgba(250,250,248,0.9);}
-.tome-mark{width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--gold);font-size:1.408rem;}
-
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -357,8 +342,6 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .thesis-grid{grid-template-columns:1fr;gap:70px;}
   .portrait{justify-self:start;margin-top:20px;}
   .proj-grid{grid-template-columns:1fr;}
-  .book-grid{grid-template-columns:1fr;gap:60px;}
-  .tome{width:220px;}
 }
 
 /* ── MOBILE ── */
@@ -378,16 +361,15 @@ nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-we
   .cell-stack{display:contents;}
   .stat{padding:36px 16px;}
   .stat-num{font-size:2.8rem;}
-  .thesis,.projects,.book{padding:84px 0;}
+  .thesis,.projects{padding:84px 0;}
   .section-wrap{padding:0 18px;}
   .proj{grid-template-rows:220px auto;}
   .proj-body{padding:26px 22px 32px;}
   .portrait figcaption{bottom:-36px;}
-  .tome{width:190px;transform:perspective(1400px) rotateY(-14deg);}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none;}
-  .tome,.cell img{transition:none;}
+  .cell img{transition:none;}
 }
 
 /* -- #022b light-surface gold -- */
@@ -526,7 +508,6 @@ nav .nav-logo-sub{color:var(--gold-ink);}
   </div>
 </section>
 
-<!-- BUSINESSES -->
 <!-- PROJECTS -->
 <section class="projects on-light" id="projects">
   <div class="section-wrap">
@@ -556,35 +537,6 @@ nav .nav-logo-sub{color:var(--gold-ink);}
           <span class="text-link">See the Retreat</span>
         </div>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK -->
-<section class="book" id="books">
-  <div class="section-wrap">
-    <div class="book-grid">
-      <a href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer" class="reveal" aria-label="The Beast Never Loses on Amazon">
-        <div class="tome">
-          <div class="tome-spine"></div>
-          <div class="tome-cover">
-            <div class="tome-eyebrow">The Acuña Library</div>
-            <div class="tome-title">The Beast Never Loses<em>The Bitcoin Awakening</em></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-              <div class="tome-author">Trebor Acuña</div>
-              <div class="tome-mark">A</div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <div class="reveal d1">
-        <div class="label-tag">The Library</div>
-        <h2 class="sec-title">Knowledge built <em>from experience.</em></h2>
-        <div class="gold-rule"></div>
-        <p class="body-copy"><strong>The Beast Never Loses: The Bitcoin Awakening</strong> is the first title in the Acuña family library. Written from the Valley, about money, conviction, and what it takes to hold something through the noise.</p>
-        <p class="body-copy">Now available on Amazon.</p>
-        <a href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Get the Book</a>
-      </div>
     </div>
   </div>
 </section>
