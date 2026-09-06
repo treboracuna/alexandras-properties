@@ -120,7 +120,7 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 .pl{position:absolute;inset:-12% -6%;pointer-events:none;will-change:transform;}
 .pl .lyr{position:absolute;inset:0;width:100%;height:100%;transform:translate(calc(var(--mx,0) * var(--k,0) * 1px),calc(var(--my,0) * var(--k,0) * 0.6px));transition:transform .9s cubic-bezier(.2,.7,.2,1);}
 .pl img.lyr{object-fit:cover;object-position:50% 100%;}
-.pl.sky img.lyr{object-position:50% 50%;}
+.pl.sky img.lyr{object-position:50% 100%;}
 .pl.sky .lyr{--k:4;}.pl.stars .lyr{--k:4;}.pl.sun .lyr{--k:6;}
 /* small animated overlays: positioned inside the same oversized plane box the sky image covers */
 .pl.stars .lyr{inset:auto;left:0;right:0;top:6%;height:44%;}
@@ -129,8 +129,8 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 .pl.mist2 .lyr{inset:auto;left:0;right:0;top:78%;height:15.5%;}
 .pl.stars svg,.pl.mist1 svg,.pl.mist2 svg{width:100%;height:100%;}.pl.r1 .lyr{--k:10;}.pl.mist1 .lyr{--k:14;}.pl.r2 .lyr{--k:18;}.pl.mist2 .lyr{--k:22;}.pl.r3 .lyr{--k:28;}.pl.r4 .lyr{--k:38;}
 .hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.5 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");}
-.hero-veil{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,rgba(4,6,12,0.55) 0%,rgba(4,6,12,0) 30%,rgba(4,6,12,0) 60%,rgba(27,34,51,0.35) 85%,var(--black) 100%);}
-.hero-copy{position:relative;z-index:3;max-width:920px;padding:0 24px;margin-top:-8vh;}
+.hero-veil{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 46% 42% at 50% 47%,rgba(4,6,12,0.5) 0%,rgba(4,6,12,0.3) 45%,rgba(4,6,12,0) 100%),linear-gradient(to bottom,rgba(4,6,12,0.55) 0%,rgba(4,6,12,0) 30%,rgba(4,6,12,0) 60%,rgba(27,34,51,0.35) 85%,var(--black) 100%);}
+.hero-copy{position:relative;z-index:3;max-width:920px;padding:0 24px;margin-top:-11vh;}
 .hero-eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);margin-bottom:30px;opacity:0;transform:translateY(10px);transition:opacity 1s ease .9s,transform 1s ease .9s;}
 .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3rem,7.4vw,7.2rem);font-weight:700;line-height:0.94;letter-spacing:-0.015em;color:var(--white);text-shadow:0 8px 50px rgba(0,0,0,0.6);}
 .hero h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(0.35em);transition:opacity .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 110ms + 250ms);}
@@ -158,6 +158,13 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 .pl.mist2 .lyr{animation:driftx 58s ease-in-out infinite alternate-reverse;}
 @keyframes driftx{from{translate:-3% 0;}to{translate:3% 0;}}
 .hero.off .pl .lyr{animation-play-state:paused;}
+/* #047 photo planes: base plate + cut near ridge */
+.pl.r4 .lyr{--k:20;}
+.pl.sky .lyr,.pl.r4 .lyr{transform-origin:50% 100%;animation:kb 70s ease-in-out infinite alternate;}
+.pl.r4 .lyr{animation-name:kbn;}
+@keyframes kb{from{scale:1;}to{scale:1.045;}}
+@keyframes kbn{from{scale:1;}to{scale:1.075;}}
+.pl.sun .lyr{left:51.6%;top:5.5%;}
 .lite .pl .lyr,.lite .dark .aurora,.lite .light .wash,.lite .dust i{animation:none!important;}
 .vsunglow,.peakglow{transform-box:fill-box;transform-origin:center;animation:pulse 9s ease-in-out infinite;}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.85;}50%{transform:scale(1.12);opacity:1;}}
@@ -168,7 +175,7 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 @supports (animation-timeline: scroll()){
   @media (prefers-reduced-motion: no-preference) and (min-width: 1024px){
     .pl{animation:drift linear both;animation-timeline:scroll(root);animation-range:0 100svh;}
-    .pl.sky{--d:-4vh;}.pl.stars{--d:-4vh;}.pl.sun{--d:-5vh;}.pl.r1{--d:-7vh;}.pl.mist1{--d:-10vh;}.pl.r2{--d:-13vh;}.pl.mist2{--d:-17vh;}.pl.r3{--d:-22vh;}.pl.r4{--d:-30vh;}
+    .pl.sky{--d:-4vh;}.pl.stars{--d:-4vh;}.pl.sun{--d:-5vh;}.pl.r1{--d:-7vh;}.pl.mist1{--d:-10vh;}.pl.r2{--d:-13vh;}.pl.mist2{--d:-17vh;}.pl.r3{--d:-22vh;}.pl.r4{--d:-10vh;}
     .hero-copy{animation:fadeUp linear both;animation-timeline:scroll(root);animation-range:0 70svh;}
   }
 }
@@ -179,7 +186,7 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 .hero.js-parallax .pl.r2{transform:translateY(calc(var(--p,0) * 13vh));}
 .hero.js-parallax .pl.mist2{transform:translateY(calc(var(--p,0) * 17vh));}
 .hero.js-parallax .pl.r3{transform:translateY(calc(var(--p,0) * 22vh));}
-.hero.js-parallax .pl.r4{transform:translateY(calc(var(--p,0) * 30vh));}
+.hero.js-parallax .pl.r4{transform:translateY(calc(var(--p,0) * 10vh));}
 .hero.js-parallax .hero-copy{transform:translateY(calc(var(--p,0) * -16vh));opacity:calc(1 - var(--p,0) * 1.4);}
 
 /* ── MARQUEE ── */
@@ -422,6 +429,8 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
   .section-wrap{padding:0 18px;}
   .divider{padding:0 18px;}
   .hero{min-height:560px;}
+  .pl.sun{display:none;}
+  .pl.sky img.lyr,.pl.r4 img.lyr{object-position:62% 100%;}
   .hero-copy{margin-top:-4vh;}
   .hero h1{font-size:clamp(2.6rem,13vw,3.6rem);}
   .hero-sub{font-size:1.02rem;margin:20px auto 30px;}
@@ -461,7 +470,7 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 @media (prefers-reduced-motion: reduce){
   .hero h1 .w,.hero-eyebrow,.hero-sub,.hero-ctas,.hero-note{opacity:1!important;filter:none!important;transform:none!important;transition:none!important;}
   .reveal{opacity:1;transform:none;transition:none;}
-  .hero-cue i,.st,.sunglow,.vsunglow,.peakglow,.mist,.marq-track,.dark .aurora,.light .wash,.plan.hot,.v-light .rays,.v-lake .rip,.dust i{animation:none!important;}
+  .hero-cue i,.st,.sunglow,.vsunglow,.peakglow,.mist,.marq-track,.dark .aurora,.light .wash,.plan.hot,.v-light .rays,.v-lake .rip,.dust i,.pl.sky .lyr,.pl.r4 .lyr{animation:none!important;}
   .v-fog .fog,.v-paths .trail,.v-paths .peak,.v-paths .peakglow,.v-strata .band,.v-fog .horizon{transition:none!important;opacity:1;stroke-dashoffset:0;transform:none;}
   .fb-vis .frame,.pcard,.step,.plan{transition:none;}
 }
@@ -512,16 +521,13 @@ nav.site-nav.scrolled{background:rgba(27,34,51,0.84);backdrop-filter:blur(14px);
 
 <!-- HERO: the summit -->
 <header class="hero" id="hero">
-  <div class="pl sky"><img class="lyr" src="images/bos/hero-sky.webp" alt="" decoding="async"></div>
+  <div class="pl sky"><img class="lyr" src="images/bos/hero-plate.webp" srcset="images/bos/hero-plate-1600.webp 1600w, images/bos/hero-plate.webp 2880w" sizes="112vw" alt="" decoding="async" fetchpriority="high"></div>
   <div class="pl stars sa"><svg class="lyr lyr-stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="stars"><circle cx="381" cy="229" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="929" cy="254" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1593" cy="198" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="371" cy="64" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="102" cy="318" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1385" cy="199" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="632" cy="336" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="585" cy="15" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="698" cy="263" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="918" cy="224" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1091" cy="390" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="261" cy="361" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1331" cy="241" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1022" cy="203" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="241" cy="123" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="983" cy="19" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="447" cy="99" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="960" cy="13" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="421" cy="290" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1435" cy="159" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1387" cy="286" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="811" cy="181" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="413" cy="127" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="928" cy="8" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="746" cy="285" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="783" cy="248" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="730" cy="249" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1213" cy="354" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1236" cy="11" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1286" cy="100" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="155" cy="252" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1296" cy="403" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1416" cy="189" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1532" cy="132" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/></g></svg></div>
   <div class="pl stars sb"><svg class="lyr lyr-stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="stars"><circle cx="378" cy="43" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="32" cy="231" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="355" cy="225" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="419" cy="396" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1281" cy="81" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1537" cy="356" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1075" cy="213" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1511" cy="344" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1128" cy="131" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="690" cy="68" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="130" cy="194" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1121" cy="61" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1016" cy="185" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="513" cy="235" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="366" cy="321" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="465" cy="11" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1528" cy="309" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1546" cy="326" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1088" cy="33" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="400" cy="252" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="72" cy="71" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="703" cy="87" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1179" cy="250" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="932" cy="135" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="1238" cy="172" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="657" cy="15" r="1.4" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="685" cy="91" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="388" cy="87" r="0.9" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="520" cy="374" r="1.1" fill="#FAFAF8" fill-opacity="0.7"/><circle cx="645" cy="378" r="0.7" fill="#FAFAF8" fill-opacity="0.7"/></g></svg></div>
   <div class="pl sun"><svg class="lyr lyr-sun" xmlns="http://www.w3.org/2000/svg" viewBox="730 145 800 800" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><defs><radialGradient id="sch"><stop offset="0" stop-color="#fff8e1"/><stop offset="0.5" stop-color="#F0D89A" stop-opacity="0.98"/><stop offset="0.78" stop-color="#F0D89A" stop-opacity="0.45"/><stop offset="1" stop-color="#F0D89A" stop-opacity="0"/></radialGradient><radialGradient id="sgh"><stop offset="0" stop-color="#F0D89A" stop-opacity="0.6"/><stop offset="0.45" stop-color="#E8C97A" stop-opacity="0.2"/><stop offset="1" stop-color="#E8C97A" stop-opacity="0"/></radialGradient><radialGradient id="shh"><stop offset="0" stop-color="#F0D89A" stop-opacity="0.28"/><stop offset="1" stop-color="#F0D89A" stop-opacity="0"/></radialGradient></defs><circle cx="1130" cy="545" r="340" fill="url(#sgh)"/><ellipse cx="1130" cy="545" rx="510" ry="62" fill="url(#shh)"/><circle cx="1130" cy="545" r="76" fill="url(#sch)"/></svg></div>
-  <div class="pl r1"><img class="lyr" src="images/bos/hero-r1.webp" alt="" decoding="async"></div>
   <div class="pl mist1"><svg class="lyr lyr-mist1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><defs><radialGradient id="mg1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#E8C97A" stop-opacity="0.32"/><stop offset="1" stop-color="#E8C97A" stop-opacity="0"/></radialGradient></defs><g opacity="0.6"><ellipse cx="300" cy="60" rx="560" ry="48" fill="url(#mg1)"/><ellipse cx="1250" cy="90" rx="640" ry="54" fill="url(#mg1)"/></g></svg></div>
-  <div class="pl r2"><img class="lyr" src="images/bos/hero-r2.webp" alt="" decoding="async"></div>
   <div class="pl mist2"><svg class="lyr lyr-mist2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><defs><radialGradient id="mg2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#d9d3c6" stop-opacity="0.2"/><stop offset="1" stop-color="#d9d3c6" stop-opacity="0"/></radialGradient></defs><g opacity="0.55"><ellipse cx="700" cy="80" rx="760" ry="64" fill="url(#mg2)"/><ellipse cx="1500" cy="60" rx="540" ry="50" fill="url(#mg2)"/></g></svg></div>
-  <div class="pl r3"><img class="lyr" src="images/bos/hero-r3.webp" alt="" decoding="async"></div>
-  <div class="pl r4"><img class="lyr" src="images/bos/hero-r4.webp" alt="" decoding="async"></div>
+  <div class="pl r4"><img class="lyr" src="images/bos/hero-near.webp" srcset="images/bos/hero-near-1600.webp 1600w, images/bos/hero-near.webp 2880w" sizes="112vw" alt="" decoding="async"></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-copy">
