@@ -3,6 +3,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "www.acunargv.com" }], "destination": "https://acunargv.com/", "permanent": true },
+    { "source": "/", "has": [{ "type": "host", "value": "alexandras-properties.vercel.app" }], "destination": "https://acunargv.com/", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.acunargv.com" }], "destination": "https://acunargv.com/:path*", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "alexandras-properties.vercel.app" }], "destination": "https://acunargv.com/:path*", "permanent": true },
     { "source": "/bos-labs", "destination": "/texacuna", "permanent": true }
