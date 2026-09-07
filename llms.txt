@@ -1,6 +1,6 @@
 # The Acuña Organizations
 
-> A family group of businesses established in Edinburg, Texas in 2004 and operating across the Rio Grande Valley: an independent insurance agency, a tax office, a homebuilder, a commercial real estate owner, and the business software that runs them. Site: https://acunargv.com
+> A family group of businesses established in Edinburg, Texas in 2003 and operating across the Rio Grande Valley: an independent insurance agency, a tax office, a homebuilder, a commercial real estate owner, and the business software that runs them. Site: https://acunargv.com
 
 Contact: (956) 381-0055 · 1117 E University Dr, Edinburg, TX 78539
 
@@ -16,6 +16,6 @@ Contact: (956) 381-0055 · 1117 E University Dr, Edinburg, TX 78539
 ## Pages
 
 - [Home](https://acunargv.com/)
-- [Our Story](https://acunargv.com/about): the family, the founder, and twenty-five years of building in the Valley.
+- [Our Story](https://acunargv.com/about): the family, the founder, and twenty-three years of building in the Valley.
 - [Privacy](https://acunargv.com/privacy)
 - [Terms](https://acunargv.com/terms)
