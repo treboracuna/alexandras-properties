@@ -1,0 +1,20 @@
+# The Acuña Organizations
+
+> A family group of businesses established in Edinburg, Texas in 2004 and operating across the Rio Grande Valley: an independent insurance agency, a tax office, a homebuilder, a commercial real estate owner, and the business software that runs them. Site: https://acunargv.com
+
+Contact: (956) 381-0055 · 1117 E University Dr, Edinburg, TX 78539
+
+## Entities
+
+- [Texaswide Insurance Services](https://www.txwideinsurance.com): independent insurance agency serving families, seniors, and businesses in the Rio Grande Valley. Health, Medicare, auto, home, and life coverage. Edinburg, TX.
+- [Exclusiva Homes](https://acunargv.com/exclusiva): the builder. Energy-efficient residential and commercial construction in the Rio Grande Valley. Houses built in Edinburg, TX.
+- [Alexandra's Properties](https://acunargv.com/alexandras-properties): the owner. Commercial real estate developed and held by the family, including Alexandra's Plaza and Alexandra's at Gwin.
+- [Alexandra's Plaza](https://acunargv.com/alexandras-plaza): six commercial suites at 1112 W Montecristo, Edinburg, TX. Leased direct from the owner.
+- [Alexandra's at Gwin](https://acunargv.com/alexandras-at-gwin): private stays, events, and celebrations in Edinburg, TX.
+- [TexAcuna Labs](https://acunargv.com/texacuna): business operating systems built inside the Acuña companies. Ezra runs the front office (CRM). Pegasus runs the back (financial ledger).
+
+## Pages
+
+- [Home](https://acunargv.com/)
+- [Our Story](https://acunargv.com/about): the family, the founder, and twenty-five years of building in the Valley.
+- [Privacy](https://acunargv.com/privacy)
