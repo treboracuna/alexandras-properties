@@ -3,6 +3,19 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.acunargv.com" }], "destination": "https://acunargv.com/:path*", "permanent": true },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "alexandras-properties.vercel.app" }], "destination": "https://acunargv.com/:path*", "permanent": true },
     { "source": "/bos-labs", "destination": "/texacuna", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
+      ]
+    }
   ]
 }
