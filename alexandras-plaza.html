@@ -253,6 +253,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .site-footer .sf-biz{font-size:12.8px;font-weight:500;letter-spacing:0.1em;color:#8A8A8A;}
 @media(max-width:600px){.site-footer .sf-biz{font-size:12px;letter-spacing:0.08em;line-height:1.7;}}
 </style>
+<script id="tag-074">
+(function(){
+var K="acuna_optout";
+function off(){
+  try{if(navigator.globalPrivacyControl===true)return true;}catch(e){}
+  try{if(localStorage.getItem(K)==="1")return true;}catch(e){}
+  return false;
+}
+window.acunaPrivacy={key:K,isOff:off};
+if(off()){window["ga-disable-G-SMVYSPDR8R"]=true;return;}
+var g=document.createElement("script");
+g.async=true;g.src="https://www.googletagmanager.com/gtag/js?id=G-SMVYSPDR8R";
+document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+window.gtag=gtag;
+gtag("js",new Date());
+gtag("config","G-SMVYSPDR8R",{anonymize_ip:true});
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","1590700245773257");
+fbq("track","PageView");
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -597,6 +620,7 @@ nav .nav-logo-sub{color:var(--gold-ink);}
       <a href="/texacuna">TexAcuna Labs</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
+      <a href="/privacy#choices">Your privacy choices</a>
     </div>
     <div class="sf-social">
       <a class="sf-ig" href="https://www.instagram.com/texaswideinsurance/" target="_blank" rel="noopener">

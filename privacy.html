@@ -203,6 +203,29 @@ nav .nav-logo-sub{color:var(--gold-ink);}
 .site-footer .sf-biz{font-size:12.8px;font-weight:500;letter-spacing:0.1em;color:#8A8A8A;}
 @media(max-width:600px){.site-footer .sf-biz{font-size:12px;letter-spacing:0.08em;line-height:1.7;}}
 </style>
+<script id="tag-074">
+(function(){
+var K="acuna_optout";
+function off(){
+  try{if(navigator.globalPrivacyControl===true)return true;}catch(e){}
+  try{if(localStorage.getItem(K)==="1")return true;}catch(e){}
+  return false;
+}
+window.acunaPrivacy={key:K,isOff:off};
+if(off()){window["ga-disable-G-SMVYSPDR8R"]=true;return;}
+var g=document.createElement("script");
+g.async=true;g.src="https://www.googletagmanager.com/gtag/js?id=G-SMVYSPDR8R";
+document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+window.gtag=gtag;
+gtag("js",new Date());
+gtag("config","G-SMVYSPDR8R",{anonymize_ip:true});
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","1590700245773257");
+fbq("track","PageView");
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -267,13 +290,46 @@ nav .nav-logo-sub{color:var(--gold-ink);}
     <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">A call to (956) 381-0055 reaches the Edinburg office. This site records no phone numbers.</p>
 
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#FAFAF8;margin:44px 0 14px;">What is not done</h2>
-    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">No data is sold. No data is shared for advertising. No tracking pixels, no advertising cookies, no retargeting.</p>
+    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">No data is sold. Site activity is measured through Google Analytics and a Meta pixel, which means Google and Meta receive page views and device information from this site. Both stop entirely for a visitor who opts out in Your privacy choices below.</p>
 
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#FAFAF8;margin:44px 0 14px;">Third parties</h2>
-    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">Formspree, Vercel, and Google Fonts are the only services that receive anything from this site. Links to Instagram, TikTok, Airbnb, and Amazon lead to services governed by their own policies.</p>
+    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">Formspree, Vercel, Google Fonts, Google Analytics, and Meta are the services that receive anything from this site. Links to Instagram, TikTok, Airbnb, and Amazon lead to services governed by their own policies.</p>
 
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#FAFAF8;margin:44px 0 14px;">Cookies</h2>
-    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">This site sets no cookies. It runs no advertising pixels, no session trackers, and no third-party embeds. Because nothing is stored on the visitor's device, there is no consent banner to click.</p>
+    <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">Google Analytics and the Meta pixel set cookies on this site to count visits and to recognize a returning browser. Nothing else is stored on the visitor's device. There is no consent banner, because measurement may be switched off at any time in Your privacy choices below, and a browser that sends a Global Privacy Control signal is honored automatically with no click at all.</p>
+
+    <style id="choices-074">
+.optout-btn{font-family:inherit;font-size:0.82rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E8C97A;background:transparent;border:1px solid #E8C97A;border-radius:2px;padding:12px 22px;cursor:pointer;transition:background .2s ease,color .2s ease;}
+.optout-btn:hover{background:#E8C97A;color:#080808;}
+.optout-btn[disabled]{opacity:.55;cursor:default;}
+.optout-btn[disabled]:hover{background:transparent;color:#E8C97A;}
+.optout-state{display:block;font-size:1.0rem;line-height:1.8;color:#CFCFCF;margin-top:16px;}
+</style>
+<h2 id="choices" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#FAFAF8;margin:44px 0 14px;">Your privacy choices</h2>
+<p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">Measurement may be switched off for this browser. The choice is stored on the device itself and applies to every page on this site. A browser that sends a Global Privacy Control signal is honored automatically.</p>
+<p style="margin:0 0 22px;"><button type="button" id="optout-btn" class="optout-btn">Measurement</button><span id="optout-state" class="optout-state" role="status" aria-live="polite"></span></p>
+<script id="choices-js-074">
+(function(){
+var K="acuna_optout";
+var b=document.getElementById("optout-btn"),s=document.getElementById("optout-state");
+if(!b||!s)return;
+function gpc(){try{return navigator.globalPrivacyControl===true;}catch(e){return false;}}
+function stored(){try{return localStorage.getItem(K)==="1";}catch(e){return false;}}
+function render(extra){
+  if(gpc()){b.disabled=true;b.textContent="Measurement is off";
+    s.textContent="This browser sends a Global Privacy Control signal, which is honored automatically. Nothing is measured.";return;}
+  if(stored()){b.textContent="Turn measurement on";s.textContent="Measurement is off for this browser.";}
+  else{b.textContent="Turn measurement off";s.textContent="Measurement is on for this browser.";}
+  if(extra){s.textContent=s.textContent+" "+extra;}
+}
+b.addEventListener("click",function(){
+  try{if(stored()){localStorage.removeItem(K);}else{localStorage.setItem(K,"1");}}catch(e){}
+  try{window["ga-disable-G-SMVYSPDR8R"]=stored();}catch(e){}
+  render("Reload the page for the change to take full effect.");
+});
+render("");
+})();
+</script>
 
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#FAFAF8;margin:44px 0 14px;">Requests</h2>
     <p style="font-size:1.05rem;line-height:1.85;color:#CFCFCF;margin:0 0 22px;">To ask what the office holds from a form submission, or to have it deleted, call (956) 381-0055 or write to 1117 E University Dr, Edinburg, TX 78539.</p>
@@ -296,6 +352,7 @@ nav .nav-logo-sub{color:var(--gold-ink);}
       <a href="/texacuna">TexAcuna Labs</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
+      <a href="/privacy#choices">Your privacy choices</a>
     </div>
     <div class="sf-social">
       <a class="sf-ig" href="https://www.instagram.com/texaswideinsurance/" target="_blank" rel="noopener">
