@@ -93,301 +93,235 @@
 }
 </script>
 <style>
-:root{
-  --black:#080808;
-  --ink:#0a0a0a;
-  --white:#FAFAF8;
-  --cream:#F5F0E8;
-  --cream-2:#EFE8DA;
-  --gold:#E8C97A;
-  --gold-light:#F0D89A;
-  --gold-dim:rgba(232,201,122,0.25);
-  --gray:#8A8A8A;
-  --text:#1a1a1a;
-  --nav-h:118px;
-}
+:root{--gold:#E8C97A;--gold-ink:#836318;--ink:#0a0a0a;--paper:#f4f4f6;--line:#dcdcde;--bar:84px;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--black);color:var(--white);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{background:#fff;color:var(--ink);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
-img{display:block;max-width:100%;}
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:var(--black);}
-::-webkit-scrollbar-thumb{background:var(--gold);}
-::selection{background:var(--gold);color:var(--black);}
+button{font:inherit;color:inherit;}
+img{display:block;}
+[hidden]{display:none!important;}
 
-/* ── TYPE ── */
-.eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);}
-.label-tag{font-size:0.801rem;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:22px;}
-.label-tag::before{content:'';width:28px;height:1px;background:var(--gold);display:block;}
-.sec-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.4rem,4.2vw,4.6rem);font-weight:700;line-height:0.96;letter-spacing:-0.01em;margin-bottom:26px;}
-.sec-title em{font-style:italic;color:var(--gold);font-weight:600;}
-.gold-rule{width:48px;height:2px;background:var(--gold);margin-bottom:36px;}
-.body-copy{font-size:1.1rem;line-height:2;font-weight:500;color:rgba(250,250,248,0.78);margin-bottom:20px;max-width:640px;}
-.body-copy strong{color:var(--white);font-weight:500;}
-.on-light .body-copy{color:#141414;}
-.on-light .body-copy strong{color:var(--text);}
-.on-light .sec-title{color:var(--text);}
-.text-link{color:var(--gold);font-weight:700;border-bottom:1px solid var(--gold-dim);transition:color .3s,border-color .3s;padding-bottom:2px;}
-.text-link:hover{color:var(--white);border-color:var(--white);}
-.on-light .text-link:hover{color:var(--text);border-color:var(--text);}
-.section-wrap{max-width:1320px;margin:0 auto;padding:0 60px;}
+/* TOP BAR */
+.bar{position:relative;z-index:40;height:var(--bar);display:grid;grid-template-columns:minmax(0,1fr) 250px minmax(0,1fr);background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),url("images/lobby/wall.jpg") center 48%/100% auto no-repeat var(--paper);border-bottom:1px solid var(--line);}
+.bar-side{display:flex;flex-direction:column;padding:0 28px;min-width:0;}
+.bar-util{height:30px;display:flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#3d3a33;white-space:nowrap;}
+.bar-side.right .bar-util{justify-content:flex-end;}
+.bar-nav{flex:1;display:flex;align-items:stretch;justify-content:space-between;gap:16px;}
+.nv{display:flex;align-items:center;}
+.nl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#141414;white-space:nowrap;transition:color .25s;}
+.nl:hover,.nv:hover>.nl,.nv:focus-within>.nl{color:var(--gold-ink);}
+.nl.call{background:var(--ink);color:#fff;padding:11px 14px;letter-spacing:.12em;transition:background .25s;}
+.nl.call:hover,.nv:hover>.nl.call{background:#2c2c2c;color:#fff;}
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#000;color:#fff;}
+.brand img{height:20px;width:auto;}
+.brand h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:.34em;padding-left:.34em;line-height:1;text-transform:uppercase;}
+.brand span{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+.score{display:flex;align-items:center;gap:10px;}
+.pips,.strip{display:flex;gap:4px;}
+.pips i{display:block;width:10px;height:10px;border:1px solid #9a7b2c;transition:background .4s;}
+.pips i.f{background:var(--gold);}
+#score-n{color:var(--gold-ink);font-weight:700;}
+.pn{display:none;position:absolute;top:100%;width:660px;background:#fff;color:#141414;padding:30px 32px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:1px solid var(--line);text-align:left;}
+.bar-side.left .pn{left:0;}
+.bar-side.right .pn{right:0;}
+.nv:hover .pn,.nv:focus-within .pn{display:block;}
+.pn-in{display:flex;gap:32px;}
+.pn-cols{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;}
+.pn h3{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding-bottom:9px;border-bottom:1px solid var(--gold);margin-bottom:10px;}
+.pn a,.pn p{display:block;font-size:14px;line-height:1.5;padding:5px 0;color:#1c1c1c;}
+.pn a{font-weight:700;transition:color .25s;}
+.pn a:hover{color:var(--gold-ink);}
+.pn-ph{position:relative;flex:0 0 230px;height:270px;overflow:hidden;background:#0b0b0b;}
+.pn-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.bar-m{display:none;align-items:center;gap:10px;padding-right:16px;}
+.bar-m a{display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:var(--ink);color:#fff;}
+#mob-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;background:rgba(255,255,255,.6);border:1px solid var(--ink);cursor:pointer;padding:0 11px;}
+#mob-btn span{display:block;height:2px;background:var(--ink);}
+#mob-menu{display:none;position:fixed;inset:0;z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.55)),url("images/lobby/wall.jpg") center/cover no-repeat var(--paper);}
+#mob-menu a{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;font-weight:600;letter-spacing:.06em;color:var(--ink);}
+#mob-menu a.mm-call{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--ink);color:#fff;padding:16px 30px;margin-top:8px;}
+#mob-menu .mm-close{position:absolute;top:11px;right:16px;width:46px;height:46px;background:rgba(255,255,255,.6);border:1px solid var(--ink);font-size:18px;cursor:pointer;}
+.strip{display:none;height:4px;gap:2px;background:#fff;}
+.strip i{flex:1;background:#ece5d2;transition:background .4s;}
+.strip i.f{background:#b8963c;}
 
-/* ── NAV ── */
-.sentinel{position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;}
-nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 48px;transition:background .45s,height .45s,border-color .45s,backdrop-filter .45s;border-bottom:1px solid transparent;}
-nav.site-nav.scrolled{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--gold-dim);height:86px;}
-.nav-side{display:flex;align-items:center;gap:36px;list-style:none;}
-.nav-side.right{justify-content:flex-end;}
-.nav-side a{font-size:0.845rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(250,250,248,0.9);transition:color .25s;white-space:nowrap;}
-.nav-side a:hover{color:var(--gold);}
-.nav-call{background:var(--gold);color:var(--black)!important;font-weight:700!important;padding:13px 24px;letter-spacing:0.25em!important;transition:background .25s!important;}
-.nav-call:hover{background:var(--gold-light)!important;}
-.nav-brand{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 28px;}
-.nav-brand-main{font-family:'Cormorant Garamond',serif;font-size:2.35rem;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--white);line-height:1;padding-left:0.42em;margin:0;}
-.nav-brand-sub{font-size:0.794rem;font-weight:600;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-top:11px;line-height:1;padding-left:0.45em;}
-#mob-btn{display:none;background:none;border:none;cursor:pointer;padding:10px;flex-direction:column;gap:5px;align-items:center;justify-content:center;justify-self:end;}
-#mob-btn span{display:block;width:24px;height:1.5px;background:var(--gold);}
-#mob-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:30px;}
-#mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--white);letter-spacing:0.06em;}
-#mob-menu a.mm-call{font-family:'Montserrat',sans-serif;font-size:0.794rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:16px 36px;margin-top:10px;}
-#mob-menu .mm-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
-
-/* ── HERO (cell grid) ── */
-.hero{position:relative;background:var(--black);padding-top:var(--nav-h);}
-.cells{display:grid;grid-template-columns:1fr 1.16fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);height:calc(100vh - var(--nav-h));min-height:640px;gap:1px;background:var(--gold-dim);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);}
-.cells>a:nth-child(1){grid-column:1;grid-row:1;}
-.cells>a:nth-child(2){grid-column:1;grid-row:2;}
-.cells>a:nth-child(3){grid-column:1;grid-row:3;}
-.cells>a:nth-child(5){grid-column:3;grid-row:1;}
-.cells>a:nth-child(6){grid-column:3;grid-row:2;}
-.cells>a:nth-child(7){grid-column:3;grid-row:3;}
-.cell{position:relative;display:block;overflow:hidden;background:#111;color:var(--white);}
-.cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;}
-.cell:hover img{transform:scale(1.05);}
-.cell-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.82) 0%,rgba(8,8,8,0.28) 48%,rgba(8,8,8,0.05) 100%);transition:background .4s;}
-.cell:hover .cell-shade{background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.45) 55%,rgba(8,8,8,0.15) 100%);}
-.cell-label{position:absolute;left:30px;right:30px;bottom:28px;z-index:2;}
-.cell-kicker{display:block;font-size:0.819rem;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.cell-label h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.5rem,2vw,2rem);font-weight:700;line-height:1.05;color:var(--white);}
-.cell-desc{font-size:0.947rem;font-weight:600;line-height:1.7;color:rgba(250,250,248,0.85);max-width:360px;max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .5s ease,opacity .5s ease,margin-top .5s ease;}
-.cell:hover .cell-desc,.cell:focus-visible .cell-desc{max-height:120px;opacity:1;margin-top:12px;}
-.cell:focus-visible{outline:2px solid var(--gold);outline-offset:-4px;}
-.cell.light{background:#FFFFFF;color:var(--text);}
-.cell.light img{position:absolute;top:18%;left:12%;width:76%;height:64%;padding:0;object-fit:contain;}
-.cell.light:hover img{transform:scale(1.03);}
-.cell.light .cell-shade{display:none;}
-.cell.light .cell-label h2{color:var(--text);}
-.cell.light .cell-kicker{color:#9A7A2A;}
-.cell.light .cell-desc{color:#141414;}
-.cell-stack{display:grid;grid-template-rows:1fr 1fr;gap:1px;background:var(--gold-dim);min-height:0;}
-.cell.dark{background:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;min-height:0;}
-.cell.dark .cell-shade{background:linear-gradient(to top,rgba(8,8,8,0.85) 0%,rgba(8,8,8,0.62) 50%,rgba(8,8,8,0.25) 100%);}
-.cell.dark .cell-label{position:relative;z-index:2;padding:16px 24px;left:auto;right:auto;bottom:auto;}
-.cell.dark .cell-label h2{font-size:clamp(1.4rem,1.9vw,1.9rem);letter-spacing:0.1em;text-transform:uppercase;}
-.cell.dark .cell-kicker{margin-bottom:8px;}
-.cell.dark .cell-pill{display:inline-block;margin-top:12px;font-size:0.75rem;font-weight:700;letter-spacing:0.42em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 12px;}
-.cell.dark .cell-desc{margin-left:auto;margin-right:auto;}
-.cell.dark:hover .cell-desc,.cell.dark:focus-visible .cell-desc{max-height:72px;margin-top:10px;}
-.cell.dark .cell-label{z-index:4;}
-.cell.feature{grid-column:2;grid-row:1/span 3;background:radial-gradient(120% 110% at 50% 82%,#FFFFFF 0%,#F1F0EE 56%,#E3E2DF 100%);color:var(--text);display:flex;flex-direction:column;align-items:center;padding:clamp(18px,2.4vh,32px) clamp(14px,1.6vw,28px) clamp(24px,3vh,38px);}
-.cell.feature img{position:relative;inset:auto;order:1;flex:1 1 auto;min-height:0;width:auto;height:auto;max-width:100%;object-fit:contain;object-position:center bottom;padding:0;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 2%,#000 98%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 7%,#000 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 2%,#000 98%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 7%,#000 100%);mask-composite:intersect;}
-.cell.feature:hover img{transform:none;}
-.cell.feature .cell-shade{display:none;}
-.cell.feature .cell-label{order:2;flex:0 0 auto;position:relative;left:auto;right:auto;bottom:auto;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:100%;padding-top:20px;}
-.cell.feature .cell-label h2{color:var(--text);font-size:clamp(1.8rem,2.7vw,2.9rem);line-height:1.02;}
-.cell.feature .cell-kicker{color:#9A7A2A;}
-.cell.feature .cell-desc{color:#141414;max-height:none;opacity:1;margin-top:12px;font-size:1.344rem;max-width:390px;}
-.cell.feature .cell-label h2::after{content:"";display:block;width:56px;height:2px;background:var(--gold);margin:16px auto 0;}
-@media(max-width:900px){
-  .cells{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(200px,30vh,320px);grid-template-rows:none;}
-  .cells>a:nth-child(n){grid-column:auto;grid-row:auto;}
-  .cells>a:nth-child(1){order:1;}
-  .cells>a:nth-child(2){order:2;}
-  .cells>a:nth-child(4){order:3;}
-  .cells>a:nth-child(3){order:4;}
-  .cells>a:nth-child(5){order:5;}
-  .cells>a:nth-child(6){order:6;}
-  .cells>a:nth-child(7){order:7;}
-  .cells>a.feature{grid-column:1/-1;grid-row:span 2;}
-  .cells>a.feature .cell-label h2{font-size:clamp(1.8rem,4vw,2.6rem);}
-  :root{--nav-h:100px;}
-  .nav-brand-main{font-size:1.9rem;}
-  .nav-brand-sub{font-size:0.75rem;margin-top:9px;}
-  .cells{height:auto;min-height:0;grid-auto-rows:clamp(220px,32vh,340px);}
+/* THE GRID */
+.grid{position:relative;height:calc(100vh - var(--bar));min-height:600px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));background:#0b0b0b;}
+.grid:focus{outline:none;}
+.t{position:relative;overflow:hidden;display:block;min-width:0;min-height:0;background:#0b0b0b;color:#fff;text-align:center;cursor:pointer;}
+.t-tax{grid-column:1/span 2;grid-row:1/span 4;}
+.t-plaza{grid-column:3/span 2;grid-row:1/span 4;}
+.t-story{grid-column:5/span 4;grid-row:1/span 4;}
+.t-tw{grid-column:9/span 4;grid-row:1/span 2;}
+.t-books{grid-column:9/span 2;grid-row:3/span 4;}
+.t-labs{grid-column:11/span 2;grid-row:3/span 4;}
+.t-ex{grid-column:1/span 4;grid-row:5/span 2;}
+.t-gwin{grid-column:5/span 4;grid-row:5/span 2;}
+.t:focus-visible{outline:2px solid var(--gold);outline-offset:-4px;box-shadow:none;}
+.ph{position:absolute;inset:0;}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter .5s ease,transform 1.2s ease;}
+.sh{position:absolute;inset:0;background:rgba(0,0,0,.4);transition:background .45s ease;}
+.t-story .sh{background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.66) 100%);}
+.lb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;gap:9px;text-shadow:0 1px 10px rgba(0,0,0,.75);}
+.t-story .lb{justify-content:flex-end;padding-bottom:34px;}
+.t-tax .lb,.t-plaza .lb{justify-content:flex-start;padding-top:9vh;}
+.t-tw .lb{justify-content:flex-end;padding-bottom:14px;}
+.yr{font-size:clamp(12px,.82vw,16px);font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);}
+.gr{display:block;width:34px;height:1px;background:var(--gold);}
+.nm{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,1.45vw,32px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;line-height:1.15;}
+.t-tw .nm,.t-ex .nm,.t-gwin .nm{font-size:clamp(22px,1.8vw,40px);}
+.t-story .nm{font-size:clamp(30px,2.4vw,54px);}
+.ds{display:block;max-height:0;opacity:0;overflow:hidden;font-size:clamp(13px,.9vw,18px);font-weight:500;line-height:1.6;max-width:22em;color:#f4eee0;transition:opacity .45s ease,max-height .45s ease;}
+.op{display:block;margin-top:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.tap{display:none;margin-top:5px;padding:9px 18px;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-shadow:none;}
+.ck{display:none;position:absolute;z-index:2;top:12px;right:12px;width:24px;height:24px;align-items:center;justify-content:center;background:var(--gold);color:#070707;}
+.t.vis .ck{display:flex;}
+.bc{display:none;align-items:center;gap:8px;margin-top:4px;padding:8px 13px;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-shadow:none;}
+.bc::before{content:"";width:8px;height:8px;border-radius:50%;background:#070707;}
+.grid.ready .t.bea .bc{display:inline-flex;animation:bcin .6s ease both;}
+.grid.ready .t.bea .bc::before{animation:pulse 1.4s ease-in-out infinite;}
+.grid.ready .t.bea::after{content:"";position:absolute;inset:0;border:2px solid var(--gold);opacity:0;pointer-events:none;animation:ring 1.8s ease-in-out infinite;}
+@media (hover:hover){
+  .t:hover .ph img,.t:focus-visible .ph img{filter:blur(7px) brightness(.3);transform:scale(1.05);}
+  .t:hover .ds,.t:focus-visible .ds{max-height:14em;opacity:1;}
 }
-@media(hover:none){.cell-desc{display:none;}.cell.feature .cell-desc{display:block;}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Montserrat',sans-serif;font-size:0.768rem;font-weight:700;letter-spacing:0.38em;text-transform:uppercase;padding:19px 40px;transition:background .3s,color .3s,border-color .3s,transform .3s;border:1px solid transparent;cursor:pointer;}
-.btn-gold{background:var(--gold);color:var(--black);border-color:var(--gold);}
-.btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);}
-.btn-ghost{background:transparent;color:var(--white);border-color:rgba(250,250,248,0.35);}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-.on-light .btn-ghost{color:var(--text);border-color:rgba(26,26,26,0.35);}
-.on-light .btn-ghost:hover{border-color:var(--text);color:var(--text);}
+/* the opening: tiles light in the order the family built them */
+.js .grid .ph{opacity:.1;filter:grayscale(1);}
+.js .grid .gr{width:0;}
+.js .grid.lit .ph{animation:lit 1.2s ease var(--d,0s) both;}
+.js .grid.lit .gr{animation:gr .9s ease var(--d,0s) both;}
+.js .grid.quick .ph{animation:none;opacity:1;filter:none;}
+.js .grid.quick .gr{animation:none;width:34px;}
+/* a gold frame passes from tile to tile as each one lights */
+.js .grid.lit .t::before{content:"";position:absolute;inset:0;z-index:2;border:2px solid var(--gold);opacity:0;pointer-events:none;animation:flash 1.4s ease var(--d,0s) both;}
+@keyframes lit{from{opacity:.1;filter:grayscale(1);}to{opacity:1;filter:none;}}
+@keyframes gr{from{width:0;}to{width:34px;}}
+@keyframes flash{0%{opacity:0;}22%{opacity:1;}100%{opacity:0;}}
+@keyframes bcin{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.7);opacity:.35;}}
+@keyframes ring{0%,100%{opacity:0;}50%{opacity:1;}}
+@keyframes up{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+@keyframes rmin{from{opacity:0;}to{opacity:1;}}
 
+/* THE ROOMS */
+.rooms{position:fixed;inset:0;z-index:60;display:none;background:#fff;}
+.rooms.open{display:block;}
+.room{position:absolute;inset:0;display:none;}
+.room.cur{display:flex;animation:rmin .45s ease both;}
+.rm-ph{position:relative;flex:0 0 58%;overflow:hidden;background:#0b0b0b;}
+.rm-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.rm-tx{flex:1;min-width:0;display:flex;flex-direction:column;padding:34px clamp(26px,4vw,76px) 40px;overflow-y:auto;color:#141414;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,.5)),url("images/lobby/wall.jpg") center/cover no-repeat var(--paper);}
+.rm-top{display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.rm-back{display:flex;align-items:center;gap:10px;height:44px;background:none;border:0;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);}
+.rm-n{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#4a463d;white-space:nowrap;}
+.rm-mid{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:22px 0;}
+.rm-yr,.rm-fact b{font-variant-numeric:lining-nums;}
+.rm-yr{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(24px,1.9vw,36px);color:var(--gold-ink);}
+.room h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(40px,4.2vw,84px);line-height:1.02;}
+.rm-rule{width:56px;height:1px;background:#b8963c;}
+.room p{font-size:clamp(15.5px,1.1vw,20px);line-height:1.75;color:#2b2b2b;max-width:30em;}
+.room p.rm-q{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(19px,1.5vw,27px);line-height:1.45;color:#141414;border-left:2px solid var(--gold);padding-left:18px;}
+.room p.rm-win{display:none;font-weight:700;color:var(--gold-ink);}
+.rooms.won .room p.rm-win{display:block;}
+.rm-fact{display:flex;align-items:center;gap:18px;margin-top:6px;}
+.rm-fact b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,3.6vw,72px);font-weight:600;line-height:1;color:var(--gold-ink);white-space:nowrap;}
+.rm-fact span{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.7;color:#4a463d;max-width:20em;}
+.rm-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+.go{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:17px 20px;white-space:nowrap;transition:background .25s;}
+.go:hover{background:#2c2c2c;}
+.nx{display:inline-block;background:rgba(255,255,255,.6);border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 18px;cursor:pointer;white-space:nowrap;transition:color .25s,border-color .25s;}
+.nx:hover{border-color:var(--gold-ink);color:var(--gold-ink);}
+.rm-dots{display:flex;gap:6px;margin-top:26px;}
+.rm-dots i{flex:1;height:2px;background:rgba(131,99,24,.25);}
+.rm-dots i.c{background:var(--gold-ink);}
 
-/* ── STAT WALL ── */
-.stats{background:var(--ink);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);position:relative;z-index:2;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
-.stat{padding:56px 28px;text-align:center;border-right:1px solid rgba(232,201,122,0.14);}
-.stat:last-child{border-right:none;}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,4.6vw,4.6rem);font-weight:700;color:var(--gold);line-height:1;font-variant-numeric:lining-nums tabular-nums;}
-.stat-num sup{font-size:0.4em;vertical-align:top;position:relative;top:0.35em;margin-left:2px;font-weight:600;}
-.stat-num .of{font-size:0.5em;font-style:italic;font-weight:400;margin:0 .1em;color:rgba(232,201,122,0.7);}
-.stat-lbl{font-size:0.75rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:rgba(250,250,248,0.9);margin-top:16px;line-height:1.8;}
+/* PHONE: one button always says the next move */
+.walk{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;height:58px;}
+.walk button,.walk a{flex:1;display:flex;align-items:center;justify-content:center;border:0;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:0 12px;text-align:center;}
 
-/* ── THESIS ── */
-.thesis{background:var(--cream);color:var(--text);padding:140px 0;position:relative;overflow:hidden;}
-.thesis::before{content:'';position:absolute;top:-30%;right:-10%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(232,201,122,0.18) 0%,rgba(232,201,122,0) 60%);pointer-events:none;}
-.thesis-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:80px;align-items:center;}
-.thesis .sec-title{font-size:clamp(2.6rem,4.4vw,5rem);}
-.portrait{position:relative;justify-self:end;width:min(100%,460px);}
-.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;filter:saturate(0.85) contrast(1.02);}
-.portrait::before{content:'';position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);z-index:-1;}
-.portrait::after{content:'';position:absolute;right:-22px;bottom:-22px;width:60%;height:60%;background:var(--ink);z-index:-2;}
-.portrait figcaption{position:absolute;left:0;bottom:-46px;font-size:0.75rem;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:#141414;}
-.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-style:italic;font-weight:500;color:var(--text);line-height:1.35;border-left:2px solid var(--gold);padding-left:26px;margin:36px 0 40px;max-width:560px;}
+/* FOOTER, one slim line */
+.site-footer{background:#fff;border-top:1px solid var(--line);padding:22px 28px;color:#3d3a33;}
+.site-footer .sf-inner{max-width:1500px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;}
+.site-footer .sf-biz{font-size:12.8px;font-weight:600;letter-spacing:.08em;line-height:1.7;color:#3d3a33;}
+.site-footer .sf-biz a{font-weight:700;color:#141414;}
+.site-footer .sf-links{display:flex;flex-wrap:wrap;gap:8px 22px;}
+.site-footer .sf-links a{font-size:12.8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141414;transition:color .25s;}
+.site-footer .sf-links a:hover,.site-footer .sf-biz a:hover{color:var(--gold-ink);}
+.site-footer .sf-copy{font-size:12.8px;font-weight:600;letter-spacing:.1em;color:#5c574c;}
 
-/* ── PROJECTS ── */
-.projects{background:var(--cream);color:var(--text);padding:130px 0;}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px;}
-.proj{position:relative;display:grid;grid-template-rows:300px auto;background:var(--white);border:1px solid rgba(201,168,76,0.28);overflow:hidden;transition:transform .5s ease,box-shadow .5s ease;}
-.proj:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(26,26,26,0.12);}
-.proj-media{overflow:hidden;background:var(--ink);}
-.proj-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;}
-.proj:hover .proj-media img{transform:scale(1.06);}
-.proj-media.dark{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#1a1a1a 0%,#0a0a0a 75%);}
-.proj-media.dark span{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-align:center;line-height:1;padding:0 20px;}
-.proj-media.dark small{display:block;font-family:'Montserrat',sans-serif;font-size:0.75rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(250,250,248,0.9);margin-top:14px;font-weight:600;}
-.proj-body{padding:34px 36px 40px;}
-.pill{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--text);background:var(--gold);padding:7px 12px;margin-bottom:18px;}
-.pill.quiet{background:transparent;border:1px solid rgba(201,168,76,0.5);color:#7a6320;}
-.proj h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1;margin-bottom:8px;}
-.proj .addr{font-size:0.75rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:#141414;margin-bottom:18px;}
-.proj p{font-size:1.075rem;line-height:1.9;color:#141414;margin-bottom:22px;}
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal.d1{transition-delay:.12s;}
-.reveal.d2{transition-delay:.24s;}
-.reveal.d3{transition-delay:.36s;}
-
-/* ── MOBILE CALL BAR ── */
-.mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:98;background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--gold-dim);grid-template-columns:1fr 1fr;}
-.mobar a{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 10px;font-size:0.75rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);}
-.mobar a.call{background:var(--gold);color:var(--black);}
-
-/* ── SITE FOOTER (shared across all pages) ── */
-.site-footer{display:block;background:#0a0a0a;border-top:1px solid rgba(232,201,122,0.25);padding:56px 24px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;color:#CFCFCF;}
-.site-footer .sf-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;}
-.site-footer .sf-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 30px;}
-.site-footer .sf-links a{font-size:14.08px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
-.site-footer .sf-links a:hover{color:#E8C97A;}
-.site-footer .sf-social{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 32px;}
-.site-footer .sf-ig{display:inline-flex;align-items:center;gap:9px;font-size:15.36px;font-weight:600;letter-spacing:0.12em;color:#CFCFCF;text-decoration:none;transition:color 0.25s;}
-.site-footer .sf-ig:hover{color:#E8C97A;}
-.site-footer .sf-ig-icon{width:18px;height:18px;flex:0 0 auto;display:block;}
-.site-footer .sf-phone a{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:0.08em;color:#E8C97A;text-decoration:none;transition:color 0.25s;}
-.site-footer .sf-phone a:hover{color:#FFFFFF;}
-.site-footer .sf-copy{font-size:12.8px;font-weight:600;letter-spacing:0.18em;color:#8A8A8A;}
-@media(max-width:600px){
-  .site-footer{padding:44px 18px 110px;}
-  .site-footer .sf-inner{gap:22px;}
-  .site-footer .sf-links{flex-direction:column;gap:14px;}
-  .site-footer .sf-links a{font-size:12.8px;letter-spacing:0.18em;}
-  .site-footer .sf-social{flex-direction:column;gap:14px;}
-  .site-footer .sf-phone a{font-size:18px;}
-  .site-footer .sf-copy{font-size:12px;letter-spacing:0.14em;}
+@media (min-width:1900px){:root{--bar:100px;}.nl{font-size:14px;}.bar-util{font-size:13px;height:36px;}.brand h1{font-size:32px;}.brand img{height:24px;}}
+@media (max-width:1499px){
+  .bar{grid-template-columns:minmax(0,1fr) 220px minmax(0,1fr);}
+  .bar-side{padding:0 20px;}
+  .nl{letter-spacing:.08em;}
+  .nl.call{padding:10px 10px;letter-spacing:.06em;}
+  .brand span{letter-spacing:.07em;}
+  .bar-util{letter-spacing:.1em;}
+  .xh{display:none;}
 }
-
-/* ── NEWSLETTER ── */
-.newsletter{background:#000;border-top:1px solid rgba(232,201,122,0.25);padding:72px 24px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;color:#CFCFCF;}
-.newsletter .nl-inner{max-width:680px;margin:0 auto;text-align:center;}
-.newsletter .nl-eyebrow{font-size:14.08px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#E8C97A;margin-bottom:20px;}
-.newsletter .nl-heading{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:36px;font-weight:400;line-height:1.25;letter-spacing:0.03em;color:#FFFFFF;margin-bottom:16px;}
-.newsletter .nl-copy{font-size:17.92px;font-weight:600;line-height:1.7;letter-spacing:0.04em;color:#CFCFCF;margin-bottom:34px;}
-.newsletter .nl-form{display:flex;align-items:stretch;justify-content:center;gap:12px;max-width:520px;margin:0 auto;}
-.newsletter .nl-input{flex:1 1 auto;min-width:0;background:#0a0a0a;border:1px solid rgba(232,201,122,0.9);border-radius:2px;padding:14px 16px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-size:16.64px;font-weight:600;letter-spacing:0.06em;color:#FFFFFF;outline:none;transition:border-color 0.25s;}
-.newsletter .nl-input::placeholder{color:#8A8A8A;}
-.newsletter .nl-input:focus{border-color:#E8C97A;}
-.newsletter .nl-btn{flex:0 0 auto;background:#E8C97A;border:1px solid #E8C97A;border-radius:2px;padding:14px 32px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000000;cursor:pointer;transition:background 0.25s,border-color 0.25s;}
-.newsletter .nl-btn:hover{background:#FFFFFF;border-color:#FFFFFF;}
-.newsletter .nl-btn[disabled]{opacity:0.55;cursor:default;}
-.newsletter .nl-status{min-height:20px;margin-top:18px;font-size:15.36px;font-weight:600;letter-spacing:0.1em;color:#E8C97A;}
-@media(max-width:600px){
-  .newsletter{padding:52px 18px;}
-  .newsletter .nl-heading{font-size:27px;}
-  .newsletter .nl-copy{font-size:16.64px;margin-bottom:28px;}
-  .newsletter .nl-form{flex-direction:column;gap:10px;}
-  .newsletter .nl-btn{width:100%;padding:14px 20px;}
-  .newsletter .nl-status{font-size:14.08px;letter-spacing:0.08em;}
+@media (max-width:1239px){
+  :root{--bar:68px;}
+  .bar{grid-template-columns:minmax(0,1fr) auto;}
+  .bar-side{display:none;}
+  .brand{order:-1;align-items:flex-start;background:none;color:var(--ink);padding:0 20px;gap:5px;}
+  .brand img{display:none;}
+  .brand h1{font-size:24px;letter-spacing:.3em;padding-left:0;}
+  .brand span{color:var(--gold-ink);}
+  .bar-m{display:flex;}
+  .strip{display:flex;}
+  .grid{height:calc(100vh - var(--bar) - 4px);}
+  .nm{letter-spacing:.1em;}
 }
-
-/* #029 nav fit band - Call Now was off-screen 1101-1640px. Additive, nothing above edited. */
-@media(min-width:1101px) and (max-width:1640px){
-  .nav-side{gap:12px;}
-  .nav-side a{font-size:0.75rem;letter-spacing:0.09em;}
-  .nav-call{padding:11px 14px;letter-spacing:0.09em!important;}
-  .nav-brand{padding:0 10px;}
-  .nav-brand-main{font-size:1.7rem;letter-spacing:0.24em;padding-left:0.24em;}
-  .nav-brand-sub{font-size:0.75rem;letter-spacing:0.2em;padding-left:0.2em;}
+@media (max-width:1000px){
+  .grid{height:auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:250px;}
+  .grid .t{grid-column:auto;grid-row:auto;}
+  .grid .t-story{grid-column:1/-1;grid-row:span 2;}
+  .grid .t-books{grid-column:1/-1;}
+  .t-tax .lb,.t-plaza .lb,.t-tw .lb{justify-content:center;padding:18px;}
+  .nm,.t-tw .nm,.t-ex .nm,.t-gwin .nm{font-size:24px;letter-spacing:.14em;}
+  .t-story .nm{font-size:32px;}
+  .rooms{overflow-y:auto;}
+  .room{position:relative;inset:auto;min-height:100%;flex-direction:column;}
+  .rm-ph{flex:0 0 36vh;}
+  .rm-tx{flex:1 0 auto;overflow:visible;padding:8px 24px 28px;gap:0;}
+  .rm-mid{justify-content:flex-start;gap:14px;padding:10px 0 22px;}
+  .rm-btns{flex-direction:column;align-items:stretch;gap:10px;}
+  .go,.nx{display:block;width:100%;text-align:center;white-space:normal;}
 }
-/* ── TABLET ── */
-@media(max-width:1100px){
-  nav.site-nav{grid-template-columns:1fr auto;padding:0 20px;}
-  .nav-side{display:none;}
-  #mob-btn{display:flex;}
-  .section-wrap{padding:0 28px;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .stat:nth-child(2){border-right:none;}
-  .stat:nth-child(-n+2){border-bottom:1px solid rgba(232,201,122,0.14);}
-  .thesis-grid{grid-template-columns:1fr;gap:70px;}
-  .portrait{justify-self:start;margin-top:20px;}
-  .proj-grid{grid-template-columns:1fr;}
+@media (max-width:1000px) and (hover:none){.tap{display:inline-block;}}
+@media (max-width:640px){
+  body{padding-bottom:58px;}
+  .grid{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto;}
+  .grid .t{height:200px;border-bottom:1px solid #070707;}
+  .grid .t-story{height:380px;grid-column:auto;grid-row:auto;}
+  .grid .t-books{grid-column:auto;}
+  .lb,.t-tax .lb,.t-plaza .lb,.t-tw .lb{padding:12px 28px;gap:7px;}
+  .t-story .lb{padding-bottom:22px;}
+  .sh{background:rgba(0,0,0,.64);}
+  .t-story .sh{background:linear-gradient(180deg,rgba(0,0,0,.2) 25%,rgba(0,0,0,.84) 72%);}
+  .t.on .sh{background:rgba(0,0,0,.3);}
+  .t-story.on .sh{background:linear-gradient(180deg,rgba(0,0,0,0) 28%,rgba(0,0,0,.8) 70%);}
+  .t .ph img{transition:transform 1.2s ease;}
+  .t.on .ph img{transform:scale(1.05);}
+  .ds{display:none;max-height:none;opacity:1;font-size:13px;line-height:1.55;}
+  .op,.bc,.grid.ready .t.bea .bc{display:none;}
+  .grid.ready .t.bea::after{display:none;}
+  .tap,.t .tap{display:none;}
+  .t.on .ds{display:block;animation:up .4s ease both;}
+  .t.on .tap{display:inline-block;animation:up .4s ease .08s both;}
+  .walk{display:flex;}
+  .site-footer .sf-inner{flex-direction:column;align-items:flex-start;}
 }
-
-/* ── MOBILE ── */
-@media(max-width:600px){
-  :root{--nav-h:84px;}
-  nav.site-nav{height:84px;padding:0 14px;}
-  nav.site-nav.scrolled{height:74px;}
-  .nav-brand-main{font-size:1.45rem;letter-spacing:0.3em;}
-  .nav-brand-sub{font-size:0.75rem;letter-spacing:0.32em;margin-top:9px;}
-  .cells{grid-template-columns:1fr;grid-auto-rows:clamp(220px,58vw,330px);height:auto;min-height:0;}
-  .cells>a:nth-child(n){order:0;grid-column:auto;grid-row:auto;}
-  .cells>a.feature{grid-column:1/-1;grid-row:span 2;padding:22px 20px 26px;}
-  .cells>a.feature .cell-label h2{font-size:1.75rem;}
-  .cells>a.feature .cell-desc{display:none;}
-  .cell-label{left:20px;right:20px;bottom:20px;}
-  .cell.light .cell-label{display:none;}
-  .cell-stack{display:contents;}
-  .stat{padding:36px 16px;}
-  .stat-num{font-size:2.8rem;}
-  .thesis,.projects{padding:84px 0;}
-  .section-wrap{padding:0 18px;}
-  .proj{grid-template-rows:220px auto;}
-  .proj-body{padding:26px 22px 32px;}
-  .portrait figcaption{bottom:-36px;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .js .grid .ph{opacity:1;filter:none;animation:none!important;}
+  .js .grid .gr{width:34px;animation:none!important;}
+  .js .grid.lit .t::before{animation:none;}
+  .room.cur,.t.on .ds,.t.on .tap,.grid.ready .t.bea .bc,.grid.ready .t.bea .bc::before,.grid.ready .t.bea::after{animation:none;}
+  .grid.ready .t.bea::after{opacity:1;}
+  .ph img,.sh,.ds{transition:none;}
 }
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1;transform:none;transition:none;}
-  .cell img{transition:none;}
-}
-
-/* -- #022b light-surface gold -- */
-:root{--gold-ink:#836318;}
-nav .nav-logo-sub{color:var(--gold-ink);}
-.on-light .label-tag,.on-light .sec-title em,.on-light .text-link,
-.cell.light .cell-kicker,.cell.feature .cell-kicker,
-.proj .text-link{color:var(--gold-ink);}
-</style>
-<style id="mark-041">
-.sec-title::before{content:url("/images/mark/divider.svg");display:block;line-height:0;margin-bottom:22px;}
-.site-footer{position:relative;overflow:hidden;}
-.site-footer::before{content:"";position:absolute;right:-70px;top:-90px;width:560px;height:430px;background:url("/images/mark/monogram.svg") no-repeat center/contain;opacity:.14;pointer-events:none;}
-.site-footer>*{position:relative;}
-@media (max-width:700px){.site-footer::before{width:360px;height:276px;right:-70px;top:-60px;}}
 </style>
 <style id="a11y-071">
 .skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:#080808;color:#E8C97A;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;padding:14px 22px;text-decoration:none;border:1px solid #E8C97A;}
@@ -398,10 +332,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .form-consent{font-size:0.78rem;line-height:1.65;color:#8A8A8A;margin-top:16px;}
 .form-consent a{color:#E8C97A;text-decoration:underline;}
 </style>
-<style id="biz-073">
-.site-footer .sf-biz{font-size:12.8px;font-weight:500;letter-spacing:0.1em;color:#8A8A8A;}
-@media(max-width:600px){.site-footer .sf-biz{font-size:12px;letter-spacing:0.08em;line-height:1.7;}}
-</style>
+<script>document.documentElement.className+=" js";</script>
 <script id="tag-074">
 (function(){
 var K="acuna_optout";
@@ -429,26 +360,68 @@ fbq("track","PageView");
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="sentinel" id="nav-sentinel"></div>
-
-<!-- NAV -->
-<nav class="site-nav" id="site-nav" aria-label="Primary">
-  <ul class="nav-side left">
-    <li><a href="/about">Our Story</a></li>
-    <li><a href="/alexandras-properties">Alexandra's Properties</a></li>
-    <li><a href="/exclusiva">Exclusiva Homes</a></li>
-  </ul>
-  <a href="/" class="nav-brand" aria-label="The Acuña Organizations, home">
-    <h1 class="nav-brand-main">Acuña</h1>
-    <span class="nav-brand-sub">The Acuña Organizations</span>
+<!-- TOP BAR -->
+<header class="bar">
+  <div class="bar-side left">
+    <div class="bar-util">Edinburg, Texas. Since 2003.</div>
+    <nav class="bar-nav" aria-label="Primary">
+      <div class="nv"><a class="nl" href="/about">Our Story</a></div>
+      <div class="nv"><a class="nl" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a>
+        <div class="pn"><div class="pn-in">
+          <div class="pn-cols">
+            <div><h3>The agency</h3><a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Visit Texaswide Insurance</a><p>Independent. Families, seniors and businesses across Texas.</p></div>
+            <div><h3>Offices</h3><p>Edinburg</p><p>San Juan</p><p>McAllen</p><a href="tel:+19563810055">(956) 381-0055</a></div>
+          </div>
+          <div class="pn-ph"><img src="images/offices/texaswide-sign.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" style="object-position:35% 45%"></div>
+        </div></div>
+      </div>
+      <div class="nv"><a class="nl" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">Electronic Tax Filing</a></div>
+    </nav>
+  </div>
+  <a href="/" class="brand" aria-label="The Acuña Organizations, home">
+    <img src="images/mark/monogram.svg" alt="" width="26" height="20">
+    <h1>Acuña</h1>
+    <span>The Acuña Organizations</span>
   </a>
-  <ul class="nav-side right">
-    <li><a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a></li>
-    <li><a href="/texacuna">TexAcuna Labs</a></li>
-    <li><a href="tel:+19563810055" class="nav-call">Call Now</a></li>
-  </ul>
-  <button id="mob-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mob-menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</nav>
+  <div class="bar-side right">
+    <div class="bar-util"><div class="score" role="status">Doors opened <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span> <span id="score-n">0 of 8</span></div></div>
+    <nav class="bar-nav" aria-label="More of the family businesses">
+      <div class="nv"><a class="nl" href="/exclusiva">Exclusiva<span class="xh"> Homes</span></a>
+        <div class="pn"><div class="pn-in">
+          <div class="pn-cols">
+            <div><h3>Homes built to own</h3><a href="/exclusiva">See the homes</a><p>Energy efficient new construction.</p></div>
+            <div><h3>Where we build</h3><p>Las Brisas Street</p><p>Satellite Street</p><p>Edinburg, Texas</p></div>
+          </div>
+          <div class="pn-ph"><img src="images/about-exclusiva-3563.webp" alt="" width="1200" height="675" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+        </div></div>
+      </div>
+      <div class="nv"><a class="nl" href="/alexandras-properties">Alexandra's</a>
+        <div class="pn"><div class="pn-in">
+          <div class="pn-cols">
+            <div><h3>Commercial</h3><a href="/alexandras-plaza">Alexandra's Plaza</a><p>1112 W Montecristo, Edinburg</p><a href="/alexandras-properties">Alexandra's Properties</a></div>
+            <div><h3>Venue and retreat</h3><a href="/alexandras-at-gwin">Alexandra's at Gwin</a><p>4004 N Gwin Rd, Edinburg</p><p>Open. Book direct.</p></div>
+          </div>
+          <div class="pn-ph"><img src="images/plaza/plaza-01.webp" alt="" width="787" height="1400" loading="lazy" decoding="async" style="object-position:50% 60%"></div>
+        </div></div>
+      </div>
+      <div class="nv"><a class="nl" href="/texacuna">TexAcuna Labs</a>
+        <div class="pn"><div class="pn-in">
+          <div class="pn-cols">
+            <div><h3>Ezra</h3><a href="/texacuna">Runs the front office</a><p>Every client and every commitment, tracked.</p></div>
+            <div><h3>Pegasus</h3><a href="/texacuna">Runs the back office</a><p>The money, in one view.</p></div>
+          </div>
+          <div class="pn-ph"><img src="images/bos/hero-plate-1600.webp" alt="" width="1600" height="1111" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
+        </div></div>
+      </div>
+      <div class="nv"><a class="nl call" href="tel:+19563810055">(956) 381-0055</a></div>
+    </nav>
+  </div>
+  <div class="bar-m">
+    <a href="tel:+19563810055" aria-label="Call the Edinburg office"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    <button id="mob-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mob-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="strip" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <!-- Mobile Menu Overlay -->
 <div id="mob-menu" role="dialog" aria-label="Menu">
@@ -463,171 +436,207 @@ fbq("track","PageView");
   <a href="tel:+19563810055" class="mm-call">Call Now</a>
 </div>
 
-<div id="main" tabindex="-1"></div>
+<!-- THE GRID: eight doors. In the page in reading order, on screen as a mosaic. -->
+<main class="grid" id="main" tabindex="-1" aria-label="The businesses">
+  <a class="t t-story" href="/about" data-door="story" style="--d:.2s">
+    <span class="ph"><img src="images/acuna-founders.jpg" alt="Robert and Leticia Acuña, Edinburg, Texas" width="1079" height="1861" decoding="async" fetchpriority="high" style="object-position:50% 0"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">The Family</span><span class="gr"></span><h2 class="nm">Our Story</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">The family behind every door on this page. Edinburg, since 2003.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-tax" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener" data-door="tax" style="--d:1s">
+    <span class="ph"><img src="images/offices/etf-sign.webp" alt="The Electronic Tax Filing sign on the Edinburg office" width="787" height="1400" decoding="async" loading="lazy" style="object-position:50% 30%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">2003</span><span class="gr"></span><h2 class="nm">Electronic Tax Filing</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Tax preparation handled correctly, every year, since 2003. No drama.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-tw" href="https://www.txwideinsurance.com" target="_blank" rel="noopener" data-door="tw" style="--d:1.6s">
+    <span class="ph"><img src="images/offices/texaswide-sign.webp" alt="The Texaswide Insurance sign on the Edinburg office" width="1600" height="900" decoding="async" loading="lazy" style="object-position:50% 35%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">2016</span><span class="gr"></span><h2 class="nm">Texaswide Insurance</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">An independent agency. Families, seniors and businesses across Texas. 5.0 on Google, 565+ reviews.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-ex" href="/exclusiva" data-door="ex" style="--d:2.2s">
+    <span class="ph"><img src="images/about-exclusiva-3563.webp" alt="An Exclusiva home on Las Brisas Street at dusk" width="1200" height="675" decoding="async" loading="lazy" style="object-position:50% 62%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">2024</span><span class="gr"></span><h2 class="nm">Exclusiva Homes</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Homes built to own. Built here. Staying here.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-plaza" href="/alexandras-plaza" data-door="plaza" style="--d:2.8s">
+    <span class="ph"><img src="images/plaza/plaza-01.webp" alt="Alexandra's Plaza from above" width="787" height="1400" decoding="async" loading="lazy" style="object-position:50% 50%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">Now</span><span class="gr"></span><h2 class="nm">Alexandra's Plaza</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Six suites on W Montecristo. Five leased before the walls were done.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-gwin" href="/alexandras-at-gwin" data-door="gwin" style="--d:3.4s">
+    <span class="ph"><img src="images/gwin/gwin-aerial.webp" alt="The pool and cabin at Alexandra's at Gwin" width="1600" height="900" decoding="async" loading="lazy" style="object-position:50% 50%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">Open</span><span class="gr"></span><h2 class="nm">Alexandra's at Gwin</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Event grounds and a private retreat on land the family has held for sixty years.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-labs" href="/texacuna" data-door="labs" style="--d:3.9s">
+    <span class="ph"><img src="images/bos/hero-plate-1600.webp" alt="Mountain range at first light" width="1600" height="1111" decoding="async" loading="lazy" style="object-position:60% 50%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">Early Access</span><span class="gr"></span><h2 class="nm">TexAcuna Labs</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Ezra runs the front office. Pegasus runs the back. Built inside these businesses, now opening up.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+  <a class="t t-books" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer" data-door="books" style="--d:4.4s">
+    <span class="ph"><img src="images/bos/cell-books.webp" alt="A lit path through tall trees" width="1600" height="800" decoding="async" loading="lazy" style="object-position:50% 50%"></span>
+    <span class="sh"></span>
+    <span class="ck" aria-hidden="true"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5l3.5 3.5L11 1"/></svg></span>
+    <span class="lb"><span class="yr">On Amazon</span><span class="gr"></span><h2 class="nm">Books</h2><span class="bc" aria-hidden="true">Start here</span><span class="ds">Written by Trebor Acuña. On Amazon now.<span class="op">Click to open</span></span><span class="tap" aria-hidden="true">Open</span></span>
+  </a>
+</main>
 
-<!-- HERO -->
-<header class="hero" id="hero">
-  <nav class="cells" aria-label="The businesses">
-    <a class="cell" href="/alexandras-properties">
-      <img src="images/plaza/plaza-05-v2.webp" alt="Alexandra's Plaza going up on W Montecristo, Edinburg" decoding="async">
-      <div class="cell-shade" aria-hidden="true"></div>
-      <div class="cell-label"><span class="cell-kicker">Commercial</span><h2>Alexandra's Properties</h2><p class="cell-desc">Alexandra's Plaza, six suites on W Montecristo. Five leased before the walls were done.</p></div>
-    </a>
-    <a class="cell light" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">
-      <img src="images/14261.jpg" alt="Texaswide Insurance" decoding="async">
-      <div class="cell-label"><span class="cell-kicker">Protection</span><h2>Texaswide Insurance</h2><p class="cell-desc">An independent agency. Families, seniors, and businesses across the Valley. 5.0 on Google, 560+ reviews.</p></div>
-    </a>
-    <a class="cell dark" href="/texacuna">
-      <img src="images/bos/cell-texacuna.webp" srcset="images/bos/cell-texacuna-800.webp 800w, images/bos/cell-texacuna.webp 1600w" sizes="(max-width: 900px) 100vw, 40vw" alt="" aria-hidden="true" decoding="async">
-      <div class="cell-shade" aria-hidden="true"></div>
-      <div class="cell-label"><span class="cell-kicker">Discover</span><h2>TexAcuna Labs</h2><span class="cell-pill">Early Access</span><p class="cell-desc">Ezra runs the front office. Pegasus runs the back. Built inside these businesses, now opening up.</p></div>
-    </a>
-    <a class="cell feature" href="/about">
-      <img src="images/acuna-founders.jpg" alt="The Acuñas, Edinburg, Texas" decoding="async">
-      <div class="cell-label"><span class="cell-kicker">Legacy</span><h2>Our Story</h2><p class="cell-desc">The family behind every door on this page. Edinburg, since 2003.</p></div>
-    </a>
-    <a class="cell" href="/exclusiva">
-      <img src="images/lot4/lot4-framing-01.webp" alt="An Exclusiva home framed, with a finished one beside it" decoding="async" style="object-position:center 38%;">
-      <div class="cell-shade" aria-hidden="true"></div>
-      <div class="cell-label"><span class="cell-kicker">Residential</span><h2>Exclusiva Homes</h2><p class="cell-desc">Homes built to own.</p></div>
-    </a>
-    <a class="cell light" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">
-      <img src="images/14852.jpg" alt="Electronic Tax Filing" decoding="async">
-      <div class="cell-label"><span class="cell-kicker">Strategy</span><h2>Electronic Tax Filing</h2><p class="cell-desc">Tax preparation handled correctly, every year, since 2003. No drama.</p></div>
-    </a>
-    <a class="cell dark" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">
-      <img src="images/bos/cell-books.webp" srcset="images/bos/cell-books-800.webp 800w, images/bos/cell-books.webp 1600w" sizes="(max-width: 900px) 100vw, 40vw" alt="" aria-hidden="true" decoding="async">
-      <div class="cell-shade" aria-hidden="true"></div>
-      <div class="cell-label"><span class="cell-kicker">Explore</span><h2>Books</h2><span class="cell-pill">Now Available</span><p class="cell-desc">Written by Trebor Acuña. On Amazon now.</p></div>
-    </a>
-  </nav>
-</header>
-
-<!-- STAT WALL -->
-<section class="stats" aria-label="By the numbers">
-  <div class="stats-grid">
-    <div class="stat">
-      <div class="stat-num"><span class="count" data-target="23" id="years-num">0</span></div>
-      <div class="stat-lbl">Years in the Valley<br>Since 2003</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num"><span class="count" data-target="5" data-decimals="1">0.0</span></div>
-      <div class="stat-lbl">Google Rating<br>Texaswide &middot; 560+ Reviews</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num"><span class="count" data-target="5">0</span><span class="of">of</span>6</div>
-      <div class="stat-lbl">Plaza Suites Leased<br>Before the Walls Were Done</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num"><span class="count" data-target="5">0</span></div>
-      <div class="stat-lbl">Businesses. One Name.<br>Separate Companies. One Family.</div>
-    </div>
-  </div>
-</section>
-
-<!-- THESIS -->
-<section class="thesis on-light" id="thesis">
-  <div class="section-wrap">
-    <div class="thesis-grid">
-      <div>
-        <div class="reveal">
-          <div class="label-tag">Ownership without distance</div>
-          <h2 class="sec-title">Most companies serving the Valley <em>answer to somewhere else.</em></h2>
-          <div class="gold-rule"></div>
-        </div>
-        <div class="reveal d1">
-          <p class="body-copy">A tax office opens in January and is gone by May. A builder finishes the last lot and moves on for good.</p>
-          <p class="body-copy">One family stands behind all five. They file the return. They insure what you own. They build the house you raise your family in. They build the plaza where you open your first business. They write the software that runs it. <strong>Every one of them was built, not bought.</strong></p>
-          <blockquote class="pull">Each one paid for the next. The tax practice came first. The agency became the engine. The engine built the homes. The homes fund the plaza.</blockquote>
-          <a href="/about" class="text-link">Read the whole story</a>
-        </div>
+<!-- THE ROOMS: one per door, opened from the grid. Walk order: the order the family built them, the family last. -->
+<div class="rooms" id="rooms" role="dialog" aria-modal="true" aria-label="The businesses, one door at a time">
+  <article class="room" id="room-tax" aria-labelledby="rt-tax">
+    <div class="rm-ph"><img src="images/offices/etf-sign.webp" alt="The Electronic Tax Filing sign on the Edinburg office" width="787" height="1400" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 1 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">2003</div>
+        <h2 id="rt-tax">Electronic Tax Filing</h2>
+        <div class="rm-rule"></div>
+        <p>Tax preparation handled correctly, every year, since 2003. No drama.</p>
+        <p>The tax practice came first. Each business after it was paid for by the one before.</p>
+        <div class="rm-fact"><b>2003</b><span>The first door the family opened</span></div>
       </div>
-      <figure class="portrait reveal d2">
-        <img src="images/acuna-founders.jpg" alt="The founders of the Acuña Organizations" loading="lazy" decoding="async">
-        <figcaption>Edinburg, Texas</figcaption>
-      </figure>
+      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="tw">Next door: Texaswide Insurance</button></div>
+      <div class="rm-dots" aria-hidden="true"><i class="c"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
-  </div>
-</section>
+  </article>
+  <article class="room" id="room-tw" aria-labelledby="rt-tw">
+    <div class="rm-ph"><img src="images/offices/texaswide-sign.webp" alt="The Texaswide Insurance sign on the Edinburg office" width="1600" height="900" loading="lazy" decoding="async" style="object-position:35% 45%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 2 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">2016</div>
+        <h2 id="rt-tw">Texaswide Insurance</h2>
+        <div class="rm-rule"></div>
+        <p>An independent agency for families, seniors and businesses across Texas.</p>
+        <p>Three offices in the Valley: Edinburg, San Juan and McAllen. The agency became the engine.</p>
+        <div class="rm-fact"><b>5.0</b><span>On Google. 565+ reviews.</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="ex">Next door: Exclusiva Homes</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i class="c"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-ex" aria-labelledby="rt-ex">
+    <div class="rm-ph"><img src="images/about-exclusiva-3563.webp" alt="An Exclusiva home on Las Brisas Street at dusk" width="1200" height="675" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 3 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">2024</div>
+        <h2 id="rt-ex">Exclusiva Homes</h2>
+        <div class="rm-rule"></div>
+        <p>Homes built to own.</p>
+        <p>Sealed properly. Framed properly. Every assembly closed up by people who were given the time to close it up right.</p>
+        <div class="rm-fact"><b>Edinburg</b><span>Built here. Staying here.</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="/exclusiva">Step inside</a><button type="button" class="nx" data-next="plaza">Next door: Alexandra's Plaza</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i class="c"></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-plaza" aria-labelledby="rt-plaza">
+    <div class="rm-ph"><img src="images/plaza/plaza-01.webp" alt="Alexandra's Plaza from above" width="787" height="1400" loading="lazy" decoding="async" style="object-position:50% 60%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 4 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">Now</div>
+        <h2 id="rt-plaza">Alexandra's Plaza</h2>
+        <div class="rm-rule"></div>
+        <p>Six commercial suites at 1112 W Montecristo, on one of Edinburg's busiest corridors.</p>
+        <p>Five leased before the walls were finished. One suite left, leased direct from the owner.</p>
+        <div class="rm-fact"><b>5 of 6</b><span>Suites leased before the walls were done</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="/alexandras-plaza">Step inside</a><button type="button" class="nx" data-next="gwin">Next door: Alexandra's at Gwin</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i class="c"></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-gwin" aria-labelledby="rt-gwin">
+    <div class="rm-ph"><img src="images/gwin/gwin-aerial.webp" alt="The pool and cabin at Alexandra's at Gwin" width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 5 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">Open</div>
+        <h2 id="rt-gwin">Alexandra's at Gwin</h2>
+        <div class="rm-rule"></div>
+        <p>Event grounds and a private retreat on land the family has held for sixty years.</p>
+        <p>Booked direct with the people who own it.</p>
+        <div class="rm-fact"><b>60</b><span>Years of family land</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="/alexandras-at-gwin">Step inside</a><button type="button" class="nx" data-next="labs">Next door: TexAcuna Labs</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="c"></i><i></i><i></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-labs" aria-labelledby="rt-labs">
+    <div class="rm-ph"><img src="images/bos/hero-plate-1600.webp" alt="Mountain range at first light" width="1600" height="1111" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 6 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">Early Access</div>
+        <h2 id="rt-labs">TexAcuna Labs</h2>
+        <div class="rm-rule"></div>
+        <p>Ezra runs the front office. Pegasus runs the back.</p>
+        <p>Built inside these businesses and run there every day. Now opening up.</p>
+        <div class="rm-fact"><b>2</b><span>Systems the family runs on every day</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="/texacuna">Step inside</a><button type="button" class="nx" data-next="books">Next door: Books</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="c"></i><i></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-books" aria-labelledby="rt-books">
+    <div class="rm-ph"><img src="images/bos/cell-books.webp" alt="A lit path through tall trees" width="1600" height="800" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 7 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">On Amazon</div>
+        <h2 id="rt-books">Books</h2>
+        <div class="rm-rule"></div>
+        <p>The Beast Never Loses: The Bitcoin Awakening.</p>
+        <p>Written by Trebor Acuña.</p>
+        <div class="rm-fact"><b>Out now</b><span>On Amazon</span></div>
+      </div>
+      <div class="rm-btns"><a class="go" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">Step inside</a><button type="button" class="nx" data-next="story">Next door: Our Story</button></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="c"></i><i></i></div>
+    </div>
+  </article>
+  <article class="room" id="room-story" aria-labelledby="rt-story">
+    <div class="rm-ph"><img src="images/acuna-founders.jpg" alt="Robert and Leticia Acuña, Edinburg, Texas" width="1079" height="1861" loading="lazy" decoding="async" style="object-position:50% 0"></div>
+    <div class="rm-tx">
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 8 of 8</div></div>
+      <div class="rm-mid">
+        <div class="rm-yr">The Family</div>
+        <h2 id="rt-story">Our Story</h2>
+        <div class="rm-rule"></div>
+        <p>Robert and Leticia Acuña, co-founders. One family stands behind all five. They file the return. They insure what you own. They build the house you raise your family in. They build the plaza where you open your first business. They write the software that runs it.</p>
+        <p class="rm-q">Each one paid for the next. The tax practice came first. The agency became the engine. The engine built the homes. The homes fund the plaza.</p>
+        <div class="rm-fact"><b id="years-num">23</b><span>Years in the Valley. Since 2003.</span></div>
+        <p class="rm-win">That is all eight doors. You just walked through everything this family built.</p>
+      </div>
+      <div class="rm-btns"><a class="go" href="/about">Read the whole story</a><a class="nx" href="tel:+19563810055">Call (956) 381-0055</a></div>
+      <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="c"></i></div>
+    </div>
+  </article>
+</div>
 
-<!-- PROJECTS -->
-<section class="projects on-light" id="projects">
-  <div class="section-wrap">
-    <div class="reveal">
-      <div class="label-tag">On the ground</div>
-      <h2 class="sec-title">Where the work is <em>right now.</em></h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="proj-grid">
-      <a href="/alexandras-plaza" class="proj reveal d1">
-        <div class="proj-media"><img src="images/plaza/plaza-05-v2.webp" alt="Alexandra's Plaza, 1112 W Montecristo, Edinburg" loading="lazy" decoding="async"></div>
-        <div class="proj-body">
-          <span class="pill">1 suite left &middot; as of September 2026</span>
-          <h3>Alexandra's Plaza</h3>
-          <div class="addr">1112 W Montecristo &middot; Edinburg</div>
-          <p>Six commercial suites on one of Edinburg's busiest corridors. Five leased before the walls were finished. One suite left, about 550 square feet, leased direct from the owner.</p>
-          <span class="text-link">See the Plaza</span>
-        </div>
-      </a>
-      <a href="/alexandras-at-gwin" class="proj reveal d2">
-        <div class="proj-media"><img src="images/gwin/gwin-aerial.webp" alt="Alexandra's at Gwin, the pool and deck from above" loading="lazy" decoding="async"></div>
-        <div class="proj-body">
-          <span class="pill quiet">Open &middot; Book direct</span>
-          <h3>Alexandra's at Gwin</h3>
-          <div class="addr">Sixty years of family land</div>
-          <p>Event grounds and a private retreat on land the family has held for sixty years. Booked direct with the people who own it.</p>
-          <span class="text-link">See the Retreat</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+<!-- PHONE: the next move -->
+<div class="walk">
+  <button type="button" id="walk-btn">Start the walk</button>
+  <a id="walk-call" href="tel:+19563810055" hidden>All 8 doors opened. Call (956) 381-0055</a>
+</div>
 
 <script defer src="/_vercel/insights/script.js"></script>
-<!-- NEWSLETTER -->
-<section class="newsletter">
-  <div class="nl-inner">
-    <div class="nl-eyebrow">Stay Connected</div>
-    <h2 class="nl-heading">The Valley moves fast. Move first.</h2>
-    <p class="nl-copy">Projects, openings, and opportunities across the Acuña companies, straight to your inbox.</p>
-    <form class="nl-form" action="https://formspree.io/f/meajpeko" method="POST">
-      <input class="nl-input" type="email" name="email" placeholder="Your email" required autocomplete="email" aria-label="Email address">
-      <input type="hidden" name="_subject" value="New AcunaRGV newsletter signup">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
-      <button class="nl-btn" type="submit">Join</button>
-    </form>
-    <p class="form-consent">Sending this shares an email address with the Edinburg office and nothing more. <a href="/privacy">Privacy</a>.</p>
-    <p class="nl-status" role="status" aria-live="polite"></p>
-  </div>
-</section>
 <!-- SITE FOOTER -->
 <footer class="site-footer">
   <div class="sf-inner">
+    <div class="sf-biz">AcunaRGV &middot; The Acuña Organizations &middot; 1117 E University Dr, Edinburg, TX 78539 &middot; <a href="tel:+19563810055">(956) 381-0055</a></div>
     <div class="sf-links">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/alexandras-properties">Alexandra's Properties</a>
-      <a href="/exclusiva">Exclusiva</a>
-      <a href="/alexandras-at-gwin">Alexandra's at Gwin</a>
-      <a href="/alexandras-plaza">Alexandra's Plaza</a>
-      <a href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Texaswide Insurance</a>
-      <a href="/texacuna">TexAcuna Labs</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="/privacy#choices">Your privacy choices</a>
     </div>
-    <div class="sf-social">
-      <a class="sf-ig" href="https://www.instagram.com/texaswideinsurance/" target="_blank" rel="noopener">
-        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-        <span>@texaswideinsurance</span>
-      </a>
-      <a class="sf-ig" href="https://www.instagram.com/exclusiva_homes/" target="_blank" rel="noopener">
-        <svg class="sf-ig-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-        <span>@exclusiva_homes</span>
-      </a>
-    </div>
-    <div class="sf-phone"><a href="tel:+19563810055">(956) 381-0055</a></div>
-    <div class="sf-biz">The Acuña Organizations &middot; 1117 E University Dr, Edinburg, TX 78539</div>
     <div class="sf-copy">&copy; 2026 The Acuña Organizations</div>
   </div>
 </footer>
@@ -641,62 +650,160 @@ function toggleMobileMenu(){
   if(b)b.setAttribute('aria-expanded',open?'false':'true');
 }
 (function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ORDER=['tax','tw','ex','plaza','gwin','labs','books','story'];
+  var grid=document.getElementById('main'),rooms=document.getElementById('rooms');
+  if(!grid||!rooms){document.documentElement.className=document.documentElement.className.replace('js','');return;}
+  var tiles={},roomEls={},names={},ok=true;
+  ORDER.forEach(function(id){
+    tiles[id]=grid.querySelector('[data-door="'+id+'"]');
+    roomEls[id]=document.getElementById('room-'+id);
+    if(!tiles[id]||!roomEls[id]){ok=false;return;}
+    var n=tiles[id].querySelector('.nm');names[id]=n?n.textContent:id;
+  });
+  if(!ok){grid.classList.add('quick');return;}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var KEY='acuna_doors',seen={};
+  try{JSON.parse(sessionStorage.getItem(KEY)||'[]').forEach(function(id){if(tiles[id])seen[id]=true;});}catch(e){}
+  function save(){try{sessionStorage.setItem(KEY,JSON.stringify(ORDER.filter(function(id){return !!seen[id];})));}catch(e){}}
 
   /* years since 2003, computed so it never goes stale */
-  var yrs=new Date().getFullYear()-2003;
   var yEl=document.getElementById('years-num');
-  if(yEl){yEl.setAttribute('data-target',String(yrs));}
+  if(yEl){yEl.textContent=String(new Date().getFullYear()-2003);}
 
-  /* nav shrink via sentinel */
-  var nav=document.getElementById('site-nav'),sent=document.getElementById('nav-sentinel');
-  if('IntersectionObserver' in window&&sent){
-    new IntersectionObserver(function(e){nav.classList.toggle('scrolled',!e[0].isIntersecting);},{rootMargin:'-40px 0px 0px 0px'}).observe(sent);
-  }else{nav.classList.add('scrolled');}
-
-  /* reveals */
-  var reveals=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var ro=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');ro.unobserve(en.target);}});},{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
-    reveals.forEach(function(r){ro.observe(r);});
-  }else{reveals.forEach(function(r){r.classList.add('visible');});}
-
-  /* count-ups */
-  var counts=document.querySelectorAll('.count');
-  function run(el){
-    var target=parseFloat(el.getAttribute('data-target'))||0,dec=parseInt(el.getAttribute('data-decimals')||'0',10);
-    if(reduce){el.textContent=target.toFixed(dec);return;}
-    var start=null,dur=1300;
-    function step(ts){
-      if(start===null)start=ts;
-      var p=Math.min(1,(ts-start)/dur);p=1-Math.pow(1-p,3);
-      el.textContent=(target*p).toFixed(dec);
-      if(p<1)requestAnimationFrame(step);else el.textContent=target.toFixed(dec);
+  var scoreN=document.getElementById('score-n');
+  var pipSets=[].slice.call(document.querySelectorAll('.pips,.strip'));
+  var walkBtn=document.getElementById('walk-btn'),walkCall=document.getElementById('walk-call');
+  function nextUp(){for(var i=0;i<ORDER.length;i++){if(!seen[ORDER[i]])return ORDER[i];}return null;}
+  function paint(){
+    var c=0;ORDER.forEach(function(id){if(seen[id])c++;});
+    var n=nextUp();
+    ORDER.forEach(function(id){
+      var t=tiles[id];
+      t.classList.toggle('vis',!!seen[id]);
+      t.classList.toggle('bea',id===n);
+      var bc=t.querySelector('.bc');if(bc)bc.textContent=c===0?'Start here':'Next door';
+    });
+    pipSets.forEach(function(set){
+      var ps=set.querySelectorAll('i');
+      ORDER.forEach(function(id,i){if(ps[i])ps[i].classList.toggle('f',!!seen[id]);});
+    });
+    if(scoreN)scoreN.textContent=c===ORDER.length?'All 8':c+' of 8';
+    if(walkBtn&&walkCall){
+      walkBtn.hidden=!n;walkCall.hidden=!!n;
+      if(n)walkBtn.textContent=c===0?'Start the walk':'Keep walking: '+names[n];
     }
-    requestAnimationFrame(step);
+    rooms.classList.toggle('won',c===ORDER.length);
   }
-  if('IntersectionObserver' in window){
-    var co=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){run(en.target);co.unobserve(en.target);}});},{threshold:0.5});
-    counts.forEach(function(c){co.observe(c);});
-  }else{counts.forEach(run);}
+  paint();
 
+  /* the opening */
+  var quick=false;
+  try{quick=sessionStorage.getItem('acuna_open')==='1';sessionStorage.setItem('acuna_open','1');}catch(e){}
+  if(reduce||quick){grid.classList.add('quick');grid.classList.add('ready');}
+  else{grid.classList.add('lit');setTimeout(function(){grid.classList.add('ready');},5800);}
 
-  /* newsletter */
-  var form=document.querySelector('.newsletter .nl-form');
-  var status=document.querySelector('.newsletter .nl-status');
-  if(!form||!status)return;
-  var input=form.querySelector('.nl-input');
-  var btn=form.querySelector('.nl-btn');
-  var FAIL='Something broke. Call us instead: (956) 381-0055';
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    status.textContent='';
-    if(btn)btn.disabled=true;
-    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(function(res){
-      if(res&&res.ok){status.textContent="You're in. Watch your inbox.";if(input)input.value='';}
-      else{status.textContent=FAIL;}
-    }).catch(function(){status.textContent=FAIL;}).then(function(){if(btn)btn.disabled=false;});
+  /* the rooms */
+  var cur=null;
+  function hashId(){var h=(location.hash||'').replace('#','');return tiles[h]?h:null;}
+  function show(id){
+    ORDER.forEach(function(k){roomEls[k].classList.toggle('cur',k===id);});
+    cur=id;seen[id]=true;save();paint();
+    rooms.scrollTop=0;
+    var tx=roomEls[id].querySelector('.rm-tx');if(tx)tx.scrollTop=0;
+    var b=roomEls[id].querySelector('.rm-back');
+    if(b){try{b.focus({preventScroll:true});}catch(e){b.focus();}}
+  }
+  function grow(id){
+    var t=tiles[id];
+    if(reduce||!t){rooms.style.clipPath='';return;}
+    var r=t.getBoundingClientRect(),W=window.innerWidth,H=window.innerHeight;
+    rooms.style.transition='none';
+    rooms.style.clipPath='inset('+Math.max(0,r.top)+'px '+Math.max(0,W-r.right)+'px '+Math.max(0,H-r.bottom)+'px '+Math.max(0,r.left)+'px)';
+    rooms.getBoundingClientRect();
+    rooms.style.transition='clip-path .6s cubic-bezier(.2,.7,.2,1)';
+    rooms.style.clipPath='inset(0px 0px 0px 0px)';
+  }
+  function openDoor(id,push){
+    var wasOpen=cur!==null;
+    rooms.classList.add('open');
+    document.body.style.overflow='hidden';
+    if(!wasOpen)grow(id);
+    show(id);
+    if(push!==false){
+      try{
+        if(wasOpen)history.replaceState({door:id},'','#'+id);
+        else history.pushState({door:id},'','#'+id);
+      }catch(e){}
+    }
+  }
+  function closeNow(){
+    var id=cur;cur=null;
+    rooms.classList.remove('open');
+    rooms.style.transition='none';rooms.style.clipPath='';
+    document.body.style.overflow='';
+    if(id&&tiles[id]){try{tiles[id].focus({preventScroll:true});}catch(e){tiles[id].focus();}}
+  }
+  function closeDoor(){
+    if(history.state&&history.state.door){history.back();}
+    else{closeNow();try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
+  }
+  ORDER.forEach(function(id){
+    tiles[id].addEventListener('click',function(e){
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button)return;
+      e.preventDefault();openDoor(id);
+    });
   });
+  rooms.addEventListener('click',function(e){
+    var el=e.target;
+    while(el&&el!==rooms){
+      if(el.hasAttribute&&el.hasAttribute('data-close')){e.preventDefault();closeDoor();return;}
+      if(el.hasAttribute&&el.hasAttribute('data-next')){e.preventDefault();openDoor(el.getAttribute('data-next'));return;}
+      el=el.parentNode;
+    }
+  });
+  window.addEventListener('popstate',function(){
+    var id=hashId();
+    if(id){openDoor(id,false);}else if(cur!==null){closeNow();}
+  });
+  document.addEventListener('keydown',function(e){
+    if(cur===null)return;
+    if(e.key==='Escape'||e.key==='Esc'){e.preventDefault();closeDoor();return;}
+    if(e.key==='Tab'){
+      var f=[].slice.call(roomEls[cur].querySelectorAll('a[href],button'));
+      if(!f.length)return;
+      var first=f[0],last=f[f.length-1],a=document.activeElement;
+      if(e.shiftKey&&(a===first||!roomEls[cur].contains(a))){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&(a===last||!roomEls[cur].contains(a))){e.preventDefault();first.focus();}
+    }
+  });
+  if(walkBtn){walkBtn.addEventListener('click',function(){var n=nextUp();if(n)openDoor(n);});}
+  /* a link straight to a door, like /#tw */
+  var first=hashId();
+  if(first){
+    try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+    grid.classList.remove('lit');grid.classList.add('quick');grid.classList.add('ready');
+    openDoor(first);
+  }
+
+  /* phone: the tile in the middle of the screen wakes up as you scroll */
+  var list=[].slice.call(grid.querySelectorAll('.t'));
+  var mq=window.matchMedia?window.matchMedia('(max-width:640px)'):null,raf=0;
+  function wake(){
+    raf=0;
+    if(!mq||!mq.matches){list.forEach(function(t){t.classList.remove('on');});return;}
+    var H=window.innerHeight,max=document.documentElement.scrollHeight-H;
+    var y=window.pageYOffset||0,ratio=max>0?Math.min(1,Math.max(0,y/max)):0,line=H*ratio;
+    var best=null,bd=1e9;
+    list.forEach(function(t){
+      var r=t.getBoundingClientRect(),d=line<r.top?r.top-line:(line>r.bottom?line-r.bottom:0);
+      if(d<bd){bd=d;best=t;}
+    });
+    list.forEach(function(t){t.classList.toggle('on',t===best);});
+  }
+  function ask(){if(!raf)raf=window.requestAnimationFrame(wake);}
+  window.addEventListener('scroll',ask,{passive:true});
+  window.addEventListener('resize',ask);
+  wake();
 })();
 </script>
 </body>
