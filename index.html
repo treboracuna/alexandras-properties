@@ -177,7 +177,7 @@ img{display:block;}
 .tap{display:none;margin-top:5px;padding:9px 18px;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-shadow:none;}
 .ck{display:none;position:absolute;z-index:2;top:12px;right:12px;width:24px;height:24px;align-items:center;justify-content:center;background:var(--gold);color:#070707;}
 .t.vis .ck{display:flex;}
-.bc{display:none;align-items:center;gap:8px;margin-top:4px;padding:8px 13px;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-shadow:none;}
+.bc{display:none;align-items:center;gap:8px;margin-top:4px;padding:8px 13px;background:var(--gold);color:#070707;font-size:12px;font-weight:700;letter-spacing:.12em;white-space:nowrap;text-transform:uppercase;text-shadow:none;}
 .bc::before{content:"";width:8px;height:8px;border-radius:50%;background:#070707;}
 .grid.ready .t.bea .bc{display:inline-flex;animation:bcin .6s ease both;}
 .grid.ready .t.bea .bc::before{animation:pulse 1.4s ease-in-out infinite;}
@@ -228,9 +228,9 @@ img{display:block;}
 .rm-fact b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,3.6vw,72px);font-weight:600;line-height:1;color:var(--gold-ink);white-space:nowrap;}
 .rm-fact span{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.7;color:#4a463d;max-width:20em;}
 .rm-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
-.go{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:17px 20px;white-space:nowrap;transition:background .25s;}
+.go{display:inline-block;background:var(--ink);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:17px 20px;white-space:nowrap;transition:background .25s;}
 .go:hover{background:#2c2c2c;}
-.nx{display:inline-block;background:rgba(255,255,255,.6);border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 18px;cursor:pointer;white-space:nowrap;transition:color .25s,border-color .25s;}
+.nx{display:inline-block;background:rgba(255,255,255,.6);border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:16px 18px;cursor:pointer;white-space:nowrap;transition:color .25s,border-color .25s;}
 .nx:hover{border-color:var(--gold-ink);color:var(--gold-ink);}
 .rm-dots{display:flex;gap:6px;margin-top:26px;}
 .rm-dots i{flex:1;height:2px;background:rgba(131,99,24,.25);}
@@ -384,7 +384,7 @@ fbq("track","PageView");
     <span>The Acuña Organizations</span>
   </a>
   <div class="bar-side right">
-    <div class="bar-util"><div class="score" role="status">Doors opened <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span> <span id="score-n">0 of 8</span></div></div>
+    <div class="bar-util"><div class="score" role="status">Adventures <span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span> <span id="score-n">0 of 8</span></div></div>
     <nav class="bar-nav" aria-label="More of the family businesses">
       <div class="nv"><a class="nl" href="/exclusiva">Exclusiva<span class="xh"> Homes</span></a>
         <div class="pn"><div class="pn-in">
@@ -489,27 +489,27 @@ fbq("track","PageView");
 </main>
 
 <!-- THE ROOMS: one per door, opened from the grid. Walk order: the order the family built them, the family last. -->
-<div class="rooms" id="rooms" role="dialog" aria-modal="true" aria-label="The businesses, one door at a time">
+<div class="rooms" id="rooms" role="dialog" aria-modal="true" aria-label="The businesses, one adventure at a time">
   <article class="room" id="room-tax" aria-labelledby="rt-tax">
     <div class="rm-ph"><img src="images/offices/etf-sign.webp" alt="The Electronic Tax Filing sign on the Edinburg office" width="787" height="1400" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 1 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 1 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">2003</div>
         <h2 id="rt-tax">Electronic Tax Filing</h2>
         <div class="rm-rule"></div>
         <p>Tax preparation handled correctly, every year, since 2003. No drama.</p>
         <p>The tax practice came first. Each business after it was paid for by the one before.</p>
-        <div class="rm-fact"><b>2003</b><span>The first door the family opened</span></div>
+        <div class="rm-fact"><b>2003</b><span>Where it all started</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="tw">Next door: Texaswide Insurance</button></div>
+      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com/electronic-tax-filing" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="tw">Next adventure: Texaswide Insurance</button></div>
       <div class="rm-dots" aria-hidden="true"><i class="c"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-tw" aria-labelledby="rt-tw">
     <div class="rm-ph"><img src="images/offices/texaswide-sign.webp" alt="The Texaswide Insurance sign on the Edinburg office" width="1600" height="900" loading="lazy" decoding="async" style="object-position:35% 45%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 2 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 2 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">2016</div>
         <h2 id="rt-tw">Texaswide Insurance</h2>
@@ -518,14 +518,14 @@ fbq("track","PageView");
         <p>Three offices in the Valley: Edinburg, San Juan and McAllen. The agency became the engine.</p>
         <div class="rm-fact"><b>5.0</b><span>On Google. 565+ reviews.</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="ex">Next door: Exclusiva Homes</button></div>
+      <div class="rm-btns"><a class="go" href="https://www.txwideinsurance.com" target="_blank" rel="noopener">Step inside</a><button type="button" class="nx" data-next="ex">Next adventure: Exclusiva Homes</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i class="c"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-ex" aria-labelledby="rt-ex">
     <div class="rm-ph"><img src="images/about-exclusiva-3563.webp" alt="An Exclusiva home on Las Brisas Street at dusk" width="1200" height="675" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 3 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 3 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">2024</div>
         <h2 id="rt-ex">Exclusiva Homes</h2>
@@ -534,14 +534,14 @@ fbq("track","PageView");
         <p>Sealed properly. Framed properly. Every assembly closed up by people who were given the time to close it up right.</p>
         <div class="rm-fact"><b>Edinburg</b><span>Built here. Staying here.</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="/exclusiva">Step inside</a><button type="button" class="nx" data-next="plaza">Next door: Alexandra's Plaza</button></div>
+      <div class="rm-btns"><a class="go" href="/exclusiva">Step inside</a><button type="button" class="nx" data-next="plaza">Next adventure: Alexandra's Plaza</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i class="c"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-plaza" aria-labelledby="rt-plaza">
     <div class="rm-ph"><img src="images/plaza/plaza-01.webp" alt="Alexandra's Plaza from above" width="787" height="1400" loading="lazy" decoding="async" style="object-position:50% 60%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 4 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 4 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">Now</div>
         <h2 id="rt-plaza">Alexandra's Plaza</h2>
@@ -550,14 +550,14 @@ fbq("track","PageView");
         <p>Five leased before the walls were finished. One suite left, leased direct from the owner.</p>
         <div class="rm-fact"><b>5 of 6</b><span>Suites leased before the walls were done</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="/alexandras-plaza">Step inside</a><button type="button" class="nx" data-next="gwin">Next door: Alexandra's at Gwin</button></div>
+      <div class="rm-btns"><a class="go" href="/alexandras-plaza">Step inside</a><button type="button" class="nx" data-next="gwin">Next adventure: Alexandra's at Gwin</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i class="c"></i><i></i><i></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-gwin" aria-labelledby="rt-gwin">
     <div class="rm-ph"><img src="images/gwin/gwin-aerial.webp" alt="The pool and cabin at Alexandra's at Gwin" width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 5 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 5 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">Open</div>
         <h2 id="rt-gwin">Alexandra's at Gwin</h2>
@@ -566,14 +566,14 @@ fbq("track","PageView");
         <p>Booked direct with the people who own it.</p>
         <div class="rm-fact"><b>60</b><span>Years of family land</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="/alexandras-at-gwin">Step inside</a><button type="button" class="nx" data-next="labs">Next door: TexAcuna Labs</button></div>
+      <div class="rm-btns"><a class="go" href="/alexandras-at-gwin">Step inside</a><button type="button" class="nx" data-next="labs">Next adventure: TexAcuna Labs</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="c"></i><i></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-labs" aria-labelledby="rt-labs">
     <div class="rm-ph"><img src="images/bos/hero-plate-1600.webp" alt="Mountain range at first light" width="1600" height="1111" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 6 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 6 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">Early Access</div>
         <h2 id="rt-labs">TexAcuna Labs</h2>
@@ -582,14 +582,14 @@ fbq("track","PageView");
         <p>Built inside these businesses and run there every day. Now opening up.</p>
         <div class="rm-fact"><b>2</b><span>Systems the family runs on every day</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="/texacuna">Step inside</a><button type="button" class="nx" data-next="books">Next door: Books</button></div>
+      <div class="rm-btns"><a class="go" href="/texacuna">Step inside</a><button type="button" class="nx" data-next="books">Next adventure: Books</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="c"></i><i></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-books" aria-labelledby="rt-books">
     <div class="rm-ph"><img src="images/bos/cell-books.webp" alt="A lit path through tall trees" width="1600" height="800" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 7 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 7 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">On Amazon</div>
         <h2 id="rt-books">Books</h2>
@@ -598,14 +598,14 @@ fbq("track","PageView");
         <p>Written by Trebor Acuña.</p>
         <div class="rm-fact"><b>Out now</b><span>On Amazon</span></div>
       </div>
-      <div class="rm-btns"><a class="go" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">Step inside</a><button type="button" class="nx" data-next="story">Next door: Our Story</button></div>
+      <div class="rm-btns"><a class="go" href="https://www.amazon.com/dp/B0GXC5KZKX" target="_blank" rel="noopener noreferrer">Step inside</a><button type="button" class="nx" data-next="story">Next adventure: Our Story</button></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="c"></i><i></i></div>
     </div>
   </article>
   <article class="room" id="room-story" aria-labelledby="rt-story">
     <div class="rm-ph"><img src="images/acuna-founders.jpg" alt="Robert and Leticia Acuña, Edinburg, Texas" width="1079" height="1861" loading="lazy" decoding="async" style="object-position:50% 0"></div>
     <div class="rm-tx">
-      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Door 8 of 8</div></div>
+      <div class="rm-top"><button type="button" class="rm-back" data-close><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M17 6H1M6 1 1 6l5 5"/></svg>Back to the map</button><div class="rm-n">Adventure 8 of 8</div></div>
       <div class="rm-mid">
         <div class="rm-yr">The Family</div>
         <h2 id="rt-story">Our Story</h2>
@@ -613,7 +613,7 @@ fbq("track","PageView");
         <p>Robert and Leticia Acuña, co-founders. One family stands behind all five. They file the return. They insure what you own. They build the house you raise your family in. They build the plaza where you open your first business. They write the software that runs it.</p>
         <p class="rm-q">Each one paid for the next. The tax practice came first. The agency became the engine. The engine built the homes. The homes fund the plaza.</p>
         <div class="rm-fact"><b id="years-num">23</b><span>Years in the Valley. Since 2003.</span></div>
-        <p class="rm-win">That is all eight doors. You just walked through everything this family built.</p>
+        <p class="rm-win">That is all eight adventures. You just walked through everything this family built.</p>
       </div>
       <div class="rm-btns"><a class="go" href="/about">Read the whole story</a><a class="nx" href="tel:+19563810055">Call (956) 381-0055</a></div>
       <div class="rm-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="c"></i></div>
@@ -624,7 +624,7 @@ fbq("track","PageView");
 <!-- PHONE: the next move -->
 <div class="walk">
   <button type="button" id="walk-btn">Start the walk</button>
-  <a id="walk-call" href="tel:+19563810055" hidden>All 8 doors opened. Call (956) 381-0055</a>
+  <a id="walk-call" href="tel:+19563810055" hidden>All 8 done. Call (956) 381-0055</a>
 </div>
 
 <script defer src="/_vercel/insights/script.js"></script>
@@ -681,7 +681,7 @@ function toggleMobileMenu(){
       var t=tiles[id];
       t.classList.toggle('vis',!!seen[id]);
       t.classList.toggle('bea',id===n);
-      var bc=t.querySelector('.bc');if(bc)bc.textContent=c===0?'Start here':'Next door';
+      var bc=t.querySelector('.bc');if(bc)bc.textContent=c===0?'Start here':'Next adventure';
     });
     pipSets.forEach(function(set){
       var ps=set.querySelectorAll('i');
